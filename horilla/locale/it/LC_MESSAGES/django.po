@@ -876,7 +876,7 @@ msgid "Validate Attendances"
 msgstr "Convalida presenze"
 
 msgid "Hour Account"
-msgstr "Account Ora"
+msgstr "Conto Ore"
 
 msgid "Attendance Report"
 msgstr "Report presenze"
@@ -1044,7 +1044,7 @@ msgid "Over time"
 msgstr "Nel tempo"
 
 msgid "Hour account update"
-msgstr "Aggiornamento account ora"
+msgstr "Aggiornamento conto ore"
 
 msgid "Attendance account updated"
 msgstr "Account presenze aggiornato"
@@ -1062,7 +1062,7 @@ msgid "Penalities"
 msgstr "Penalità"
 
 msgid "Late Come/Early Out "
-msgstr "Scadenza Tardiva/Early Out "
+msgstr "Ritardi/Uscite Anticipate "
 
 msgid "Minimum Hour"
 msgstr "Ora Minima"
@@ -1291,13 +1291,13 @@ msgid "Overtime Seconds"
 msgstr "Secondi di straordinario"
 
 msgid "Hour Accounts"
-msgstr "Account Ora"
+msgstr "Conti Ore"
 
 msgid "Year must be an integer value between 1900 and 2100"
 msgstr "L'anno deve essere un valore intero tra 1900 e 2100"
 
 msgid "Late Come"
-msgstr "Tardo Vieni"
+msgstr "Ritardo"
 
 msgid "Early Out"
 msgstr "Early Out"
@@ -1376,7 +1376,7 @@ msgid "Attendance Activities"
 msgstr "Attività di presenza"
 
 msgid "Late Come Early Out"
-msgstr "Tardo Vieni All'Uscita"
+msgstr "Ritardi/Uscite Anticipate"
 
 msgid "Validate the attendance"
 msgstr "Validare la presenza"
@@ -1563,7 +1563,7 @@ msgstr ""
 "convalidate."
 
 msgid "Export Hour Accounts"
-msgstr "Esporta Account Ora"
+msgstr "Esporta Conti Ore"
 
 msgid "Worked Hours Greater or Equal"
 msgstr "Ore lavorate maggiore o uguale"
@@ -1596,7 +1596,7 @@ msgid "Export Records"
 msgstr "Esporta Record"
 
 msgid "Are you sure want to delete this hour account?"
-msgstr "Sei sicuro di voler eliminare questo account ora?"
+msgstr "Sei sicuro di voler eliminare questo conto ore?"
 
 msgid "There are no attendance activity records to display."
 msgstr "Non ci sono record di attività di presenza da visualizzare."
@@ -1718,10 +1718,10 @@ msgid "Add Allowed IPs"
 msgstr "Aggiungi IP Consentiti"
 
 msgid "Export Late Come Early Out"
-msgstr "Esporta In Tardo Avanti"
+msgstr "Esporta Ritardi/Uscite Anticipate"
 
 msgid "Late Come/Early Out"
-msgstr "Scadenza Tardiva/Early Out"
+msgstr "Ritardi/Uscite Anticipate"
 
 msgid "Penalties"
 msgstr "Sanzioni"
@@ -1796,7 +1796,7 @@ msgid "save"
 msgstr "salva"
 
 msgid "Leave"
-msgstr "Assenza"
+msgstr "Ferie/Permessi"
 
 msgid "On leave, But attendance exist"
 msgstr "In congedo, Ma la presenza esiste"
@@ -2063,20 +2063,20 @@ msgid "Attendance Does not exists.."
 msgstr "La presenza non esiste.."
 
 msgid "Hour account deleted."
-msgstr "Account ora eliminato."
+msgstr "Conto ore eliminato."
 
 msgid "Hour account not found"
-msgstr "Account ora non trovato"
+msgstr "Conto ore non trovato"
 
 msgid "You cannot delete this hour account"
-msgstr "Non puoi eliminare questo account ora"
+msgstr "Non puoi eliminare questo conto ore"
 
 #, python-brace-format
 msgid "{employee} hour account deleted."
-msgstr "Account ore di {employee} eliminato."
+msgstr "Conto ore di {employee} eliminato."
 
 msgid "Hour account not found."
-msgstr "Account ora non trovato."
+msgstr "Conto ore non trovato."
 
 #, python-brace-format
 msgid "You cannot delete {hour_account}"
@@ -2195,7 +2195,7 @@ msgstr "disabilitato"
 
 #, python-brace-format
 msgid "Tracking late come early out {} successfully"
-msgstr "Tracking late come early out {} correttamente"
+msgstr "Tracciamento ritardi/uscite anticipate {} completato"
 
 #, python-brace-format
 msgid "Check In/Check Out has been successfully {}."
@@ -4387,7 +4387,7 @@ msgid "Attendance overtime approve"
 msgstr "Approvazione straordinario presenze"
 
 msgid "Hour account"
-msgstr "Account ora"
+msgstr "Conto ore"
 
 msgid "Clock out date"
 msgstr "Data uscita"
@@ -6998,7 +6998,7 @@ msgid "No attendance requests have been generated."
 msgstr "Non sono state presentate richieste di presenza."
 
 msgid "The hour account is currently empty."
-msgstr "L'account ora è attualmente vuoto."
+msgstr "Il conto ore è attualmente vuoto."
 
 msgid "No attendance requests to validate."
 msgstr "Nessuna richiesta di presenza da convalidare."
@@ -9965,7 +9965,7 @@ msgid "Restrictions"
 msgstr "Restrizioni"
 
 msgid "Payroll"
-msgstr "Payroll"
+msgstr "Buste Paga"
 
 msgid "Payslip Auto Generation"
 msgstr "Generazione Automatica Buste Paga"
