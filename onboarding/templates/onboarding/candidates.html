@@ -462,7 +462,7 @@
             var currentDate = new Date().toISOString().slice(0, 10);
             ids = [];
             ids.push($("#selectedInstances").attr("data-ids"));
-            ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+            ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
             Swal.fire({
                 text: i18nMessages.downloadTemplate,
                 icon: "question",

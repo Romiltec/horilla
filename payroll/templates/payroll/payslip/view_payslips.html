@@ -285,7 +285,7 @@
           .get();
         if (containerId == undefined) {
           var allSelectedElements = $(".all-payslip-row").filter(":checked");
-          ids = JSON.parse($("#selectedPayslip").attr("data-ids"));
+          ids = JSON.parse($("#selectedPayslip").attr("data-ids") || "[]");
         } else {
           var containerCheckBoxes = $(
             `[id="${containerId}"]:first .all-payslip-row`

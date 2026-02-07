@@ -142,7 +142,7 @@
                 }).get();
             $("#candidates").val(idsArray).change();
         {% else %}
-            var selectedIds = JSON.parse($("#selectedInstances").attr("data-ids"));
+            var selectedIds = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
             $("#candidates[name=candidates]select[multiple]").val(selectedIds).change();
         {% endif %}
     });

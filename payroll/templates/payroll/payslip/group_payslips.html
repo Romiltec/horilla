@@ -244,7 +244,7 @@
   $(".payslip-row.all-payslip-row").change(function (e) {
     e.preventDefault();
     // var id
-    var ids = JSON.parse($("#selectedPayslip").attr("data-ids"))
+    var ids = JSON.parse($("#selectedPayslip").attr("data-ids") || "[]")
     if ($(this).is(":checked")) {
       ids.push($(this).val())
     }else{
