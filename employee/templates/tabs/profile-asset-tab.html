@@ -61,7 +61,7 @@
                                     </div>
                                 {% else %}
                                     <form action="{% url 'asset-allocate-return-request' asset_id=asset.id %}"
-                                        onsubmit="return confirm(gettext("{% trans \"Are you sure you want to return this asset?\" %}"));">
+                                        onsubmit="return confirm(gettext('Are you sure you want to return this asset?'));">
                                         {% csrf_token %}
                                         <button type="submit" class="oh-btn oh-btn--secondary" onclick="event.stopPropagation()">
                                             <ion-icon name="return-down-back-sharp"></ion-icon>

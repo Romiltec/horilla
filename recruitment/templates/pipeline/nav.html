@@ -488,7 +488,7 @@
                             row.find('[name="stage_id"]').val(stageId);
                             Toast.fire({
                                 icon: "success",
-                                title: gettext("{% trans \"Sequence updated\" %}"),
+                                title: gettext('Sequence updated'),
                                 position: "top-end",
                             });
                             if (response.message) {
@@ -503,7 +503,7 @@
                         error: function (xhr, status, error) {
                             Toast.fire({
                                 icon: "error",
-                                title: gettext("{% trans \"Something went wrong\" %}"),
+                                title: gettext('Something went wrong'),
                                 position: "top-end",
                             });
                         },

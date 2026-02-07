@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load widget_tweaks i18n generic_template_filters %}
 <form
 	action="{% url 'question-update' temp_id=question_template.id q_id=form.instance.id %}"

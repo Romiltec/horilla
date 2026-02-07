@@ -22,7 +22,7 @@
                 </a>
             {% endif %}
             <form action="{% url 'delete-task' instance.id %}?task_all=true" method="post"
-                onsubmit="return confirm(gettext("{% trans \"Do you want Delete this Task ?\" %}"))" style="display: contents">
+                onsubmit="return confirm(gettext('Do you want Delete this Task ?'))" style="display: contents">
                 {% csrf_token %}
                 <button class="oh-btn oh-btn--danger-outline oh-btn--light-bkg  w-100" title="{% trans 'Delete' %}">
                     <ion-icon name="trash-outline" role="img" class="md hydrated" aria-label="trash outline"></ion-icon>

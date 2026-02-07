@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static i18n offboarding_filter %}
 <div class="oh-btn-group" >
     {% if request.user.employee_get|is_any_stage_manager or perms.offboarding.change_offboarding or	perms.offboarding.change_offboardingemployee %}

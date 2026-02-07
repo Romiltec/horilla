@@ -26,7 +26,7 @@
                                                                         {% if instance.archive %}
                                                                                 <form
                                                                                     hx-post='{% url "objective-archive" instance.id %}'
-                                                                                    hx-confirm="{% trans "Do you want to unarchive this objective?" %}"
+                                                                                    hx-confirm="{% trans 'Do you want to unarchive this objective?' %}"
                                                                                     hx-swap="innerHTML"
                                                                                     hx-target="#tr{{ instance.id }}"
                                                                                     style="display: contents;width:100%">
@@ -38,7 +38,7 @@
                                                                         {% else %}
                                                                                 <form
                                                                                     hx-post='{% url "objective-archive" instance.id %}'
-                                                                                    hx-confirm="{% trans "Do you want to archive this objective?" %}"
+                                                                                    hx-confirm="{% trans 'Do you want to archive this objective?' %}"
                                                                                     hx-swap="innerHTML"
                                                                                     hx-target="#tr{{ instance.id }}"
                                                                                     style="display: contents;width:100%">

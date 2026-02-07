@@ -1,5 +1,6 @@
 {% load static basefilters horillafilters employee_filter i18n %} {% load tz %} {% now "Y-m-d" as current_date %}
 {% load accessibility_filters %}
+{% load i18n %}
 {% if "attendance"|app_installed %}
     {% if not 'offline_employees' in charts %}
         {% if perms.employee.view_employee or request.user|is_reportingmanager %}

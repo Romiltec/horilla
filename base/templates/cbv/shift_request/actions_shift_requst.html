@@ -1,4 +1,5 @@
 {% load basefilters %}
+{% load i18n %}
 {% load static i18n %}
 {% is_manager_of request.user instance as can_manage %}
 {% with is_owner=request.user.employee_get|equals:instance.employee_id can_change=perms.base.change_shiftrequest can_add=perms.base.add_shiftrequest can_delete=perms.base.delete_shiftrequest %}

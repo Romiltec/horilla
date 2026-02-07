@@ -30,7 +30,7 @@
 
     {% if can_delete or can_manage %}
         <form action="{% url 'attendance-delete' instance.id %}" onclick="event.stopPropagation()"
-            onsubmit="return confirm(gettext("{% trans \" Are you sure want to delete this attendance?\" %}"))"
+            onsubmit="return confirm(gettext('Are you sure want to delete this attendance?'))"
             method='post' style="width: 50%;" class="oh-btn oh-btn-group oh-btn--danger">
             {% csrf_token %}
             <button type="submit"

@@ -69,7 +69,7 @@
 
                                         <li class="oh-dropdown__item">
                                             <form action="{% url 'delete-project-stage' stage.id %}"
-                                                onsubmit="return confirm(gettext("{% trans \" Are you sure you want to delete this stage?\" %}"));" method="post">
+                                                onsubmit="return confirm(gettext('Are you sure you want to delete this stage?'));" method="post">
                                                 {% csrf_token %}
                                                 <button class="oh-dropdown__link oh-dropdown__link--danger">{% trans "Delete" %}</button>
                                             </form>

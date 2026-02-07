@@ -113,7 +113,7 @@
                         <form hx-post="{% url 'add-more-files-employee' note.id %}" class="add-files-form"
                             hx-encoding="multipart/form-data" hx-swap="innerHTML" hx-target="#note_target">
                             {% csrf_token %}
-                            <label for="addFile_{{note.id}}" title="{% trans "Add Files" %}">
+                            <label for="addFile_{{note.id}}" title="{% trans 'Add Files' %}">
                                 <ion-icon name="add-outline" style="font-size: 12px;border: 1px solid #818791; border-radius: 5px;"
                                 class="text-gray-700"></ion-icon>
                             </label>

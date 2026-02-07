@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load basefilters i18n %}
 {% is_manager_of request.user instance as can_manage %}
 {% with is_owner=request.user.employee_get|equals:instance.employee_id can_view=perms.base.view_shiftrequestcomment %}

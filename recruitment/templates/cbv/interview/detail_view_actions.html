@@ -13,7 +13,7 @@
 <form
 hx-post="{% url 'delete-interview' instance.id %}"
 hx-target = "#interviewdelete"
-hx-confirm="{% trans "Are you sure you want to delete this interview?" %}"
+hx-confirm="{% trans 'Are you sure you want to delete this interview?' %}"
 method="post"
 style="display: contents;width:100%">
 {% csrf_token %}

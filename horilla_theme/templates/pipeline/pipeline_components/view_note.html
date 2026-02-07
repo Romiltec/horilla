@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static i18n basefilters recruitmentfilters %}
 <script>
 	function submitForm(elem) {
@@ -254,7 +255,7 @@
 								{% if note.candidate_can_view %}
 									title="{% trans 'Candidate can view this note' %}" checked
 								{% else %}
-									title="{% trans 'Candidate can\'t view this note' %}"
+									title="{% trans 'Candidate cannot view this note' %}"
 								{% endif %}
 							/>
 							<input type="submit" hidden/>

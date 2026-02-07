@@ -1,4 +1,5 @@
 {% extends "settings.html" %}
+{% load i18n %}
 {% load static i18n %}
 {% block settings %}
 
@@ -120,8 +121,8 @@
                 e.stopPropagation();
                 let featureId = $(this).data("featureId")
                 Swal.fire({
-                    title: gettext("{% trans \"Are you sure?\" %}"),
-                    text: gettext("{% trans \"This will clear all filters you have applied.\" %}"),
+                    title: gettext('Are you sure?'),
+                    text: gettext('This will clear all filters you have applied.'),
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",

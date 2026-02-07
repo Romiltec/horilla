@@ -18,7 +18,7 @@
             <a
                 hx-confirm="{% trans 'Are you sure to remove this employee?' %}"
                 hx-post="{% url 'meeting-employee-remove' instance.id employee.id %}"
-                title="{% trans "Remove" %}" hx-swap="outerHTML"
+                title="{% trans 'Remove' %}" hx-swap="outerHTML"
                 hx-target="#employeeContainer{{employee.id}}-{{instance.id}}" class="oh-user-panel__remove"
                 onclick="event.stopPropagation()"
             >

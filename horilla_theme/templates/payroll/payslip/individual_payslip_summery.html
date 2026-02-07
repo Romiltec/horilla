@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static i18n horillafilters %}
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
     <div class="bg-primary-300 p-3 rounded-md">
@@ -118,7 +119,7 @@
             <p class="w-1/2 text-sm flex">
                 {{ deduction.title }}
                 <img src="{% static 'horilla_theme/assets/img/icons/info.svg' %}" alt="{% trans 'Info' %}" class="pl-2"
-                    title="{% trans " Basic Pay Deductions" %}">
+                    title="{% trans ' Basic Pay Deductions' %}">
             </p>
             <p class="flex-1 font-medium">{{ deduction.amount|floatformat:2|currency_symbol_position }}</p>
         </div>
@@ -128,7 +129,7 @@
                 <p class="w-1/2 text-sm flex">
                     {{ deduction.title }}
                     <img src="{% static 'horilla_theme/assets/img/icons/info.svg' %}" alt="{% trans 'Info' %}" class="pl-2"
-                        title="{% trans " Gross Pay Deductions" %}">
+                        title="{% trans ' Gross Pay Deductions' %}">
                 </p>
                 <p class="flex-1 font-medium">{{ deduction.amount|floatformat:2|currency_symbol_position }}</p>
             </div>
@@ -166,7 +167,7 @@
                 <p class="w-1/2 text-sm flex">
                     {{ deduction.title }}
                     <img src="{% static 'horilla_theme/assets/img/icons/info.svg' %}" alt="{% trans 'Info' %}" class="pl-2"
-                        title="{% trans " Net Pay Deductions" %}">
+                        title="{% trans ' Net Pay Deductions' %}">
                 </p>
                 <p class="flex-1 font-medium">{{ deduction.amount|floatformat:2|currency_symbol_position }}</p>
             </div>

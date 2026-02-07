@@ -19,7 +19,7 @@
             <button
                 hx-confirm="{% trans 'Are you sure to remove this manager?' %}"
                 hx-post="{% url 'meeting-manager-remove' instance.id manager.id %}"
-                title="{% trans "Remove" %}" hx-swap="outerHTML"
+                title="{% trans 'Remove' %}" hx-swap="outerHTML"
                 hx-target="#meetingManagerContainer{{manager.id}}-{{instance.id}}"
                 class="oh-user-panel__remove"
                 onclick="event.stopPropagation()"

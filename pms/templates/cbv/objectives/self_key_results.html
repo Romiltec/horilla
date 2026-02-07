@@ -20,7 +20,7 @@
             <a
                 hx-confirm="{% trans 'Are you sure want to remove this key result?' %}"
                 hx-post="{% url 'key-result-remove' instance.id kr.id %}"
-                title="{% trans "Remove" %}" hx-swap="outerHTML"
+                title="{% trans 'Remove' %}" hx-swap="outerHTML"
                 hx-target="#keyResultContainer{{kr.id}}"
                 class="oh-user-panel__remove"
                 onclick="event.stopPropagation()"

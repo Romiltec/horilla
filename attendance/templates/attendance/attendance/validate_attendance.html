@@ -149,7 +149,7 @@
                             {% if perms.attendance.delete_attendance %}
                                 <form action="{% url 'attendance-delete' attendance.id %}"
                                       onclick="event.stopPropagation()"
-                                      onsubmit="return confirm(gettext("{% trans \"Are you sure want to delete this attendance?\" %}"))"
+                                      onsubmit="return confirm(gettext('Are you sure want to delete this attendance?'))"
                                       hx-target="#tab_contents" method='post' class='w-50'>
                                       {% csrf_token %}
                                     <button

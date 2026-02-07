@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load basefilters i18n horillafilters %}
 {% if request.user|config_perms %}
   <button title="{% trans 'Configurations' %}"

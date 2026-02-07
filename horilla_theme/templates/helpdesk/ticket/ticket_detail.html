@@ -1,4 +1,5 @@
 {% extends 'index.html' %}
+{% load i18n %}
 {% load static i18n audit_filters basefilters helpdeskfilters %}
 {% block content %}
 <style>
@@ -199,7 +200,7 @@
                                 data-target="#objectDetailsModal"
                                 hx-get="{% url 'view-ticket-claim-request' ticket.id %}"
                                 hx-target="#objectDetailsModalTarget"
-                                title="{% trans " Claim Requests" %}"
+                                title="{% trans ' Claim Requests' %}"
                             >
                                 <i class="fa-solid fa-eye"></i>
                             </button>

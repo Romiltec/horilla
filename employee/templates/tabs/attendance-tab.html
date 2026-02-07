@@ -140,7 +140,7 @@
 							type="submit"
 							class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100"
 							title="{% trans 'Re-validate Request' %}"
-							onclick="return confirm(gettext("{% trans \"Are you sure want to cancel the request?\" %}"))"
+							onclick="return confirm(gettext('Are you sure want to cancel the request?'))"
 							href="{% url 'cancel-validate-attendance-request' attendance.id %}"
 						>
 						<ion-icon name="close-circle-outline"></ion-icon>
@@ -315,7 +315,7 @@
 								<a hx-get="{% url 'attendance-update' attendance.id %}" hx-target='#genericModalBody' hx-swap='innerHTML' data-toggle='oh-modal-toggle' data-target='#genericModal'  class="oh-btn oh-btn--light-bkg w-50" title="{% trans 'Edit' %}"><ion-icon name="create-outline"></ion-icon></a>
 								{% endif %}
 								{% if perms.attendance.delete_attendance %}
-								<form action="{% url 'attendance-delete' attendance.id  %}" onsubmit="return confirm(gettext("{% trans \"Are you sure want to delete this attendance?\" %}"))" hx-target="#tab_contents" method='post' class='w-50'>
+								<form action="{% url 'attendance-delete' attendance.id  %}" onsubmit="return confirm(gettext('Are you sure want to delete this attendance?'))" hx-target="#tab_contents" method='post' class='w-50'>
 									{% csrf_token %}
 									<button type='submit' class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100" title="{% trans 'Remove' %}"><ion-icon name="trash-outline"></ion-icon></button>
 								</form>

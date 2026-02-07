@@ -46,7 +46,7 @@
                             {% if skill_zone.grouper.is_active %}
                             <form
                                 action="{% url 'skill-zone-archive' skill_zone.grouper.id %}"
-                                onsubmit="return confirm(gettext("{% trans \"Do you want to archive this skill zone ?\" %}"))" method="post" >
+                                onsubmit="return confirm(gettext('Do you want to archive this skill zone ?'))" method="post" >
                               {% csrf_token %}
                               <button
                                 onclick="event.stopPropagation();"
@@ -61,7 +61,7 @@
                             {% else %}
                             <form
                             action="{% url 'skill-zone-archive' skill_zone.grouper.id %}"
-                            onsubmit="return confirm(gettext("{% trans \"Do you want to un archive this skill zone?\" %}"))" method="post" >
+                            onsubmit="return confirm(gettext('Do you want to un archive this skill zone?'))" method="post" >
                                 {% csrf_token %}
                                 <button
                                     onclick="event.stopPropagation();"
@@ -156,14 +156,14 @@
                                                       </button>
                                                     {% endif %}
                                                     {% comment %} {% if sz_candidate.is_active %}
-                                                        <form action="{% url 'skill-zone-cand-archive' sz_candidate.id  %}"  title="{% trans 'Archive' %}" onsubmit="return confirm(gettext("{% trans \"Do you want to archive this candidate from this skill zone\" %}"))" method='post'
+                                                        <form action="{% url 'skill-zone-cand-archive' sz_candidate.id  %}"  title="{% trans 'Archive' %}" onsubmit="return confirm(gettext('Do you want to archive this candidate from this skill zone'))" method='post'
                                                             class="w-50">
                                                             {% csrf_token %}
                                                             <button type='submit' class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100"
                                                                 ><ion-icon name="archive"></ion-icon></button>
                                                         </form>
                                                     {% else %}
-                                                        <form action="{% url 'skill-zone-cand-archive' sz_candidate.id  %}"  title="{% trans 'Un Archive' %}" onsubmit="return confirm(gettext("{% trans \"Do you want to un-archive this candidate from this skill zone\" %}"))" method='post'
+                                                        <form action="{% url 'skill-zone-cand-archive' sz_candidate.id  %}"  title="{% trans 'Un Archive' %}" onsubmit="return confirm(gettext('Do you want to un-archive this candidate from this skill zone'))" method='post'
                                                             class="w-50">
                                                             {% csrf_token %}
                                                             <button type='submit' class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100"
@@ -171,7 +171,7 @@
                                                         </form>
                                                     {% endif %} {% endcomment %}
                                                     {% if perms.recruitment.delete_skillzonecandidate %}
-                                                      <form action="{% url 'skill-zone-cand-delete' sz_candidate.id  %}" onsubmit="return confirm(gettext("{% trans \"Do you want to remove this candidate\" %}"))" method='post'
+                                                      <form action="{% url 'skill-zone-cand-delete' sz_candidate.id  %}" onsubmit="return confirm(gettext('Do you want to remove this candidate'))" method='post'
                                                           onsubmit="Are you sure want to delete this candidate?" class="w-100">
                                                           {% csrf_token %}
                                                           <button type='submit' class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100"

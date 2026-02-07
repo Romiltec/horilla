@@ -228,7 +228,7 @@
               <button
                 type="button"
                 hx-get="{% url 'export-data-employee' emp.id %}"
-                title="{% trans "Export Individual Data" %}"
+                title="{% trans 'Export Individual Data' %}"
                 hx-target="#export-content"
                 hx-swap="innerHTML"
                 class="oh-btn oh-btn--light-bkg w-100"
@@ -242,7 +242,7 @@
             <button
               type="button"
               hx-get="{% url 'send-mail-employee' emp.id %}"
-              title="{% trans "Send Mail" %}"
+              title="{% trans 'Send Mail' %}"
               hx-target="#mail-content"
               hx-swap="innerHTML"
               class="oh-btn oh-btn--light-bkg w-100"
@@ -266,7 +266,7 @@
                   <ion-icon name="archive"></ion-icon>
                 </button>
               {% else %}
-                <form hx-confirm="{% trans "Do you want to un-archive this employee?" %}"
+                <form hx-confirm="{% trans 'Do you want to un-archive this employee?' %}"
                       hx-post="{% url 'employee-archive' emp.id %}"
                       hx-target="#relatedModel"
                       style = "width:100%"
@@ -285,7 +285,7 @@
             {% if perms.employee.delete_employee %}
               <form
                   action="{% url 'employee-delete' emp.id %}?view=list"
-                  onsubmit="return confirm(gettext("{% trans \"All non-active contracts of the employee will also be deleted. Do you want to continue ?\" %}"))"
+                  onsubmit="return confirm(gettext('All non-active contracts of the employee will also be deleted. Do you want to continue ?'))"
                   method="post" style = "width:100%"
                 > {% csrf_token %}
                   <button

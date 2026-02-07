@@ -18,7 +18,7 @@
                 <a
                     hx-confirm="{% trans 'Are you sure want to remove this assignee?' %}"
                     hx-post="{% url 'assignees-remove' instance.id emp_objective.employee_id.id %}"
-                    title="{% trans "Remove" %}" hx-swap="innerHTML" hx-target="#assigneesContainer{{emp_objective.id}}"
+                    title="{% trans 'Remove' %}" hx-swap="innerHTML" hx-target="#assigneesContainer{{emp_objective.id}}"
                     onclick="event.stopPropagation()" class="oh-user-panel__remove"
                 >
                     <ion-icon name="close-outline"></ion-icon>

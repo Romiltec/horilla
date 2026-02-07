@@ -87,7 +87,7 @@
                     hx-get="{%url 'objective-creation' %}"
                     hx-target="#objectCreateModalTarget"
                     onclick="event.preventDefault()"
-                    title="{% trans "Create Objectives" %}"
+                    title="{% trans 'Create Objectives' %}"
                     >
                     <ion-icon name="add-outline" class="m-0 md hydrated" role="img" aria-label="add outline"></ion-icon>
                 </button>
@@ -156,8 +156,8 @@
                                                             >
                                                                 <div class="d-flex align-items-center">
                                                                     <button class="oh-permission-table__collapse me-2">
-                                                                        <span  title="{% trans "Reveal" %}"><ion-icon class="oh-permission-table__collapse-down" name="chevron-down-outline"></ion-icon></span>
-                                                                        <span  title="{% trans "Collapse" %}"><ion-icon class="oh-permission-table__collapse-up" name="chevron-up-outline"></ion-icon></span>
+                                                                        <span  title="{% trans 'Reveal' %}"><ion-icon class="oh-permission-table__collapse-down" name="chevron-down-outline"></ion-icon></span>
+                                                                        <span  title="{% trans 'Collapse' %}"><ion-icon class="oh-permission-table__collapse-up" name="chevron-up-outline"></ion-icon></span>
                                                                     </button>
                                                                     <span class="oh-permission-table__user">{{objective}} </span>
                                                                 </div>
@@ -182,7 +182,7 @@
                                                                         <a
                                                                             hx-confirm="{% trans 'Are you sure want to remove this manager?' %}"
                                                                             hx-post="{% url 'objective-manager-remove' objective.id manager.id %}"
-                                                                            title="{% trans "Remove" %}" hx-swap="outerHTML"
+                                                                            title="{% trans 'Remove' %}" hx-swap="outerHTML"
                                                                             hx-target="#managerContainer{{manager.id}}" class="oh-user-panel__remove"
                                                                             onclick="event.stopPropagation()"
                                                                         >
@@ -215,7 +215,7 @@
                                                                         <a
                                                                             hx-confirm="{% trans 'Are you sure want to remove this key result?' %}"
                                                                             hx-post="{% url 'key-result-remove' objective.id kr.id %}"
-                                                                            title="{% trans "Remove" %}" hx-swap="outerHTML"
+                                                                            title="{% trans 'Remove' %}" hx-swap="outerHTML"
                                                                             hx-target="#keyResultContainer{{kr.id}}"
                                                                             class="oh-user-panel__remove"
                                                                             onclick="event.stopPropagation()"
@@ -247,7 +247,7 @@
                                                                             <a
                                                                                 hx-confirm="{% trans 'Are you sure want to remove this assignee?' %}"
                                                                                 hx-post="{% url 'assignees-remove' objective.id emp_objective.employee_id.id %}"
-                                                                                title="{% trans "Remove" %}" hx-swap="delete" hx-target="#assigneesContainer{{emp_objective.id}}"
+                                                                                title="{% trans 'Remove' %}" hx-swap="delete" hx-target="#assigneesContainer{{emp_objective.id}}"
                                                                                 onclick="event.stopPropagation()" class="oh-user-panel__remove"
                                                                             >
                                                                                 <ion-icon name="close-outline"></ion-icon>
@@ -286,7 +286,7 @@
                                                                         {% if objective.archive %}
                                                                                 <form
                                                                                     action='{% url "objective-archive" objective.id %}'
-                                                                                    onsubmit="return confirm(gettext("{% trans \"Do you want to unarchive this objective?\" %}"))"
+                                                                                    onsubmit="return confirm(gettext('Do you want to unarchive this objective?'))"
                                                                                     method="post"
                                                                                     style="display: contents;width:100%">
                                                                                     {% csrf_token %}
@@ -297,7 +297,7 @@
                                                                         {% else %}
                                                                                 <form
                                                                                     action='{% url "objective-archive" objective.id %}'
-                                                                                    onsubmit="return confirm(gettext("{% trans \"Do you want to archive this objective?\" %}"))"
+                                                                                    onsubmit="return confirm(gettext('Do you want to archive this objective?'))"
                                                                                     method="post"
                                                                                     style="display: contents;width:100%">
                                                                                     {% csrf_token %}
@@ -310,7 +310,7 @@
                                                                     {% if perms.pms.delete_objective %}
                                                                         <form
                                                                             action='{% url "objective-delete" objective.id %}'
-                                                                            onsubmit="return confirm(gettext("{% trans \"Are you sure to delete this objective?\" %}"))"
+                                                                            onsubmit="return confirm(gettext('Are you sure to delete this objective?'))"
                                                                             method="post"
                                                                             style="display: contents;width:100%">
                                                                         {% csrf_token %}
@@ -456,8 +456,8 @@
                                                             >
                                                                 <div class="d-flex align-items-center">
                                                                     <button class="oh-permission-table__collapse me-2">
-                                                                        <span  title="{% trans "Reveal" %}"><ion-icon class="oh-permission-table__collapse-down" name="chevron-down-outline"></ion-icon></span>
-                                                                        <span  title="{% trans "Collapse" %}"><ion-icon class="oh-permission-table__collapse-up" name="chevron-up-outline"></ion-icon></span>
+                                                                        <span  title="{% trans 'Reveal' %}"><ion-icon class="oh-permission-table__collapse-down" name="chevron-down-outline"></ion-icon></span>
+                                                                        <span  title="{% trans 'Collapse' %}"><ion-icon class="oh-permission-table__collapse-up" name="chevron-up-outline"></ion-icon></span>
                                                                     </button>
                                                                     <span class="oh-permission-table__user">{{objective.objective_id}} </span>
                                                                 </div>
@@ -523,7 +523,7 @@
                                                                         {% if objective.archive %}
                                                                                 <form
                                                                                     action='{% url "archive-employee-objective" objective.id %}'
-                                                                                    onsubmit="return confirm(gettext("{% trans \"Do you want to unarchive this objective?\" %}"))"
+                                                                                    onsubmit="return confirm(gettext('Do you want to unarchive this objective?'))"
                                                                                     method="post"
                                                                                     style="display: contents;width:100%">
                                                                                     {% csrf_token %}
@@ -534,7 +534,7 @@
                                                                         {% else %}
                                                                                 <form
                                                                                     action='{% url "archive-employee-objective" objective.id %}'
-                                                                                    onsubmit="return confirm(gettext("{% trans \"Do you want to archive this objective?\" %}"))"
+                                                                                    onsubmit="return confirm(gettext('Do you want to archive this objective?'))"
                                                                                     method="post"
                                                                                     style="display: contents;width:100%">
                                                                                     {% csrf_token %}
@@ -547,7 +547,7 @@
                                                                     {% if perms.pms.delete_objective %}
                                                                         <form
                                                                             action='{% url "delete-employee-objective" objective.id %}'
-                                                                            onsubmit="return confirm(gettext("{% trans \"Are you sure to delete this objective?\" %}"))"
+                                                                            onsubmit="return confirm(gettext('Are you sure to delete this objective?'))"
                                                                             method="post"
                                                                             style="display: contents;width:100%">
                                                                         {% csrf_token %}

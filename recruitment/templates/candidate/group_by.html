@@ -150,7 +150,7 @@
 											{% if perms.recruitment.change_candidate %}
 											{% if not cand.email in emp_list and not cand.start_onboard %}
 												<a href="{% url 'candidate-conversion' cand.id %}"
-												onclick="return confirm(gettext("{% trans \"Are you sure you want to convert this candidate into an employee?\" %}"))"
+												onclick="return confirm(gettext('Are you sure you want to convert this candidate into an employee?'))"
 												class="oh-btn oh-btn--light-bkg w-100"
 												title='{% trans "To employee " %}'
 												style="padding:0.8rem 1rem"
@@ -195,9 +195,9 @@
 													data-target="#createModal"
 													{% if cand.is_offer_rejected %}
 													style="background: #ff4500a3 !important; color: white;"
-													title="{% trans "Added In Rejected Candidates" %}"
+													title="{% trans 'Added In Rejected Candidates' %}"
 													{% else %}
-													title="{% trans "Add To Rejected Candidates" %}"
+													title="{% trans 'Add To Rejected Candidates' %}"
 													{% endif %}>
 												<ion-icon name="thumbs-down-outline"></ion-icon>
 												</button>
@@ -208,7 +208,7 @@
 											<button
 												type="button"
 												hx-get='{% url "send-mail" cand.id %}'
-												title="{% trans "Send Mail" %}"
+												title="{% trans 'Send Mail' %}"
 												hx-target="#objectCreateModalTarget"
 												class="oh-btn oh-btn--light-bkg w-100"
 												data-toggle="oh-modal-toggle"
@@ -230,7 +230,7 @@
 										  {% endif %}
 										  {% if perms.recruitment.delete_candidate %}
 										  {% if cand.is_active %}
-										  <form action="{% url 'rec-candidate-archive' cand.id  %}" title="{% trans 'Archive' %}" onsubmit="return confirm(gettext("{% trans \"Do you want to archive this candidate?\" %}"))" method='post'
+										  <form action="{% url 'rec-candidate-archive' cand.id  %}" title="{% trans 'Archive' %}" onsubmit="return confirm(gettext('Do you want to archive this candidate?'))" method='post'
 											class="w-50">
 										  {% csrf_token %}
 										  <button type='submit' class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100"
@@ -238,7 +238,7 @@
 										  </form>
 										  {% else %}
 
-										  <form action="{% url 'rec-candidate-archive' cand.id  %}"  title="{% trans 'Un Archive' %}" onsubmit="return confirm(gettext("{% trans \"Do you want to un-archive this candidate?\" %}"))" method='post'
+										  <form action="{% url 'rec-candidate-archive' cand.id  %}"  title="{% trans 'Un Archive' %}" onsubmit="return confirm(gettext('Do you want to un-archive this candidate?'))" method='post'
 											class="w-100">
 											{% csrf_token %}
 											<button type='submit' class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100"
@@ -247,11 +247,11 @@
 										  {% endif %}
 										  {% endif %}
 										  {% if perms.recruitment.delete_candidate %}
-										  <form action="{% url 'rec-candidate-delete' cand.id  %}" onsubmit="return confirm(gettext("{% trans \"Do you want to delete this candidate?\" %}"))" method='post'
+										  <form action="{% url 'rec-candidate-delete' cand.id  %}" onsubmit="return confirm(gettext('Do you want to delete this candidate?'))" method='post'
 											onsubmit="Are you sure want to delete this candidate?" class="w-100">
 											{% csrf_token %}
 											<button type='submit' class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100"
-											  title="{% trans "Remove" %}"><ion-icon name="trash-outline"></ion-icon></button>
+											  title="{% trans 'Remove' %}"><ion-icon name="trash-outline"></ion-icon></button>
 										  </form>
 										  {% endif %}
 										</div>

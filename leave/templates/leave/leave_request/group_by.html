@@ -155,7 +155,7 @@
                                               {% endif %}
                                               {% if request.user|is_reportingmanager or perms.attendance.delete_leaverequest %}
                                               <a class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100" id="delete-link"
-                                              hx-confirm="{% trans "Are you sure you want to delete ?" %}" hx-get="{% url 'request-delete' leave_request.id %}?{{pd}}" hx-target="#leaveRequest"  title="{% trans 'Delete' %}"><ion-icon
+                                              hx-confirm="{% trans 'Are you sure you want to delete ?' %}" hx-get="{% url 'request-delete' leave_request.id %}?{{pd}}" hx-target="#leaveRequest"  title="{% trans 'Delete' %}"><ion-icon
                                                   name="trash-outline">group_by</ion-icon></a>
 
                                           </div>

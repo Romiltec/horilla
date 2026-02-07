@@ -187,7 +187,7 @@
                             </button>
                         {% endif %}
                         <form action="{% url 'attendance-delete' attendance_request.id  %}"
-                            onsubmit="return confirm(gettext("{% trans \" Are you sure want to delete this attendance?\" %}"))"
+                            onsubmit="return confirm(gettext('Are you sure want to delete this attendance?'))"
                             hx-target="#tab_contents" method='post' style="width: 50%;">
                             {% csrf_token %}
                             <button type='submit' class="oh-btn oh-btn--danger w-100" data-action="delete" title='{% trans "Delete" %}'>
@@ -216,7 +216,7 @@
                             <ion-icon name="checkmark-done-outline"></ion-icon>
                         </a>
                         <form action="{% url 'attendance-delete' attendance_request.id  %}" method='post' style="width: 50%;"
-                            onsubmit="return confirm(gettext("{% trans \" Are you sure want to delete this attendance?\" %}"))"
+                            onsubmit="return confirm(gettext('Are you sure want to delete this attendance?'))"
                             >
                             {% csrf_token %}
                             <button type='submit' class="oh-btn oh-btn--danger w-100" data-action="delete" title='{% trans "Delete" %}'>
@@ -236,8 +236,7 @@
                             <ion-icon name="create-outline" role="img" class="md hydrated" aria-label="create outline">
                             </ion-icon>
                         </a>
-                        <form action="{% url 'attendance-delete' attendance_request.id  %}" onsubmit="return confirm(gettext("{% trans \"
-                            Are you sure want to delete this attendance?\" %}"))" hx-target="#tab_contents" method='post'
+                        <form action="{% url 'attendance-delete' attendance_request.id  %}" onsubmit="return confirm(gettext('Are you sure want to delete this attendance?'))" hx-target="#tab_contents" method='post'
                             style="width: 50%;">
                             {% csrf_token %}
                             <button type='submit' class="oh-btn oh-btn--danger w-100" data-action="delete" title='{% trans "Delete" %}'>

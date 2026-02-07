@@ -64,7 +64,7 @@
                                     {% if perms.attendance.delete_batchattendance %}
                                         <form
                                             hx-post="{% url 'delete-batch' batch.id %}"
-                                            hx-confirm="{%trans "Are you sure want to delete this batch?" %}"
+                                            hx-confirm="{% trans 'Are you sure want to delete this batch?' %}"
                                             hx-target="#objectDetailsModalTarget" class='w-100'>
                                             <button
                                                 type="submit"

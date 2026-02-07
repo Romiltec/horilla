@@ -16,7 +16,7 @@
           <a class="oh-btn w-100"  href="{% url 'feedback-answer-view' id=instance.id %}" title="{% trans 'Answer view' %}"><ion-icon name="eye"></ion-icon></ion-icon></a>
   {% elif request.all_feedback%}
       {% if perms.pms.delete_feedback %}
-      <form action="{% url 'feedback-archive' id=instance.id %}" method="post" onsubmit="return confirm(gettext("{% if instance.archive %}{% trans \"Are you sure you want to Un-archive this feedback?\" %}{% else %}{% trans \"Are you sure you want to archive this feedback?\" %}{% endif %}"))" style="display: contents">
+      <form action="{% url 'feedback-archive' id=instance.id %}" method="post" onsubmit="return confirm({% if instance.archive %}gettext('Are you sure you want to Un-archive this feedback?'){% else %}gettext('Are you sure you want to archive this feedback?'){% endif %})" style="display: contents">
         {% if instance.archive %}
             <button class="oh-btn oh-btn--danger-outline w-100" title="{% trans 'Un-archive' %}">
         {% else %}
@@ -27,14 +27,14 @@
         </button>
       </form>
        {% if not instance.feedback_answer.all %}
-          <form action="{% url 'feedback-delete' id=instance.id %}" method="post" onsubmit="return confirm(gettext("{% trans \"Do you want Delete this Feedback ?\" %}"))" style="display: contents">
+          <form action="{% url 'feedback-delete' id=instance.id %}" method="post" onsubmit="return confirm(gettext('Do you want Delete this Feedback ?'))" style="display: contents">
             {% csrf_token %}
             <button  class="oh-btn oh-btn--danger-outline  w-100" title="{% trans 'Delete' %}" >
                 <ion-icon name="trash-outline" role="img" class="md hydrated" aria-label="trash outline"></ion-icon>
             </button>
           </form>
           {% else %}
-          <button  class="oh-btn oh-btn--danger-outline  w-100" disabled title="{% trans "Can't delete the feedback it's already answered." %}">
+          <button  class="oh-btn oh-btn--danger-outline  w-100" disabled title="{% trans 'Cannot delete the feedback, it is already answered.' %}">
             <ion-icon name="trash-outline" role="img" class="md hydrated" aria-label="trash outline"></ion-icon>
           </button>
         {% endif %}
@@ -48,7 +48,7 @@
       /></a>
       <a class="oh-btn w-100"  href="{% url 'feedback-answer-view' id=instance.id %}" title="{% trans 'Answer view' %}"><ion-icon name="eye"></ion-icon></ion-icon></a>
       {% if perms.pms.delete_feedback %}
-      <form action="{% url 'feedback-archive' id=instance.id %}" method="post" onsubmit="return confirm(gettext("{% if instance.archive %}{% trans \"Are you sure you want to Un-archive this feedback?\" %}{% else %}{% trans \"Are you sure you want to archive this feedback?\" %}{% endif %}"))" style="display: contents">
+      <form action="{% url 'feedback-archive' id=instance.id %}" method="post" onsubmit="return confirm({% if instance.archive %}gettext('Are you sure you want to Un-archive this feedback?'){% else %}gettext('Are you sure you want to archive this feedback?'){% endif %})" style="display: contents">
         {% if instance.archive %}
             <button class="oh-btn oh-btn--danger-outline w-100" title="{% trans 'Un-archive' %}">
         {% else %}
@@ -59,14 +59,14 @@
         </button>
       </form>
       {% if not instance.feedback_answer.all %}
-        <form action="{% url 'feedback-delete' id=instance.id %}" method="post" onsubmit="return confirm(gettext("{% trans \"Do you want Delete this Feedback ?\" %}"))" style="display: contents">
+        <form action="{% url 'feedback-delete' id=instance.id %}" method="post" onsubmit="return confirm(gettext('Do you want Delete this Feedback ?'))" style="display: contents">
           {% csrf_token %}
           <button  class="oh-btn oh-btn--danger-outline  w-100" title="{% trans 'Delete' %}" >
               <ion-icon name="trash-outline" role="img" class="md hydrated" aria-label="trash outline"></ion-icon>
           </button>
         </form>
       {% elif request.self_feedback %}
-        <button  class="oh-btn oh-btn--danger-outline  w-100" disabled title="{% trans "Can't delete the feedback it's already answered." %}">
+        <button  class="oh-btn oh-btn--danger-outline  w-100" disabled title="{% trans 'Cannot delete the feedback, it is already answered.' %}">
           <ion-icon name="trash-outline" role="img" class="md hydrated" aria-label="trash outline"></ion-icon>
         </button>
       {% endif %}

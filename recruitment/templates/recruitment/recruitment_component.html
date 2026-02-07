@@ -100,8 +100,8 @@
                           >
                             <div class="d-flex align-items-center">
                               <button class="oh-permission-table__collapse me-2">
-                                <span  title="{% trans "Reveal" %}"><ion-icon class="oh-permission-table__collapse-down" name="chevron-down-outline"></ion-icon></span>
-                                <span  title="{% trans "Collapse" %}"><ion-icon class="oh-permission-table__collapse-up" name="chevron-up-outline"></ion-icon></span>
+                                <span  title="{% trans 'Reveal' %}"><ion-icon class="oh-permission-table__collapse-down" name="chevron-down-outline"></ion-icon></span>
+                                <span  title="{% trans 'Collapse' %}"><ion-icon class="oh-permission-table__collapse-up" name="chevron-up-outline"></ion-icon></span>
                               </button>
                               <span class="oh-permission-table__user">
                                 <div class="d-flex" style="align-items: center;">
@@ -132,7 +132,7 @@
                                 >
                               </div>
                               {% if perms.recruitment.change_recruitment or request.user.employee_get in rec.recruitment_managers.all %}
-                                <a hx-post="{% url 'remove-recruitment-manager' manager.id rec.id %}?{{pd}}&page={{data.number}}"  title="{% trans "Remove" %}" hx-target="#recruitment-container"class="oh-user-panel__remove">
+                                <a hx-post="{% url 'remove-recruitment-manager' manager.id rec.id %}?{{pd}}&page={{data.number}}"  title="{% trans 'Remove' %}" hx-target="#recruitment-container"class="oh-user-panel__remove">
                                   <ion-icon name="close-outline"></ion-icon>
                                 </a>
                               {% endif %}
@@ -182,7 +182,7 @@
                           </div>
                           <div class="oh-sticky-table__td oh-sticky-table__right">
                             <div class="oh-btn-group">
-                              <a href="#" class="oh-btn oh-btn--light-bkg w-100" onclick="copyLink(window.location.origin+'/recruitment/application-form?recruitmentId={{rec.id}}')" title="{% trans "Share Link" %}">
+                              <a href="#" class="oh-btn oh-btn--light-bkg w-100" onclick="copyLink(window.location.origin+'/recruitment/application-form?recruitmentId={{rec.id}}')" title="{% trans 'Share Link' %}">
                                 <ion-icon name="share-social-outline"></ion-icon>
                               </a>
                               {% if perms.recruitment.change_recruitment %}
@@ -200,7 +200,7 @@
                                 <span>
                                   <form
                                     action="{% url 'recruitment-delete' rec.id  %}"
-                                    onsubmit="return confirm(gettext("{% trans \"Are you sure to delete this recruitment?\" %}"))"
+                                    onsubmit="return confirm(gettext('Are you sure to delete this recruitment?'))"
                                     method="post"
                                     style="display: contents">
                                     {% csrf_token %}
@@ -298,7 +298,7 @@
       <h5 class="oh-modal__dialog-title" id="duplicateRecruitmentModalLabel"
         >{% trans "Duplicate Recruitment" %}</span
       >
-      <button class="oh-modal__close" aria-label="Close"title="{% trans "Close" %}" >
+      <button class="oh-modal__close" aria-label="Close"title="{% trans 'Close' %}" >
         <ion-icon name="close-outline"></ion-icon>
       </button>
     </div>

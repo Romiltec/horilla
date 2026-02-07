@@ -152,7 +152,7 @@
                 <div class="flex items-center justify-between mb-2">
                     <div class="flex items-center gap-1 pb-2 overflow-visible relative form-input-items" style="display:ruby;">
                         <label class="text-xs font-medium" for="id_reset">{% trans "Limit Leave Days" %}</label>
-                        <span class="oh-info" title="{% trans "Do you want to limit leave days for this leave type?" %}"></span>
+                        <span class="oh-info" title="{% trans 'Do you want to limit leave days for this leave type?' %}"></span>
                     </div>
                     <div class="form-input-items" >
                         <label class="inline-flex items-center cursor-pointer gap-3">
@@ -187,7 +187,7 @@
                 <div class="flex items-center justify-between mb-2 resetContainer form-input-items">
                     <div class="flex items-center gap-1 pb-2 overflow-visible relative" style="display:ruby;">
                         <label class="text-xs font-medium" for="">{% trans "Require Approval" %}</label>
-                        <span class="oh-info" title="{% trans "Do you need approval for leave from the authority?" %}"></span>
+                        <span class="oh-info" title="{% trans 'Do you need approval for leave from the authority?' %}"></span>
                     </div>
                     <label class="inline-flex items-center cursor-pointer gap-3">
                         <input type="checkbox" class="sr-only peer toggle-contro yesOrNol" id="id_approval" checked />
@@ -205,7 +205,7 @@
                  <div class="flex items-center justify-between mb-2 resetContainer form-input-items">
                     <div class="flex items-center gap-1 pb-2 overflow-visible relative" style="display:ruby;">
                         <label class="text-xs font-medium" for="id_reset">{% trans "Reset" %}</label>
-                        <span class="oh-info" title="{% trans "Do you need to reset leaves based on conditions?" %}"></span>
+                        <span class="oh-info" title="{% trans 'Do you need to reset leaves based on conditions?' %}"></span>
                     </div>
                     <label class="inline-flex items-center cursor-pointer gap-3">
                         {{form.reset|add_class:"sr-only peer"}}
@@ -222,7 +222,7 @@
                         <label class="text-xs font-medium" for="id_reset_based">
                             {% trans "Reset Period" %}
                         </label>
-                        <span class="oh-info" title="{% trans "The time period for the leave to reset." %}"></span>
+                        <span class="oh-info" title="{% trans 'The time period for the leave to reset.' %}"></span>
                     </div>
                     {{form.reset_based|add_class:"mb-3 text-color-600 px-3 p-2 placeholder:text-xs w-full border border-dark-50 rounded-md focus-visible:outline-0 placeholder:text-dark-100 text-xs transition duration-300 focus:border-primary-600"}}
                     {{form.reset_based.errors}}
@@ -262,7 +262,7 @@
                         <label class="text-xs font-medium" for="id_carryforward_max">
                             {% trans "Carryforward Max" %}
                         </label>
-                        <span class="oh-info" title="{% trans "The maximum number of leave that can be carried forward." %}"></span>
+                        <span class="oh-info" title="{% trans 'The maximum number of leave that can be carried forward.' %}"></span>
                     </div>
                     {{form.carryforward_max|add_class:"mb-3 text-color-600 px-3 p-2 placeholder:text-xs w-full border border-dark-50 rounded-md focus-visible:outline-0 placeholder:text-dark-100 text-xs transition duration-300 focus:border-primary-600"}}
                     {{form.carryforward_max.errors}}
@@ -328,7 +328,7 @@
                     <div class="flex items-center justify-between mb-2 resetContainer form-input-items">
                         <div class="flex items-center gap-1 pb-2 overflow-visible relative" style="display:ruby;">
                             <label class="text-xs font-medium" for="">{% trans "Require Attachment" %}</label>
-                            <span class="oh-info" title="{% trans "Do you need to attach a document for leave?" %}"></span>
+                            <span class="oh-info" title="{% trans 'Do you need to attach a document for leave?' %}"></span>
                         </div>
                         <label class="inline-flex items-center cursor-pointer gap-3">
                             <input type="checkbox" class="sr-only peer toggle-control yesOrNo" id="id_attachment" />
@@ -344,7 +344,7 @@
                     <div class="flex items-center justify-between mb-2 resetContainer form-input-items">
                         <div class="flex items-center gap-1 pb-2 overflow-visible relative" style="display:ruby;">
                             <label class="text-xs font-medium" for="">{% trans "Exclude Company Holidays" %}</label>
-                            <span class="oh-info" title="{% trans "Do you need to exclude company holidays from the requested leave days?" %}"></span>
+                            <span class="oh-info" title="{% trans 'Do you need to exclude company holidays from the requested leave days?' %}"></span>
                         </div>
                         <label class="inline-flex items-center cursor-pointer gap-3">
                             <input type="checkbox" class="sr-only peer toggle-control yesOrNo" id="id_exclude_comp_leave" />
@@ -360,7 +360,7 @@
                     <div class="flex items-center justify-between mb-2 resetContainer form-input-items">
                         <div class="flex items-center gap-1 pb-2 overflow-visible relative" style="display:ruby;">
                             <label class="text-xs font-medium" for="">{% trans "Exclude Holidays" %}</label>
-                            <span class="oh-info" title="{% trans "Do you need to exclude public holidays from the requested leave days?" %}"></span>
+                            <span class="oh-info" title="{% trans 'Do you need to exclude public holidays from the requested leave days?' %}"></span>
                         </div>
                         <label class="inline-flex items-center cursor-pointer gap-3">
                             <input type="checkbox" class="sr-only peer toggle-control yesOrNo" id="id_exclude_public_leave" />
@@ -376,7 +376,7 @@
                     <div class="flex items-center justify-between mb-2 resetContainer form-input-items">
                         <div class="flex items-center gap-1 pb-2 overflow-visible relative" style="display:ruby;">
                             <label class="text-xs font-medium" for="">{% trans "Is Encashable" %}</label>
-                            <span class="oh-info" title="{% trans "Do you need to encash pending leave days?" %}"></span>
+                            <span class="oh-info" title="{% trans 'Do you need to encash pending leave days?' %}"></span>
                         </div>
                         <label class="inline-flex items-center cursor-pointer gap-3">
                             {{form.is_encashable|add_class:"sr-only peer"}}

@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static i18n %}
 <div class="oh-modal__dialog oh-modal__dialog--navigation m-0 p-0">
     <button
@@ -103,7 +104,7 @@
             {% if perms.pms.delete_meetings %}
                 <form
                     action="{% url 'meetings-delete' meeting.id %}"
-                    onsubmit="return confirm(gettext("{% trans \"Are you sure to delete this meeting?\" %}"))"
+                    onsubmit="return confirm(gettext('Are you sure to delete this meeting?'))"
                     method="post"
                     style="display: contents;width:100%">
                     {% csrf_token %}

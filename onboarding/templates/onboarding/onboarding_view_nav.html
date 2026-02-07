@@ -15,11 +15,11 @@
             }, 1000);" name='search_onboarding' class="oh-input oh-input__icon" aria-label="Search Input" placeholder="{% trans 'Search' %}" />
         </div>
         <ul class="oh-view-types ml-2" style="margin-bottom: 0;">
-            <li class="oh-view-type candidate-view-type" data-view="list" title="{% trans "List" %}">
+            <li class="oh-view-type candidate-view-type" data-view="list" title="{% trans 'List' %}">
                 <a href="{% url 'onboarding-view' %}?{{request.GET.urlencode}}" hx-target="#section" class="oh-btn oh-btn--view {% if not card %}oh-btn--view-active{% endif %} "><ion-icon
                         name="list-outline" role="img" class="md hydrated" aria-label="list outline"></ion-icon></a>
             </li>
-            <li class="oh-view-type candidate-view-type" data-view="card" title="{% trans "Card" %}">
+            <li class="oh-view-type candidate-view-type" data-view="card" title="{% trans 'Card' %}">
                 <a href="{% url 'kanban-view' %}?{{request.GET.urlencode}}" hx-target="#section" class="oh-btn oh-btn--view {% if card %}oh-btn--view-active{% endif %}"><ion-icon
                         name="grid-outline" role="img" class="md hydrated" aria-label="grid outline"></ion-icon></a>
             </li>

@@ -19,7 +19,7 @@
         <a
         hx-confirm="{% trans 'Are you sure you want to remove this interviewer?' %}"
         hx-post="{% url 'interview-employee-remove' instance.id employee.id %}"
-        title="{% trans "Remove" %}" hx-swap="innerHTML"
+        title="{% trans 'Remove' %}" hx-swap="innerHTML"
         hx-target="#listContainer"
         onclick="event.stopPropagation()"
         >

@@ -26,7 +26,7 @@
                 <div class="oh-label__info" for="offboardingSelect">
                   <label class="oh-label" for="offboardingSelect">Add to</label>
                 </div>
-                  <select id="offboardingSelect" class="oh-select oh-select2 w-100" name="reason" title="{% trans "Add to offboarding" %}">
+                  <select id="offboardingSelect" class="oh-select oh-select2 w-100" name="reason" title="{% trans 'Add to offboarding' %}">
                      {% for offboarding in offboardings %}
                       <option value="{{offboarding.id}}">{{offboarding.title}}</option>
                      {% endfor %}
