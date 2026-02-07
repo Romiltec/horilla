@@ -8228,7 +8228,7 @@ msgstr "Disallineamento nella ripartizione della data di inizio e di fine."
 #, fuzzy
 #| msgid "No employees have taken leave today."
 msgid "Employee doesn't have enough leave days.."
-msgstr "Nessun dipendente ha preso il congedo oggi."
+msgstr "Nessun dipendente è in assenza oggi."
 
 #, fuzzy
 #| msgid "Overtime to Approve"
@@ -9440,16 +9440,16 @@ msgid "Send"
 msgstr "Invia"
 
 msgid "Todays's New Joiners"
-msgstr "Nuovi Joiners Di Oggi"
+msgstr "Nuove assunzioni oggi"
 
 msgid "Leave on today"
-msgstr "Abbandona oggi"
+msgstr "Assenze oggi"
 
 msgid "Joining this week"
-msgstr "Unirsi a questa settimana"
+msgstr "Assunzioni della settimana"
 
 msgid "Total Strength"
-msgstr "Forza Totale"
+msgstr "Organico totale"
 
 msgid "Create Announcement"
 msgstr "Crea Annuncio"
@@ -11102,7 +11102,7 @@ msgid "Today is a holiday."
 msgstr "Oggi è una vacanza."
 
 msgid "No employees have taken leave today."
-msgstr "Nessun dipendente ha preso il congedo oggi."
+msgstr "Nessun dipendente è in assenza oggi."
 
 msgid "Approved Requests"
 msgstr "Richieste Approvate"
