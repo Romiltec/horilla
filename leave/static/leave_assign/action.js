@@ -106,7 +106,7 @@ $("#selectAllLeaves").click(function () {
                 $("#selectedLeaves").attr(
                     "data-ids",
                     JSON.stringify(
-                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds)]))
+                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds || "[]")]))
                     )
                 );
                 count = makeLeaveListUnique(employeeIds);
@@ -152,7 +152,7 @@ $("#exportAssignedLeaves").click(function (e) {
     var currentDate = new Date().toISOString().slice(0, 10);
 
     ids = [];
-    ids = JSON.parse($("#selectedLeaves").attr("data-ids"));
+    ids = JSON.parse($("#selectedLeaves").attr("data-ids") || "[]");
     Swal.fire({
         text: i18nMessages.downloadExcel,
         icon: "question",
@@ -196,7 +196,7 @@ $("#bulkAssignedLeavesDelete").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedLeaves").attr("data-ids"));
-    ids = JSON.parse($("#selectedLeaves").attr("data-ids"));
+    ids = JSON.parse($("#selectedLeaves").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -217,7 +217,7 @@ $("#bulkAssignedLeavesDelete").click(function (e) {
                 e.preventDefault();
                 ids = [];
                 ids.push($("#selectedLeaves").attr("data-ids"));
-                ids = JSON.parse($("#selectedLeaves").attr("data-ids"));
+                ids = JSON.parse($("#selectedLeaves").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/leave/assigned-leave-bulk-delete",

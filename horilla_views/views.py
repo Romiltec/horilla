@@ -21,6 +21,7 @@ from django.http import HttpResponse, HttpResponseForbidden, JsonResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.utils.decorators import method_decorator
+from django.utils.translation import gettext_lazy as _
 from django.views import View
 from django.views.decorators.csrf import csrf_protect
 from openpyxl import Workbook
@@ -225,7 +226,7 @@ class SavedFilter(HorillaFormView):
                 instance.filter = result_dict
                 instance.urlencode = self.request.GET.urlencode()
             instance.save()
-            messages.success(self.request, "Filter Saved")
+            messages.success(self.request, _("Filter Saved"))
             return self.HttpResponse()
         return super().form_valid(form)
 

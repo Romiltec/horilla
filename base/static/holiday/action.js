@@ -122,7 +122,7 @@ function selectAllHolidays() {
                 $("#selectedHolidays").attr(
                     "data-ids",
                     JSON.stringify(
-                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds)]))
+                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds || "[]")]))
                     )
                 );
                 count = makeHolidayListUnique(employeeIds);
@@ -173,7 +173,7 @@ function unselectAllHolidays() {
 function exportHolidays() {
     var currentDate = new Date().toISOString().slice(0, 10);
     ids = [];
-    ids = JSON.parse($("#selectedHolidays").attr("data-ids"));
+    ids = JSON.parse($("#selectedHolidays").attr("data-ids") || "[]");
     Swal.fire({
         text: i18nMessages.downloadExcel,
         icon: "question",
@@ -218,7 +218,7 @@ $("#bulkHolidaysDelete").click(function (e) {
 
     ids = [];
     ids.push($("#selectedHolidays").attr("data-ids"));
-    ids = JSON.parse($("#selectedHolidays").attr("data-ids"));
+    ids = JSON.parse($("#selectedHolidays").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -238,7 +238,7 @@ $("#bulkHolidaysDelete").click(function (e) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedHolidays").attr("data-ids"));
-                ids = JSON.parse($("#selectedHolidays").attr("data-ids"));
+                ids = JSON.parse($("#selectedHolidays").attr("data-ids") || "[]");
                 var hxValue = JSON.stringify(ids);
                 $("#bulkHolidaysDeleteSpan").attr("hx-vals", `{"ids":${hxValue}}`);
                 $('#unselectAllHolidays').click();

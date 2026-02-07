@@ -252,7 +252,7 @@ function selectAllTickets() {
                 $("#selectedTickets").attr(
                     "data-ids",
                     JSON.stringify(
-                        Array.from(new Set([...ticketIds, ...JSON.parse(previousIds)]))
+                        Array.from(new Set([...ticketIds, ...JSON.parse(previousIds || "[]")]))
                     )
                 );
                 count = makeTicketsListUnique(ticketIds);
@@ -314,7 +314,7 @@ function ticketBulkArchive(e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedTickets").attr("data-ids"));
-    ids = JSON.parse($("#selectedTickets").attr("data-ids"));
+    ids = JSON.parse($("#selectedTickets").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -335,7 +335,7 @@ function ticketBulkArchive(e) {
                 e.preventDefault();
                 ids = [];
                 ids.push($("#selectedTickets").attr("data-ids"));
-                ids = JSON.parse($("#selectedTickets").attr("data-ids"));
+                ids = JSON.parse($("#selectedTickets").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/helpdesk/tickets-bulk-archive?is_active=False",
@@ -360,7 +360,7 @@ function ticketBulkUnArchive(e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedTickets").attr("data-ids"));
-    ids = JSON.parse($("#selectedTickets").attr("data-ids"));
+    ids = JSON.parse($("#selectedTickets").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -381,7 +381,7 @@ function ticketBulkUnArchive(e) {
                 e.preventDefault();
                 ids = [];
                 ids.push($("#selectedTickets").attr("data-ids"));
-                ids = JSON.parse($("#selectedTickets").attr("data-ids"));
+                ids = JSON.parse($("#selectedTickets").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/helpdesk/tickets-bulk-archive?is_active=True",
@@ -406,7 +406,7 @@ function ticketsBulkDelete(e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedTickets").attr("data-ids"));
-    ids = JSON.parse($("#selectedTickets").attr("data-ids"));
+    ids = JSON.parse($("#selectedTickets").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -427,7 +427,7 @@ function ticketsBulkDelete(e) {
                 e.preventDefault();
                 ids = [];
                 ids.push($("#selectedTickets").attr("data-ids"));
-                ids = JSON.parse($("#selectedTickets").attr("data-ids"));
+                ids = JSON.parse($("#selectedTickets").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/helpdesk/tickets-bulk-delete",

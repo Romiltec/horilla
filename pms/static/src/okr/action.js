@@ -189,7 +189,7 @@ function selectAllObjectives() {
                 $("#selectedObjectives").attr(
                     "data-ids",
                     JSON.stringify(
-                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds)]))
+                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds || "[]")]))
                     )
                 );
                 count = makeObjectivesListUnique(employeeIds);
@@ -248,7 +248,7 @@ $("#archiveObjectives").click(function (e) {
 
     ids = [];
     ids.push($("#selectedObjectives").attr("data-ids"));
-    ids = JSON.parse($("#selectedObjectives").attr("data-ids"));
+    ids = JSON.parse($("#selectedObjectives").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -269,7 +269,7 @@ $("#archiveObjectives").click(function (e) {
                 e.preventDefault();
                 ids = [];
                 ids.push($("#selectedObjectives").attr("data-ids"));
-                ids = JSON.parse($("#selectedObjectives").attr("data-ids"));
+                ids = JSON.parse($("#selectedObjectives").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/pms/objective-bulk-archive?is_active=False",
@@ -296,7 +296,7 @@ $("#unArchiveObjectives").click(function (e) {
 
     ids = [];
     ids.push($("#selectedObjectives").attr("data-ids"));
-    ids = JSON.parse($("#selectedObjectives").attr("data-ids"));
+    ids = JSON.parse($("#selectedObjectives").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -317,7 +317,7 @@ $("#unArchiveObjectives").click(function (e) {
                 e.preventDefault();
                 ids = [];
                 ids.push($("#selectedObjectives").attr("data-ids"));
-                ids = JSON.parse($("#selectedObjectives").attr("data-ids"));
+                ids = JSON.parse($("#selectedObjectives").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/pms/objective-bulk-archive?is_active=True",
@@ -344,7 +344,7 @@ $("#deleteObjectives").click(function (e) {
 
     ids = [];
     ids.push($("#selectedObjectives").attr("data-ids"));
-    ids = JSON.parse($("#selectedObjectives").attr("data-ids"));
+    ids = JSON.parse($("#selectedObjectives").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -365,7 +365,7 @@ $("#deleteObjectives").click(function (e) {
                 e.preventDefault();
                 ids = [];
                 ids.push($("#selectedObjectives").attr("data-ids"));
-                ids = JSON.parse($("#selectedObjectives").attr("data-ids"));
+                ids = JSON.parse($("#selectedObjectives").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/pms/objective-bulk-delete",

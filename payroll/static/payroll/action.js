@@ -129,7 +129,7 @@ function selectAllPayslip() {
                 $("#selectedPayslip").attr(
                     "data-ids",
                     JSON.stringify(
-                        Array.from(new Set([...payslipIds, ...JSON.parse(previousIds)]))
+                        Array.from(new Set([...payslipIds, ...JSON.parse(previousIds || "[]")]))
                     )
                 );
 
@@ -212,7 +212,7 @@ function exportPayslips() {
     var currentDate = new Date().toISOString().slice(0, 10);
     ids = [];
     ids.push($("#selectedPayslip").attr("data-ids"));
-    ids = JSON.parse($("#selectedPayslip").attr("data-ids"));
+    ids = JSON.parse($("#selectedPayslip").attr("data-ids") || "[]");
 
     if (ids.length === 0) {
         Swal.fire({
@@ -267,7 +267,7 @@ $("#deletePayslipBulk").click(function (e) {
     var checkedRows = $(".payslip-checkbox").filter(":checked");
     ids = [];
     ids.push($("#selectedPayslip").attr("data-ids"));
-    ids = JSON.parse($("#selectedPayslip").attr("data-ids"));
+    ids = JSON.parse($("#selectedPayslip").attr("data-ids") || "[]");
     if ((ids.length === 0) & (checkedRows.length === 0)) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -295,7 +295,7 @@ $("#deletePayslipBulk").click(function (e) {
                     e.preventDefault();
                     ids = [];
                     ids.push($("#selectedPayslip").attr("data-ids"));
-                    ids = JSON.parse($("#selectedPayslip").attr("data-ids"));
+                    ids = JSON.parse($("#selectedPayslip").attr("data-ids") || "[]");
                 }
                 $.ajax({
                     type: "POST",
@@ -408,11 +408,11 @@ function selectAllContracts() {
                 $("#selectedInstances").attr(
                     "data-ids",
                     JSON.stringify(
-                        Array.from(new Set([...contractIds, ...JSON.parse(previousIds)]))
+                        Array.from(new Set([...contractIds, ...JSON.parse(previousIds || "[]")]))
                     )
                 );
                 console.log(
-                    Array.from(new Set([...contractIds, ...JSON.parse(previousIds)]))
+                    Array.from(new Set([...contractIds, ...JSON.parse(previousIds || "[]")]))
                 );
 
                 count = makeEmpListUnique(contractIds);

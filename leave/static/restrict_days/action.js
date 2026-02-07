@@ -181,7 +181,7 @@ function unselectAllRestrictDays() {
 
 $("#bulkRestrictedDaysDelete").click(function (e) {
     try {
-        var ids = JSON.parse($("#selectedRestrictDays").attr("data-ids"));
+        var ids = JSON.parse($("#selectedRestrictDays").attr("data-ids") || "[]");
     } catch (e) {
 
         var ids = [];

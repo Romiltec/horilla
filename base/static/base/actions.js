@@ -83,7 +83,7 @@ function tickRShiftCheckboxes() {
 $("#exportRShifts").click(function (e) {
     var currentDate = new Date().toISOString().slice(0, 10);
     ids = [];
-    ids = JSON.parse($("#selectedRShifts").attr("data-ids"));
+    ids = JSON.parse($("#selectedRShifts").attr("data-ids") || "[]");
     Swal.fire({
         text: i18nMessages.downloadExcel,
         icon: "question",
@@ -128,7 +128,7 @@ $("#archiveRotatingShiftAssign").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedRShifts").attr("data-ids"));
-    ids = JSON.parse($("#selectedRShifts").attr("data-ids"));
+    ids = JSON.parse($("#selectedRShifts").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -148,7 +148,7 @@ $("#archiveRotatingShiftAssign").click(function (e) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedRShifts").attr("data-ids"));
-                ids = JSON.parse($("#selectedRShifts").attr("data-ids"));
+                ids = JSON.parse($("#selectedRShifts").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/rotating-shift-assign-bulk-archive?is_active=False",
@@ -173,7 +173,7 @@ $("#unArchiveRotatingShiftAssign").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedRShifts").attr("data-ids"));
-    ids = JSON.parse($("#selectedRShifts").attr("data-ids"));
+    ids = JSON.parse($("#selectedRShifts").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -193,7 +193,7 @@ $("#unArchiveRotatingShiftAssign").click(function (e) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedRShifts").attr("data-ids"));
-                ids = JSON.parse($("#selectedRShifts").attr("data-ids"));
+                ids = JSON.parse($("#selectedRShifts").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/rotating-shift-assign-bulk-archive?is_active=True",
@@ -218,7 +218,7 @@ $("#deleteRotatingShiftAssign").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedRShifts").attr("data-ids"));
-    ids = JSON.parse($("#selectedRShifts").attr("data-ids"));
+    ids = JSON.parse($("#selectedRShifts").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -238,7 +238,7 @@ $("#deleteRotatingShiftAssign").click(function (e) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedRShifts").attr("data-ids"));
-                ids = JSON.parse($("#selectedRShifts").attr("data-ids"));
+                ids = JSON.parse($("#selectedRShifts").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/rotating-shift-assign-bulk-delete",
@@ -308,7 +308,7 @@ function tickRWorktypeCheckboxes() {
 $("#exportRWorktypes").click(function (e) {
     var currentDate = new Date().toISOString().slice(0, 10);
     ids = [];
-    ids = JSON.parse($("#selectedRWorktypes").attr("data-ids"));
+    ids = JSON.parse($("#selectedRWorktypes").attr("data-ids") || "[]");
     Swal.fire({
         text: i18nMessages.downloadExcel,
         icon: "question",
@@ -350,7 +350,7 @@ $("#exportRWorktypes").click(function (e) {
 });
 
 $("#archiveRotatingWorkTypeAssign").click(function (e) {
-    var ids = JSON.parse($("#selectedRWorktypes").attr("data-ids"));
+    var ids = JSON.parse($("#selectedRWorktypes").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -379,7 +379,7 @@ $("#archiveRotatingWorkTypeAssign").click(function (e) {
 
 $("#unArchiveRotatingWorkTypeAssign").click(function (e) {
     e.preventDefault();
-    var ids = JSON.parse($("#selectedRWorktypes").attr("data-ids"));
+    var ids = JSON.parse($("#selectedRWorktypes").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -412,7 +412,7 @@ $("#deleteRotatingWorkTypeAssign").click(function (e) {
 
     ids = [];
     ids.push($("#selectedRWorktypes").attr("data-ids"));
-    ids = JSON.parse($("#selectedRWorktypes").attr("data-ids"));
+    ids = JSON.parse($("#selectedRWorktypes").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -432,7 +432,7 @@ $("#deleteRotatingWorkTypeAssign").click(function (e) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedRWorktypes").attr("data-ids"));
-                ids = JSON.parse($("#selectedRWorktypes").attr("data-ids"));
+                ids = JSON.parse($("#selectedRWorktypes").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/rotating-work-type-assign-bulk-delete",
@@ -502,7 +502,7 @@ function tickShiftCheckboxes() {
 function exportShiftRequests() {
     var currentDate = new Date().toISOString().slice(0, 10);
     ids = [];
-    ids = JSON.parse($("#selectedShifts").attr("data-ids"));
+    ids = JSON.parse($("#selectedShifts").attr("data-ids") || "[]");
     Swal.fire({
         text: i18nMessages.downloadExcel,
         icon: "question",
@@ -546,7 +546,7 @@ $("#approveShiftRequest").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedShifts").attr("data-ids"));
-    ids = JSON.parse($("#selectedShifts").attr("data-ids"));
+    ids = JSON.parse($("#selectedShifts").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -567,7 +567,7 @@ $("#approveShiftRequest").click(function (e) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedShifts").attr("data-ids"));
-                ids = JSON.parse($("#selectedShifts").attr("data-ids"));
+                ids = JSON.parse($("#selectedShifts").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/shift-request-bulk-approve",
@@ -592,7 +592,7 @@ $("#cancelShiftRequest").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedShifts").attr("data-ids"));
-    ids = JSON.parse($("#selectedShifts").attr("data-ids"));
+    ids = JSON.parse($("#selectedShifts").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -612,7 +612,7 @@ $("#cancelShiftRequest").click(function (e) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedShifts").attr("data-ids"));
-                ids = JSON.parse($("#selectedShifts").attr("data-ids"));
+                ids = JSON.parse($("#selectedShifts").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/shift-request-bulk-cancel",
@@ -637,7 +637,7 @@ $("#deleteShiftRequest").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedShifts").attr("data-ids"));
-    ids = JSON.parse($("#selectedShifts").attr("data-ids"));
+    ids = JSON.parse($("#selectedShifts").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -657,7 +657,7 @@ $("#deleteShiftRequest").click(function (e) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedShifts").attr("data-ids"));
-                ids = JSON.parse($("#selectedShifts").attr("data-ids"));
+                ids = JSON.parse($("#selectedShifts").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/shift-request-bulk-delete",
@@ -727,7 +727,7 @@ function tickWorktypeCheckboxes() {
 function exportWorkTypeRequets() {
     var currentDate = new Date().toISOString().slice(0, 10);
     ids = [];
-    ids = JSON.parse($("#selectedWorktypes").attr("data-ids"));
+    ids = JSON.parse($("#selectedWorktypes").attr("data-ids") || "[]");
     Swal.fire({
         text: i18nMessages.downloadExcel,
         icon: "question",
@@ -771,7 +771,7 @@ $("#approveWorkTypeRequest").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedWorktypes").attr("data-ids"));
-    ids = JSON.parse($("#selectedWorktypes").attr("data-ids"));
+    ids = JSON.parse($("#selectedWorktypes").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -792,7 +792,7 @@ $("#approveWorkTypeRequest").click(function (e) {
                 e.preventDefault();
                 ids = [];
                 ids.push($("#selectedWorktypes").attr("data-ids"));
-                ids = JSON.parse($("#selectedWorktypes").attr("data-ids"));
+                ids = JSON.parse($("#selectedWorktypes").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/work-type-request-bulk-approve",
@@ -817,7 +817,7 @@ $("#cancelWorkTypeRequest").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedWorktypes").attr("data-ids"));
-    ids = JSON.parse($("#selectedWorktypes").attr("data-ids"));
+    ids = JSON.parse($("#selectedWorktypes").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -837,7 +837,7 @@ $("#cancelWorkTypeRequest").click(function (e) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedWorktypes").attr("data-ids"));
-                ids = JSON.parse($("#selectedWorktypes").attr("data-ids"));
+                ids = JSON.parse($("#selectedWorktypes").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/work-type-request-bulk-cancel",
@@ -862,7 +862,7 @@ $("#deleteWorkTypeRequest").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedWorktypes").attr("data-ids"));
-    ids = JSON.parse($("#selectedWorktypes").attr("data-ids"));
+    ids = JSON.parse($("#selectedWorktypes").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -883,7 +883,7 @@ $("#deleteWorkTypeRequest").click(function (e) {
                 e.preventDefault();
                 ids = [];
                 ids.push($("#selectedWorktypes").attr("data-ids"));
-                ids = JSON.parse($("#selectedWorktypes").attr("data-ids"));
+                ids = JSON.parse($("#selectedWorktypes").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/work-type-request-bulk-delete",

@@ -60,7 +60,7 @@
     "><span class="label">{% trans 'Filter' %}</span> (<span class="count_{{ view_id }}">0</span>)</span>
       <form id="filterSelectedForm{{ view_id }}" style="display: inline;" hx-post="{{ request.path }}?show_all=false" hx-target="#{{ view_id|safe }}" hx-swap="outerHTML" onsubmit="event.preventDefault()" hx-on:submit="htmxLoadIndicator(this);">
         <input type="hidden" name="selected_ids" value="{{ request.session.hlv_selected_ids }}" />
-        <button hidden type="submit">Submit</button>
+        <button hidden type="submit">{% trans "Submit" %}</button>
       </form>
     {% endif %}
 

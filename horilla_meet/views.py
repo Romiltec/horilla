@@ -105,7 +105,7 @@ def delete_google_credentials(request, obj_id):
         messages.error(request, _("Google Cloud Credential not found."))
         return HttpResponse("")
     except Exception as e:
-        messages.error(request, f"Error deleting Google Cloud Credential: {e}")
+        messages.error(request, _("Error deleting Google Cloud Credential: %(error)s") % {"error": e})
         return HttpResponse("")
 
 
@@ -144,7 +144,7 @@ def delete_google_meet(request, id):
         messages.error(request, _("Google Meeting not found."))
         return HttpResponse("")
     except Exception as e:
-        messages.error(request, f"Error deleting Google Meeting: {e}")
+        messages.error(request, _("Error deleting Google Meeting: %(error)s") % {"error": e})
         return HttpResponse("")
 
 
@@ -204,7 +204,7 @@ if apps.is_installed("recruitment"):
 
         except Exception as e:
             logger.error(f"Error creating/updating Google Meeting: {e}")
-            messages.error(f"Error creating/updating Google Meeting: {e}")
+            messages.error(request, _("Error creating/updating Google Meeting: %(error)s") % {"error": e})
             return JsonResponse({"error": str(e)}, status=500)
 
 
@@ -259,5 +259,5 @@ if apps.is_installed("pms"):
 
         except Exception as e:
             logger.error(f"Error creating/updating Google Meeting: {e}")
-            messages.error(f"Error creating/updating Google Meeting: {e}")
+            messages.error(request, _("Error creating/updating Google Meeting: %(error)s") % {"error": e})
             return JsonResponse({"error": str(e)}, status=500)

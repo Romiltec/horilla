@@ -2058,7 +2058,7 @@ def offer_letter_bulk_status_update(request):
                 candidate.save()
                 messages.success(request, _("offer letter status updated successfully"))
             else:
-                messages.error(request, "Status already in {} status".format(status))
+                messages.error(request, _("Status already in %(status)s status") % {"status": status})
         except:
             messages.error(request, _("Candidate doesnot exist"))
 

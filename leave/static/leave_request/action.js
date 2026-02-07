@@ -116,7 +116,7 @@ function selectAllLeaverequests() {
                 $("#selectedLeaverequests").attr(
                     "data-ids",
                     JSON.stringify(
-                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds)]))
+                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds || "[]")]))
                     )
                 );
                 count = makeLeaverequestsListUnique(employeeIds);
@@ -163,7 +163,7 @@ function exportLeaverequests() {
     var currentDate = new Date().toISOString().slice(0, 10);
 
     ids = [];
-    ids = JSON.parse($("#selectedLeaverequests").attr("data-ids"));
+    ids = JSON.parse($("#selectedLeaverequests").attr("data-ids") || "[]");
     Swal.fire({
         text: i18nMessages.downloadExcel,
         icon: "question",
@@ -242,7 +242,7 @@ function createLeaveReport() {
 }
 
 $("#leaveRequestsBulkApprove").click(function (e) {
-    ids = JSON.parse($("#selectedLeaverequests").attr("data-ids"));
+    ids = JSON.parse($("#selectedLeaverequests").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -271,7 +271,7 @@ $("#leaveRequestsBulkApprove").click(function (e) {
 
 $("#idBulkRejectReason").click(function (e) {
     e.preventDefault();
-    ids = JSON.parse($("#selectedLeaverequests").attr("data-ids"));
+    ids = JSON.parse($("#selectedLeaverequests").attr("data-ids") || "[]");
     var rejectReason = $("#id_reject_reason").val();
     if (ids.length === 0) {
         Swal.fire({
@@ -302,7 +302,7 @@ $("#leaveRequestBulkDelete").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedLeaverequests").attr("data-ids"));
-    ids = JSON.parse($("#selectedLeaverequests").attr("data-ids"));
+    ids = JSON.parse($("#selectedLeaverequests").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -323,7 +323,7 @@ $("#leaveRequestBulkDelete").click(function (e) {
                 e.preventDefault();
                 ids = [];
                 ids.push($("#selectedLeaverequests").attr("data-ids"));
-                ids = JSON.parse($("#selectedLeaverequests").attr("data-ids"));
+                ids = JSON.parse($("#selectedLeaverequests").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/leave/leave-request-bulk-delete",
@@ -448,7 +448,7 @@ function selectAllUserrequests() {
                 $("#selectedUserrequests").attr(
                     "data-ids",
                     JSON.stringify(
-                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds)]))
+                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds || "[]")]))
                     )
                 );
                 count = makeUserrequestsListUnique(employeeIds);
@@ -494,7 +494,7 @@ $("#userrequestbulkDelete").click(function (e) {
 
     ids = [];
     ids.push($("#selectedUserrequests").attr("data-ids"));
-    ids = JSON.parse($("#selectedUserrequests").attr("data-ids"));
+    ids = JSON.parse($("#selectedUserrequests").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -515,7 +515,7 @@ $("#userrequestbulkDelete").click(function (e) {
                 e.preventDefault();
                 ids = [];
                 ids.push($("#selectedUserrequests").attr("data-ids"));
-                ids = JSON.parse($("#selectedUserrequests").attr("data-ids"));
+                ids = JSON.parse($("#selectedUserrequests").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/leave/user-request-bulk-delete",

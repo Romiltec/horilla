@@ -230,7 +230,7 @@ function selectAllHourAcconts() {
                 $("#selectedInstances").attr(
                     "data-ids",
                     JSON.stringify(
-                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds)]))
+                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds || "[]")]))
                     )
                 );
 
@@ -496,7 +496,7 @@ function selectAllActivity() {
                 $("#selectedActivity").attr(
                     "data-ids",
                     JSON.stringify(
-                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds)]))
+                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds || "[]")]))
                     )
                 );
 
@@ -651,7 +651,7 @@ function selectAllLatecome() {
                 $("#selectedLatecome").attr(
                     "data-ids",
                     JSON.stringify(
-                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds)]))
+                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds || "[]")]))
                     )
                 );
 
@@ -899,7 +899,7 @@ $("#exportActivity").click(function (e) {
     var currentDate = new Date().toISOString().slice(0, 10);
     ids = [];
     ids.push($("#selectedActivity").attr("data-ids"));
-    ids = JSON.parse($("#selectedActivity").attr("data-ids"));
+    ids = JSON.parse($("#selectedActivity").attr("data-ids") || "[]");
 
     Swal.fire({
         text: i18nMessages.downloadExcel,
@@ -945,7 +945,7 @@ $("#exportLatecome").click(function (e) {
 
     ids = [];
     ids.push($("#selectedLatecome").attr("data-ids"));
-    ids = JSON.parse($("#selectedLatecome").attr("data-ids"));
+    ids = JSON.parse($("#selectedLatecome").attr("data-ids") || "[]");
 
     Swal.fire({
         text: i18nMessages.downloadExcel,
@@ -1137,7 +1137,7 @@ cancelButtonText: i18nMessages.cancel,
 
         ids = [];
         ids.push($("#selectedLatecome").attr("data-ids"));
-        ids = JSON.parse($("#selectedLatecome").attr("data-ids"));
+        ids = JSON.parse($("#selectedLatecome").attr("data-ids") || "[]");
         if (ids.length === 0) {
             Swal.fire({
                 text: i18nMessages.noRowsSelected,
@@ -1157,7 +1157,7 @@ cancelButtonText: i18nMessages.cancel,
                 if (result.isConfirmed) {
                     ids = [];
                     ids.push($("#selectedLatecome").attr("data-ids"));
-                    ids = JSON.parse($("#selectedLatecome").attr("data-ids"));
+                    ids = JSON.parse($("#selectedLatecome").attr("data-ids") || "[]");
                     $.ajax({
                         type: "POST",
                         url: "/attendance/late-come-early-out-bulk-delete",
@@ -1285,7 +1285,7 @@ function selectAllReqAttendance() {
                 $("#selectedInstances").attr(
                     "data-ids",
                     JSON.stringify(
-                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds)]))
+                        Array.from(new Set([...employeeIds, ...JSON.parse(previousIds || "[]")]))
                     )
                 );
 

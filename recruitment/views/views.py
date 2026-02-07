@@ -1902,7 +1902,7 @@ def candidate_conversion(request, cand_id, **kwargs):
     candidate_obj = Candidate.find(cand_id)
 
     if not candidate_obj:
-        messages.error(request, ("Candidate not found"))
+        messages.error(request, _("Candidate not found"))
         return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
     if candidate_obj.converted_employee_id:

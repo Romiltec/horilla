@@ -48,7 +48,7 @@ $(document).on('click', '#archiveFeedback', function (e) {
     e.preventDefault();
 
     var ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]") || [];
-    var announy_ids = JSON.parse($("#anounyselectedInstances").attr("data-ids")) || [];
+    var announy_ids = JSON.parse($("#anounyselectedInstances").attr("data-ids") || "[]");
 
     if (announy_ids.length > 0) {
         ids = [];
@@ -96,7 +96,7 @@ $(document).on('click', '#UnarchiveFeedback', function (e) {
     e.preventDefault();
 
     var ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]") || [];
-    var announy_ids = JSON.parse($("#anounyselectedInstances").attr("data-ids")) || [];
+    var announy_ids = JSON.parse($("#anounyselectedInstances").attr("data-ids") || "[]");
 
     if (announy_ids.length > 0) {
         ids = [];
@@ -143,7 +143,7 @@ $(document).on('click', '#deleteFeedback', function (e) {
     e.preventDefault();
 
     var ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]") || [];
-    var announy_ids = JSON.parse($("#anounyselectedInstances").attr("data-ids")) || [];
+    var announy_ids = JSON.parse($("#anounyselectedInstances").attr("data-ids") || "[]");
 
     if (ids.length === 0 && announy_ids.length === 0) {
         Swal.fire({
