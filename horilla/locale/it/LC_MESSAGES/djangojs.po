@@ -176,6 +176,9 @@ msgstr "Selezionati"
 msgid "Uploading..."
 msgstr "Caricamento in corso..."
 
+msgid "Total"
+msgstr "Totale"
+
 msgid "No Records found"
 msgstr "Nessun record trovato"
 

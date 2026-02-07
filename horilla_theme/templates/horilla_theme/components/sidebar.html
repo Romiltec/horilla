@@ -150,7 +150,7 @@ function isChartEmpty(chart) {
     });
 }
 
-function showEmptyState(chart, message = "No records available at the moment") {
+function showEmptyState(chart, message = "{% trans 'No records available at the moment' %}") {
     const $canvas = $(chart.canvas);
     const chartId = $canvas.attr("id");
 

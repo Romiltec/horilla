@@ -182,7 +182,7 @@ $(document).ready(function () {
 
                             ctx.font = "15px sans-serif";
                             ctx.fillStyle = "#9ca3af";
-                            ctx.fillText("Total", width / 2, height / 2 + 20);
+                            ctx.fillText(gettext("Total"), width / 2, height / 2 + 20);
 
                             ctx.restore();
                         },
@@ -398,7 +398,7 @@ $(document).ready(function () {
 
                             ctx.font = "15px sans-serif";
                             ctx.fillStyle = "#9ca3af";
-                            ctx.fillText("Total", width / 2, height / 2 + 20);
+                            ctx.fillText(gettext("Total"), width / 2, height / 2 + 20);
 
                             ctx.restore();
                         },
