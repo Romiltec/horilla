@@ -17,9 +17,8 @@ from django.core.files.storage import FileSystemStorage
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 env = environ.Env(
-    DEBUG=(bool, True),
-    SECRET_KEY=(str, "django-insecure-default-key"),
-    ALLOWED_HOSTS=(list, ["*"]),
+    DEBUG=(bool, False),
+    ALLOWED_HOSTS=(list, []),
     CSRF_TRUSTED_ORIGINS=(list, ["http://localhost:8000"]),
 )
 
@@ -32,6 +31,15 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 ALLOWED_HOSTS = env("ALLOWED_HOSTS")
 CSRF_TRUSTED_ORIGINS = env("CSRF_TRUSTED_ORIGINS")
+CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=["http://localhost:8000"])
+
+# HTTPS Security (enable in production behind HTTPS)
+SECURE_SSL_REDIRECT = env("SECURE_SSL_REDIRECT", default=False)
+SESSION_COOKIE_SECURE = env("SESSION_COOKIE_SECURE", default=False)
+CSRF_COOKIE_SECURE = env("CSRF_COOKIE_SECURE", default=False)
+SECURE_HSTS_SECONDS = env("SECURE_HSTS_SECONDS", default=0)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env("SECURE_HSTS_INCLUDE_SUBDOMAINS", default=False)
+SECURE_HSTS_PRELOAD = env("SECURE_HSTS_PRELOAD", default=False)
 
 THEME_APP = "horilla_theme"
 
@@ -100,7 +108,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=30),
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
 }
 
 SWAGGER_SETTINGS = {
