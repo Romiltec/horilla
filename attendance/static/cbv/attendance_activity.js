@@ -1,14 +1,14 @@
-tickCheckboxes();
+if (typeof tickCheckboxes === "function") tickCheckboxes();
 function makeListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickactivityCheckboxes();
+if (typeof tickactivityCheckboxes === "function") tickactivityCheckboxes();
 function makeactivityListUnique(list) {
     return Array.from(new Set(list));
 }
 
-ticklatecomeCheckboxes();
+if (typeof ticklatecomeCheckboxes === "function") ticklatecomeCheckboxes();
 function makelatecomeListUnique(list) {
     return Array.from(new Set(list));
 }
@@ -32,7 +32,7 @@ function getCookie(name) {
 function deleteAttendanceNav() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -52,7 +52,7 @@ function deleteAttendanceNav() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/attendance/attendance-activity-bulk-delete",
@@ -152,7 +152,7 @@ function importAttendanceActivity() {
 function bulkDeleteAttendanceNav() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -172,7 +172,7 @@ function bulkDeleteAttendanceNav() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/attendance/attendance-bulk-delete",
@@ -215,7 +215,7 @@ function showApproveAlert(dataReqValue) {
 function bulkValidateTabAttendance(dataReqValue) {
     ids = [];
     ids.push($("#validateselectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#validateselectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#validateselectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -235,7 +235,7 @@ function bulkValidateTabAttendance(dataReqValue) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#validateselectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#validateselectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#validateselectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/attendance/validate-bulk-attendance",
@@ -258,7 +258,7 @@ function bulkValidateTabAttendance(dataReqValue) {
 function otBulkValidateTabAttendance(dataReqValue) {
     ids = [];
     ids.push($("#overtimeselectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#overtimeselectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#overtimeselectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: gettext("No rows are selected from OT Attendances."),
@@ -278,7 +278,7 @@ function otBulkValidateTabAttendance(dataReqValue) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#overtimeselectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#overtimeselectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#overtimeselectedInstances").attr("data-ids") || "[]");
 
                 $.ajax({
                     type: "POST",

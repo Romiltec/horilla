@@ -1,14 +1,14 @@
-tickCheckboxes();
+if (typeof tickCheckboxes === "function") tickCheckboxes();
 function makeListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickactivityCheckboxes();
+if (typeof tickactivityCheckboxes === "function") tickactivityCheckboxes();
 function makeactivityListUnique(list) {
     return Array.from(new Set(list));
 }
 
-ticklatecomeCheckboxes();
+if (typeof ticklatecomeCheckboxes === "function") ticklatecomeCheckboxes();
 function makelatecomeListUnique(list) {
     return Array.from(new Set(list));
 }
@@ -17,7 +17,7 @@ function makelatecomeListUnique(list) {
 function hourAccountbulkDelete() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -37,7 +37,7 @@ function hourAccountbulkDelete() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/attendance/attendance-account-bulk-delete/",
@@ -60,7 +60,7 @@ function hourAccountbulkDelete() {
 function lateComeBulkDelete() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -80,7 +80,7 @@ function lateComeBulkDelete() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/attendance/late-come-early-out-bulk-delete/",
@@ -103,7 +103,7 @@ function lateComeBulkDelete() {
 function reqAttendanceBulkApprove() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -145,7 +145,7 @@ function reqAttendanceBulkApprove() {
 function reqAttendanceBulkReject() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: gettext("No rows are selected from Validate Attendances."),
