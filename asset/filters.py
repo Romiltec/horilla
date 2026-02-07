@@ -322,22 +322,22 @@ class AssetHistoryFilter(CustomFilterSet):
     return_date_gte = django_filters.DateFilter(
         field_name="return_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     return_date_lte = django_filters.DateFilter(
         field_name="return_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     assigned_date_gte = django_filters.DateFilter(
         field_name="assigned_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     assigned_date_lte = django_filters.DateFilter(
         field_name="assigned_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     def exclude_none(self, queryset, name, value):

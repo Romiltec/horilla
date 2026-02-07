@@ -293,8 +293,8 @@ class RecruitmentCreationForm(BaseModelForm):
         fields = "__all__"
         exclude = ["is_active", "linkedin_post_id"]
         widgets = {
-            "start_date": forms.DateInput(attrs={"type": "date"}),
-            "end_date": forms.DateInput(attrs={"type": "date"}),
+            "start_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "end_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
             "description": forms.Textarea(attrs={"data-summernote": ""}),
         }
 
@@ -454,8 +454,8 @@ class CandidateCreationForm(BaseModelForm):
         ]
 
         widgets = {
-            "scheduled_date": forms.DateInput(attrs={"type": "date"}),
-            "dob": forms.DateInput(attrs={"type": "date"}),
+            "scheduled_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "dob": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
     def save(self, commit: bool = ...):
@@ -611,8 +611,8 @@ class RecruitmentDropDownForm(DropDownForm):
         fields = "__all__"
         model = Recruitment
         widgets = {
-            "start_date": forms.DateInput(attrs={"type": "date"}),
-            "end_date": forms.DateInput(attrs={"type": "date"}),
+            "start_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "end_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
             "description": forms.Textarea(attrs={"data-summernote": ""}),
         }
         labels = {"description": _("Description"), "vacancy": _("Vacancy")}

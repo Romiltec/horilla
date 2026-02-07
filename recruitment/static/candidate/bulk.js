@@ -1,4 +1,4 @@
-tickCandidateCheckboxes();
+if (typeof tickCandidateCheckboxes === "function") tickCandidateCheckboxes();
 
 function getCookie(name) {
     let cookieValue = null;
@@ -102,7 +102,7 @@ $("#archiveCandidates").click(function (e) {
 
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -145,7 +145,7 @@ $("#unArchiveCandidates").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -209,7 +209,7 @@ $("#deleteCandidates").click(function (e) {
                 ids = [];
 
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
 
                 $.ajax({
                     type: "POST",

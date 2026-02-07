@@ -41,29 +41,29 @@ class ContractFilter(HorillaFilterSet):
     search = django_filters.CharFilter(method="filter_by_contract")
     contract_start_date = django_filters.DateFilter(
         field_name="contract_start_date",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     contract_end_date = django_filters.DateFilter(
         field_name="contract_end_date",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     contract_start_date_from = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         field_name="contract_start_date",
         lookup_expr="gte",
     )
     contract_start_date_till = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         field_name="contract_start_date",
         lookup_expr="lte",
     )
     contract_end_date_from = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         field_name="contract_end_date",
         lookup_expr="gte",
     )
     contract_end_date_till = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         field_name="contract_end_date",
         lookup_expr="lte",
     )
@@ -235,28 +235,28 @@ class PayslipFilter(HorillaFilterSet):
         widget=forms.SelectMultiple(),
     )
     start_date = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     end_date = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     start_date_from = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         field_name="start_date",
         lookup_expr="gte",
     )
     start_date_till = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         field_name="start_date",
         lookup_expr="lte",
     )
     end_date_from = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         field_name="end_date",
         lookup_expr="gte",
     )
     end_date_till = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         field_name="end_date",
         lookup_expr="lte",
     )
@@ -412,16 +412,16 @@ class LoanAccountFilter(HorillaFilterSet):
     search = django_filters.CharFilter(method="filter_by_search")
     search_employee = django_filters.CharFilter(method=filter_by_name)
     provided_date = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         field_name="provided_date",
     )
     from_date = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         field_name="provided_date",
         lookup_expr="gte",
     )
     to_date = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         field_name="provided_date",
         lookup_expr="lte",
     )

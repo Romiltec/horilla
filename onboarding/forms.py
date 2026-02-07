@@ -130,7 +130,7 @@ class OnboardingCandidateForm(ModelForm):
             "job_position_id",
         )
         widgets = {
-            "joining_date": DateInput(attrs={"type": "date"}),
+            "joining_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
         labels = {
             "name": _("Full Name"),
@@ -364,7 +364,7 @@ class EmployeeCreationForm(ModelForm):
             "is_directly_converted",
         )
         widgets = {
-            "dob": DateInput(attrs={"type": "date"}),
+            "dob": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
     def clean(self):

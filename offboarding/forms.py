@@ -87,8 +87,8 @@ class OffboardingEmployeeForm(ModelForm):
         fields = "__all__"
         exclude = ["notice_period", "unit", "is_active"]
         widgets = {
-            "notice_period_starts": forms.DateInput(attrs={"type": "date"}),
-            "notice_period_ends": forms.DateInput(attrs={"type": "date"}),
+            "notice_period_starts": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "notice_period_ends": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
     def as_p(self):

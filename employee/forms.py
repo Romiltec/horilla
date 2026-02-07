@@ -356,8 +356,8 @@ class EmployeeWorkInformationForm(ModelForm):
         exclude = ("employee_id", "additional_info", "experience")
 
         widgets = {
-            "date_joining": DateInput(attrs={"type": "date"}),
-            "contract_end_date": DateInput(attrs={"type": "date"}),
+            "date_joining": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "contract_end_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
     def __init__(self, *args, disable=False, **kwargs):
@@ -461,8 +461,8 @@ class EmployeeWorkInformationUpdateForm(ModelForm):
         exclude = ("employee_id", "experience", "additional_info")
 
         widgets = {
-            "date_joining": DateInput(attrs={"type": "date"}),
-            "contract_end_date": DateInput(attrs={"type": "date"}),
+            "date_joining": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "contract_end_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
     def __init__(self, *args, **kwargs):
@@ -787,7 +787,7 @@ class DisciplinaryActionForm(ModelForm):
         fields = "__all__"
         exclude = ["objects", "is_active"]
         widgets = {
-            "start_date": forms.DateInput(attrs={"type": "date"}),
+            "start_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
     action = forms.ModelChoiceField(

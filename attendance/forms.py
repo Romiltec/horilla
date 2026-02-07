@@ -681,9 +681,9 @@ class AttendanceRequestForm(BaseModelForm):
         widgets = {
             "attendance_clock_in": TimeInput(attrs={"type": "time"}),
             "attendance_clock_out": TimeInput(attrs={"type": "time"}),
-            "attendance_clock_out_date": DateInput(attrs={"type": "date"}),
-            "attendance_date": DateInput(attrs={"type": "date"}),
-            "attendance_clock_in_date": DateInput(attrs={"type": "date"}),
+            "attendance_clock_out_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "attendance_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "attendance_clock_in_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
     def as_p(self, *args, **kwargs):

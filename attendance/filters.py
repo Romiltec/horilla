@@ -148,12 +148,12 @@ class LateComeEarlyOutFilter(HorillaFilterSet):
     attendance_date__gte = django_filters.DateFilter(
         field_name="attendance_id__attendance_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     attendance_date__lte = django_filters.DateFilter(
         field_name="attendance_id__attendance_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     attendance_clock_in__lte = django_filters.TimeFilter(
         field_name="attendance_id__attendance_clock_in",
@@ -187,7 +187,7 @@ class LateComeEarlyOutFilter(HorillaFilterSet):
     )
     attendance_date = django_filters.DateFilter(
         field_name="attendance_id__attendance_date",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     overtime_second__lte = DurationInSecondsFilter(
         field_name="attendance_id__overtime_second", lookup_expr="lte"
@@ -266,17 +266,17 @@ class AttendanceActivityFilter(HorillaFilterSet):
     search = django_filters.CharFilter(method=filter_by_name)
 
     attendance_date = django_filters.DateFilter(
-        field_name="attendance_date", widget=forms.DateInput(attrs={"type": "date"})
+        field_name="attendance_date", widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d")
     )
     attendance_date_from = django_filters.DateFilter(
         field_name="attendance_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     attendance_date_till = django_filters.DateFilter(
         field_name="attendance_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     in_from = django_filters.DateFilter(
         field_name="clock_in",
@@ -299,10 +299,10 @@ class AttendanceActivityFilter(HorillaFilterSet):
         widget=forms.DateInput(attrs={"type": "time"}),
     )
     clock_in_date = django_filters.DateFilter(
-        field_name="clock_in_date", widget=forms.DateInput(attrs={"type": "date"})
+        field_name="clock_in_date", widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d")
     )
     clock_out_date = django_filters.DateFilter(
-        field_name="clock_out_date", widget=forms.DateInput(attrs={"type": "date"})
+        field_name="clock_out_date", widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d")
     )
 
     class Meta:
@@ -364,12 +364,12 @@ class AttendanceFilters(HorillaFilterSet):
     attendance_date__gte = django_filters.DateFilter(
         field_name="attendance_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     attendance_date__lte = django_filters.DateFilter(
         field_name="attendance_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     attendance_clock_in__lte = django_filters.TimeFilter(
@@ -402,7 +402,7 @@ class AttendanceFilters(HorillaFilterSet):
     )
 
     attendance_date = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     pending_hour_lte = DurationInSecondsFilter(
         method="filter_pending_hour",

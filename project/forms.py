@@ -27,8 +27,8 @@ class ProjectForm(ModelForm):
         fields = "__all__"
         exclude = ["is_active"]
         widgets = {
-            "start_date": forms.DateInput(attrs={"type": "date"}),
-            "end_date": forms.DateInput(attrs={"type": "date"}),
+            "start_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "end_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
 
@@ -61,8 +61,8 @@ class ProjectTimeSheetForm(ModelForm):
         model = Project
         fields = "__all__"
         widgets = {
-            "start_date": forms.DateInput(attrs={"type": "date"}),
-            "end_date": forms.DateInput(attrs={"type": "date"}),
+            "start_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "end_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
 
@@ -81,7 +81,7 @@ class TaskForm(ModelForm):
         # exclude = ("project_id",)
 
         widgets = {
-            "end_date": forms.DateInput(attrs={"type": "date"}),
+            "end_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
             "project": forms.HiddenInput(),
             "stage": forms.HiddenInput(),
             "sequence": forms.HiddenInput(),
@@ -122,7 +122,7 @@ class TaskFormCreate(ModelForm):
         # exclude = ("project_id",)
 
         widgets = {
-            "end_date": forms.DateInput(attrs={"type": "date"}),
+            "end_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
             "project": forms.HiddenInput(),
             "sequence": forms.HiddenInput(),
             "stage": forms.SelectMultiple(
@@ -165,8 +165,8 @@ class TaskAllForm(ModelForm):
         exclude = ["is_active"]
 
         widgets = {
-            "start_date": forms.DateInput(attrs={"type": "date"}),
-            "end_date": forms.DateInput(attrs={"type": "date"}),
+            "start_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "end_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
             "sequence": forms.HiddenInput(),
         }
 
@@ -230,7 +230,7 @@ class TimeSheetForm(ModelForm):
         fields = "__all__"
         exclude = ["is_active"]
         widgets = {
-            "date": forms.DateInput(attrs={"type": "date"}),
+            "date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
     def __init__(self, *args, request=None, **kwargs):
@@ -277,7 +277,7 @@ class TimesheetInTaskForm(ModelForm):
         model = TimeSheet
         fields = "__all__"
         widgets = {
-            "date": forms.DateInput(attrs={"type": "date"}),
+            "date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
             "project_id": forms.HiddenInput(),
             "task_id": forms.HiddenInput(),
         }
@@ -318,7 +318,7 @@ class TaskTimeSheetForm(ModelForm):
         fields = "__all__"
         exclude = ["is_active"]
         widgets = {
-            "end_date": forms.DateInput(attrs={"type": "date"}),
+            "end_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
             "project": forms.HiddenInput(),
         }
 

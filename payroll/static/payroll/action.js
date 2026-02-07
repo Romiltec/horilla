@@ -1,4 +1,4 @@
-tickContractCheckboxes();
+if (typeof tickContractCheckboxes === "function") tickContractCheckboxes();
 
 function makeEmpListUnique(list) {
     return Array.from(new Set(list));
@@ -494,7 +494,7 @@ function exportContractRequest() {
 
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -547,7 +547,7 @@ $("#DeleteContractBulk").click(function (e) {
 
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -567,7 +567,7 @@ $("#DeleteContractBulk").click(function (e) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
 
                 $.ajax({
                     type: "POST",

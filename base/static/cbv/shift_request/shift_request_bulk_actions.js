@@ -1,19 +1,19 @@
-tickShiftCheckboxes();
+if (typeof tickShiftCheckboxes === "function") tickShiftCheckboxes();
 function makeShiftListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickWorktypeCheckboxes();
+if (typeof tickWorktypeCheckboxes === "function") tickWorktypeCheckboxes();
 function makeWorktypeListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickRShiftCheckboxes();
+if (typeof tickRShiftCheckboxes === "function") tickRShiftCheckboxes();
 function makeRShiftListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickRWorktypeCheckboxes();
+if (typeof tickRWorktypeCheckboxes === "function") tickRWorktypeCheckboxes();
 function makeRWorktypeListUnique(list) {
     return Array.from(new Set(list));
 }
@@ -49,7 +49,7 @@ function shiftRequestApprove() {
     // addIdsTab("shiftselectedInstances");
     // addIdsTab("allocatedselectedInstances");
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -70,7 +70,7 @@ function shiftRequestApprove() {
             if (result.isConfirmed) {
                 // ids = [];
                 // ids.push($("#selectedInstances").attr("data-ids"));
-                // ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                // ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/shift-request-bulk-approve",
@@ -102,7 +102,7 @@ function shiftRequestReject() {
     // addIdsTab("shiftselectedInstances");
     // addIdsTab("allocatedselectedInstances");
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -151,7 +151,7 @@ function shiftRequestDelete() {
     // addIdsTab("shiftselectedInstances");
     // addIdsTab("allocatedselectedInstances");
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -193,7 +193,7 @@ function shiftRequestDelete() {
 function archiveRotateShift() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -213,7 +213,7 @@ function archiveRotateShift() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/rotating-shift-assign-bulk-archive?is_active=False",
@@ -237,7 +237,7 @@ function archiveRotateShift() {
 function un_archiveRotateShift() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -257,7 +257,7 @@ function un_archiveRotateShift() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/rotating-shift-assign-bulk-archive?is_active=True",
@@ -281,7 +281,7 @@ function un_archiveRotateShift() {
 function deleteRotatingShift() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -301,7 +301,7 @@ function deleteRotatingShift() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/rotating-shift-assign-bulk-delete",

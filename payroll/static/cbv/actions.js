@@ -18,7 +18,7 @@ function getCookie(name) {
 function DeleteContractBulk() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -38,7 +38,7 @@ function DeleteContractBulk() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
 
                 $.ajax({
                     type: "POST",

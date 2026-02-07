@@ -896,7 +896,7 @@ class RotatingWorkTypeForm(ModelForm):
         fields = "__all__"
         exclude = ["employee_id", "is_active"]
         widgets = {
-            "start_date": DateInput(attrs={"type": "date"}),
+            "start_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
             "additional_data": forms.HiddenInput(),
         }
 
@@ -1037,7 +1037,7 @@ class RotatingWorkTypeAssignForm(ModelForm):
             "additional_data",
         ]
         widgets = {
-            "start_date": DateInput(attrs={"type": "date"}),
+            "start_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
             "is_active": HiddenInput(),
         }
         labels = {
@@ -1212,7 +1212,7 @@ class RotatingWorkTypeAssignUpdateForm(forms.ModelForm):
             "additional_data",
         ]
         widgets = {
-            "start_date": DateInput(attrs={"type": "date"}),
+            "start_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
         labels = {
             "start_date": _("Start date"),
@@ -1710,7 +1710,7 @@ class RotatingShiftAssignForm(ModelForm):
             "additional_data",
         ]
         widgets = {
-            "start_date": DateInput(attrs={"type": "date"}),
+            "start_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
         labels = {
             "rotating_shift_id": _("Rotating Shift"),
@@ -1868,7 +1868,7 @@ class RotatingShiftAssignUpdateForm(ModelForm):
             "additional_data",
         ]
         widgets = {
-            "start_date": DateInput(attrs={"type": "date"}),
+            "start_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
         labels = {
             "start_date": _("Start date"),
@@ -1987,8 +1987,8 @@ class ShiftRequestForm(ModelForm):
             "shift_changed",
         ]
         widgets = {
-            "requested_date": DateInput(attrs={"type": "date"}),
-            "requested_till": DateInput(attrs={"type": "date"}),
+            "requested_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "requested_till": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
         labels = {
             "description": _("Description"),
@@ -2041,7 +2041,7 @@ class ShiftAllocationForm(ModelForm):
             "shift_changed",
         )
         widgets = {
-            "requested_date": DateInput(attrs={"type": "date"}),
+            "requested_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
             "requested_till": DateInput(attrs={"type": "date", "required": "true"}),
         }
 
@@ -2104,8 +2104,8 @@ class WorkTypeRequestForm(ModelForm):
             "work_type_changed",
         )
         widgets = {
-            "requested_date": DateInput(attrs={"type": "date"}),
-            "requested_till": DateInput(attrs={"type": "date"}),
+            "requested_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "requested_till": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
         labels = {
             "requested_date": _("Requested Date"),
@@ -2699,7 +2699,7 @@ class AnnouncementForm(ModelForm):
         exclude = ["is_active"]
         widgets = {
             "description": forms.Textarea(attrs={"data-summernote": ""}),
-            "expire_date": DateInput(attrs={"type": "date"}),
+            "expire_date": DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
     def clean_description(self):
@@ -3025,10 +3025,10 @@ class HolidayForm(ModelForm):
     cols = {"name": 12}
 
     start_date = forms.DateField(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     end_date = forms.DateField(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     def clean_end_date(self):

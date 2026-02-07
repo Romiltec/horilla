@@ -433,8 +433,8 @@ class GeneratePayslipForm(HorillaForm):
         label=_("Employee"),
         required=True,
     )
-    start_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
-    end_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
+    start_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"))
+    end_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"))
 
     def clean(self):
         cleaned_data = super().clean()
@@ -481,8 +481,8 @@ class GeneratePayslipForm(HorillaForm):
         """
 
         widgets = {
-            "start_date": forms.DateInput(attrs={"type": "date"}),
-            "end_date": forms.DateInput(attrs={"type": "date"}),
+            "start_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "end_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
 

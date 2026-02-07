@@ -70,12 +70,12 @@ class TicketFilter(FilterSet):
     from_date = DateFilter(
         field_name="deadline",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     to_date = DateFilter(
         field_name="deadline",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     pipeline_status = django_filters.CharFilter(
         field_name="status",

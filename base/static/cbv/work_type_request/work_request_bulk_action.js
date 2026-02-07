@@ -1,19 +1,19 @@
-tickShiftCheckboxes();
+if (typeof tickShiftCheckboxes === "function") tickShiftCheckboxes();
 function makeShiftListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickWorktypeCheckboxes();
+if (typeof tickWorktypeCheckboxes === "function") tickWorktypeCheckboxes();
 function makeWorktypeListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickRShiftCheckboxes();
+if (typeof tickRShiftCheckboxes === "function") tickRShiftCheckboxes();
 function makeRShiftListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickRWorktypeCheckboxes();
+if (typeof tickRWorktypeCheckboxes === "function") tickRWorktypeCheckboxes();
 function makeRWorktypeListUnique(list) {
     return Array.from(new Set(list));
 }
@@ -38,7 +38,7 @@ function getCookie(name) {
 function handleApproveRequestsClick() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -58,7 +58,7 @@ function handleApproveRequestsClick() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/work-type-request-bulk-approve",
@@ -83,7 +83,7 @@ function handleApproveRequestsClick() {
 function handleRejectRequestsClick() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -103,7 +103,7 @@ function handleRejectRequestsClick() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/work-type-request-bulk-cancel",
@@ -127,7 +127,7 @@ function handleRejectRequestsClick() {
 function handleDeleteRequestsClick() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -147,7 +147,7 @@ function handleDeleteRequestsClick() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/work-type-request-bulk-delete",
@@ -174,7 +174,7 @@ $(document).on('click', '#archiveWorkRotateNav', function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -194,7 +194,7 @@ $(document).on('click', '#archiveWorkRotateNav', function (e) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/rotating-work-type-assign-bulk-archive?is_active=False",
@@ -219,7 +219,7 @@ $(document).on('click', '#archiveWorkRotateNav', function (e) {
 function UnarchiveWorkRotateNav() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -239,7 +239,7 @@ function UnarchiveWorkRotateNav() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/rotating-work-type-assign-bulk-archive?is_active=True",
@@ -263,7 +263,7 @@ function UnarchiveWorkRotateNav() {
 function deleteWorkRotateNav() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -283,7 +283,7 @@ function deleteWorkRotateNav() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/rotating-work-type-assign-bulk-delete",

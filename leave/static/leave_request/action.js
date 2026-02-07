@@ -1,9 +1,9 @@
-tickLeaverequestsCheckboxes();
+if (typeof tickLeaverequestsCheckboxes === "function") tickLeaverequestsCheckboxes();
 function makeLeaverequestsListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickUserrequestsCheckboxes();
+if (typeof tickUserrequestsCheckboxes === "function") tickUserrequestsCheckboxes();
 function makeUserrequestsListUnique(list) {
     return Array.from(new Set(list));
 }

@@ -1,4 +1,4 @@
-tickLeaveCheckboxes();
+if (typeof tickLeaveCheckboxes === "function") tickLeaveCheckboxes();
 function makeLeaveListUnique(list) {
     return Array.from(new Set(list));
 }
@@ -45,7 +45,7 @@ function leaveAssigBulkDelete() {
 
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -65,7 +65,7 @@ function leaveAssigBulkDelete() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/leave/assigned-leave-bulk-delete",

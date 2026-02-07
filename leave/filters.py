@@ -79,7 +79,7 @@ class AssignedLeaveFilter(FilterSet):
     assigned_date = DateFilter(
         field_name="assigned_date",
         lookup_expr="exact",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     available_days__gte = NumberFilter(field_name="available_days", lookup_expr="gte")
     available_days__lte = NumberFilter(field_name="available_days", lookup_expr="lte")
@@ -136,24 +136,24 @@ class LeaveRequestFilter(HorillaFilterSet):
     from_date = DateFilter(
         field_name="end_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     to_date = DateFilter(
         field_name="start_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     start_date = DateFilter(
         field_name="start_date",
         lookup_expr="exact",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     end_date = DateFilter(
         field_name="end_date",
         lookup_expr="exact",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     department_name = django_filters.CharFilter(
         field_name="employee_id__employee_work_info__department_id__department",
@@ -284,24 +284,24 @@ class UserLeaveRequestFilter(FilterSet):
     from_date = DateFilter(
         field_name="end_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     to_date = DateFilter(
         field_name="start_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     start_date = DateFilter(
         field_name="start_date",
         lookup_expr="exact",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     end_date = DateFilter(
         field_name="end_date",
         lookup_expr="exact",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     class Meta:
@@ -457,12 +457,12 @@ class RestrictLeaveFilter(FilterSet):
     from_date = DateFilter(
         field_name="start_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     to_date = DateFilter(
         field_name="end_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     class Meta:

@@ -257,7 +257,7 @@ $(document).on("click", "#archiveEmployees", function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -278,7 +278,7 @@ $(document).on("click", "#archiveEmployees", function (e) {
                 e.preventDefault();
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/employee/employee-bulk-archive?is_active=False",
@@ -305,7 +305,7 @@ $(document).on("click", "#unArchiveEmployees", function (e) {
 
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -328,7 +328,7 @@ $(document).on("click", "#unArchiveEmployees", function (e) {
                 ids = [];
 
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
 
                 $.ajax({
                     type: "POST",
@@ -353,7 +353,7 @@ $(document).on("click", "#unArchiveEmployees", function (e) {
 $(document).on("click", "#employeeBulkUpdateId", function (e) {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         $("#bulkUpdateModal").removeClass("oh-modal--show");
         Swal.fire({
@@ -372,7 +372,7 @@ $(document).on("click", "#deleteEmployees", function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -394,7 +394,7 @@ $(document).on("click", "#deleteEmployees", function (e) {
 
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
 
                 $.ajax({
                     type: "POST",

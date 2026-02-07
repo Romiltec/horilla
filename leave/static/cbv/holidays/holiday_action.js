@@ -4,7 +4,7 @@ function createHolidayHxValue() {
     $("#holidayCreateButton").attr("hx-vals", `{"pd":${hxValue}}`);
 }
 
-tickHolidayCheckboxes();
+if (typeof tickHolidayCheckboxes === "function") tickHolidayCheckboxes();
 function makeHolidayListUnique(list) {
     return Array.from(new Set(list));
 }
@@ -79,7 +79,7 @@ function importHolidays() {
 function bulkDeleteHoliday() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -99,7 +99,7 @@ function bulkDeleteHoliday() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/holidays-bulk-delete",

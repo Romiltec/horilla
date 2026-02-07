@@ -2,7 +2,7 @@ function makeListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickHolidayCheckboxes();
+if (typeof tickHolidayCheckboxes === "function") tickHolidayCheckboxes();
 function makeHolidayListUnique(list) {
     return Array.from(new Set(list));
 }

@@ -43,17 +43,17 @@ class ShiftRequestFilter(HorillaFilterSet):
     """
 
     requested_date = django_filters.DateFilter(
-        field_name="requested_date", widget=forms.DateInput(attrs={"type": "date"})
+        field_name="requested_date", widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d")
     )
     requested_date__gte = django_filters.DateFilter(
         field_name="requested_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     requested_date__lte = django_filters.DateFilter(
         field_name="requested_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     search = CharFilter(method=filter_by_name)
 
@@ -111,17 +111,17 @@ class WorkTypeRequestFilter(HorillaFilterSet):
     """
 
     requested_date = django_filters.DateFilter(
-        field_name="requested_date", widget=forms.DateInput(attrs={"type": "date"})
+        field_name="requested_date", widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d")
     )
     requested_date__gte = django_filters.DateFilter(
         field_name="requested_till",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     requested_date__lte = django_filters.DateFilter(
         field_name="requested_till",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     requested = django_filters.BooleanFilter(
         method="filter_by_requested", label="Requested"
@@ -179,10 +179,10 @@ class RotatingShiftAssignFilters(HorillaFilterSet):
     search = CharFilter(method=filter_by_name)
 
     next_change_date = django_filters.DateFilter(
-        field_name="next_change_date", widget=forms.DateInput(attrs={"type": "date"})
+        field_name="next_change_date", widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d")
     )
     start_date = django_filters.DateFilter(
-        field_name="start_date", widget=forms.DateInput(attrs={"type": "date"})
+        field_name="start_date", widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d")
     )
 
     class Meta:
@@ -223,10 +223,10 @@ class RotatingWorkTypeAssignFilter(HorillaFilterSet):
     search = CharFilter(method=filter_by_name)
 
     next_change_date = django_filters.DateFilter(
-        field_name="next_change_date", widget=forms.DateInput(attrs={"type": "date"})
+        field_name="next_change_date", widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d")
     )
     start_date = django_filters.DateFilter(
-        field_name="start_date", widget=forms.DateInput(attrs={"type": "date"})
+        field_name="start_date", widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d")
     )
 
     class Meta:
@@ -512,24 +512,24 @@ class HolidayFilter(HorillaFilterSet):
     from_date = DateFilter(
         field_name="start_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     to_date = DateFilter(
         field_name="end_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     start_date = DateFilter(
         field_name="start_date",
         lookup_expr="exact",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     end_date = DateFilter(
         field_name="end_date",
         lookup_expr="exact",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     class Meta:

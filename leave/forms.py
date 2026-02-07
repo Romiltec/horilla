@@ -134,7 +134,7 @@ class LeaveTypeForm(ConditionForm):
             "color": TextInput(attrs={"type": "color", "style": "height:40px;"}),
             "period_in": forms.HiddenInput(),
             "total_days": forms.HiddenInput(),
-            "carryforward_expire_date": forms.DateInput(attrs={"type": "date"}),
+            "carryforward_expire_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
     def clean(self):
@@ -198,7 +198,7 @@ class UpdateLeaveTypeForm(ConditionForm):
             "color": TextInput(attrs={"type": "color", "style": "height:40px;"}),
             "period_in": forms.HiddenInput(),
             "total_days": forms.HiddenInput(),
-            "carryforward_expire_date": forms.DateInput(attrs={"type": "date"}),
+            "carryforward_expire_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         }
 
     def clean(self):
@@ -220,8 +220,8 @@ class UpdateLeaveTypeForm(ConditionForm):
 
 class LeaveRequestCreationForm(BaseModelForm):
     cols = {"description": 12}
-    start_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
-    end_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
+    start_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"))
+    end_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"))
 
     def __init__(self, *args, **kwargs):
 
@@ -287,8 +287,8 @@ class LeaveRequestCreationForm(BaseModelForm):
 
 
 class LeaveRequestUpdationForm(BaseModelForm):
-    start_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
-    end_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
+    start_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"))
+    end_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"))
 
     def __init__(self, *args, **kwargs):
 
@@ -475,8 +475,8 @@ class CompanyLeaveForm(BaseModelForm):
 
 
 class UserLeaveRequestForm(BaseModelForm):
-    start_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
-    end_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
+    start_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"))
+    end_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"))
     description = forms.CharField(label=_("Description"), widget=forms.Textarea)
 
     def __init__(self, *args, **kwargs):
@@ -597,8 +597,8 @@ class RejectForm(forms.Form):
 
 class UserLeaveRequestCreationForm(BaseModelForm):
     cols = {"description": 12}
-    start_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
-    end_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
+    start_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"))
+    end_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"))
 
     def as_p(self, *args, **kwargs):
         """
@@ -922,10 +922,10 @@ class RestrictLeaveForm(BaseModelForm):
 
     cols = {"title": 12, "description": 12}
     start_date = forms.DateField(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     end_date = forms.DateField(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     def clean_end_date(self):

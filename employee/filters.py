@@ -93,12 +93,12 @@ class EmployeeFilter(HorillaFilterSet):
     probation_from = django_filters.DateFilter(
         field_name="candidate_get__probation_end",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     probation_till = django_filters.DateFilter(
         field_name="candidate_get__probation_end",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     # working_today = django_filters.BooleanFilter(
     #     label="Working", method="get_working_today"
@@ -106,11 +106,11 @@ class EmployeeFilter(HorillaFilterSet):
 
     not_in_yet = django_filters.DateFilter(
         method="not_in_yet_func",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     not_out_yet = django_filters.DateFilter(
         method="not_out_yet_func",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     class Meta:
@@ -327,7 +327,7 @@ class DisciplinaryActionFilter(FilterSet):
     search = CharFilter(method=filter_by_name)
 
     start_date = django_filters.DateFilter(
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     class Meta:

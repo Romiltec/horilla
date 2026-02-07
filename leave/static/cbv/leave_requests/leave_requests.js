@@ -1,4 +1,4 @@
-tickLeaverequestsCheckboxes();
+if (typeof tickLeaverequestsCheckboxes === "function") tickLeaverequestsCheckboxes();
 function makeLeaverequestsListUnique(list) {
     return Array.from(new Set(list));
 }
@@ -41,7 +41,7 @@ function tickLeaverequestsCheckboxes() {
 //     var textMessage = noRowMessage[languageCode];
 //     ids = [];
 //     ids.push($("#selectedInstances").attr("data-ids"));
-//     ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+//     ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
 //     console.log(ids) // Parse IDs
 
 //     if (ids.length === 0) {
@@ -62,7 +62,7 @@ function tickLeaverequestsCheckboxes() {
 //         if (result.isConfirmed) {
 //           ids = [];
 //           ids.push($("#selectedInstances").attr("data-ids"));
-//           ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+//           ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
 //           console.log(ids)
 //           $.ajax({
 //             type: "POST",
@@ -91,7 +91,7 @@ function tickLeaverequestsCheckboxes() {
 
 
 function bulkApproveLeaveRequests() {
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
 
     if (ids.length === 0) {
         Swal.fire({
@@ -121,7 +121,7 @@ function bulkApproveLeaveRequests() {
 function bulkDeleteLeaveRequests() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -141,7 +141,7 @@ function bulkDeleteLeaveRequests() {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/leave/leave-request-bulk-delete",

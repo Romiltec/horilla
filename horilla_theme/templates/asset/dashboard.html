@@ -1,10 +1,9 @@
-{% load i18n %}
+{% extends 'index.html' %} {% block content %} {% load static i18n horillafilters mathfilters  %}
 <style>
     .oh-info {
       top: 2px !important;
     }
   </style>
-  {% extends 'index.html' %} {% block content %} {% load static i18n horillafilters mathfilters  %}
   <div class="grid grid-cols-1 xl:grid-cols-3 md:grid-cols-2 gap-4 mb-4">
     <div class="bg-white p-6 rounded-md shadow-card relative">
       <div class="flex items-center gap-4">

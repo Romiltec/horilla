@@ -360,12 +360,12 @@ class AnonymousFeedbackFilter(django_filters.FilterSet):
     start_date = django_filters.DateFilter(
         field_name="created_at",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     end_date = django_filters.DateFilter(
         field_name="created_at",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     class Meta:
@@ -494,42 +494,42 @@ class EmployeeObjectiveFilter(HorillaFilterSet):
     start_date_from = django_filters.DateFilter(
         field_name="start_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     start_date_till = django_filters.DateFilter(
         field_name="start_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     end_date_from = django_filters.DateFilter(
         field_name="end_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     end_date_till = django_filters.DateFilter(
         field_name="end_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     kr_start_date_from = django_filters.DateFilter(
         method="kr_start_date_till_method",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     kr_start_date_till = django_filters.DateFilter(
         method="kr_start_date_till_method",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     kr_end_date_from = django_filters.DateFilter(
         method="kr_end_date_from_method",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     kr_end_date_till = django_filters.DateFilter(
         method="kr_end_date_till_method",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     due = django_filters.ChoiceFilter(
@@ -648,17 +648,17 @@ class MeetingsFilter(HorillaFilterSet):
     date = django_filters.DateFilter(
         field_name="date",
         lookup_expr="date",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     date_greater = django_filters.DateFilter(
         field_name="date",
         lookup_expr="date__gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     date_less = django_filters.DateFilter(
         field_name="date",
         lookup_expr="date__lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     class Meta:
@@ -821,22 +821,22 @@ class BonusPointSettingFilter(FilterSet):
     # start_date_from = django_filters.DateFilter(
     #     field_name="start_date",
     #     lookup_expr="gte",
-    #     widget=forms.DateInput(attrs={"type": "date"}),
+    #     widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     # )
     # start_date_till = django_filters.DateFilter(
     #     field_name="start_date",
     #     lookup_expr="lte",
-    #     widget=forms.DateInput(attrs={"type": "date"}),
+    #     widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     # )
     # end_date_from = django_filters.DateFilter(
     #     field_name="end_date",
     #     lookup_expr="gte",
-    #     widget=forms.DateInput(attrs={"type": "date"}),
+    #     widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     # )
     # end_date_till = django_filters.DateFilter(
     #     field_name="end_date",
     #     lookup_expr="lte",
-    #     widget=forms.DateInput(attrs={"type": "date"}),
+    #     widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     # )
 
     class Meta:

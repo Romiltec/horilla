@@ -25,7 +25,7 @@ function getCookie(name) {
 function bulkSendViaMail() {
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    maildata = JSON.parse($("#selectedInstances").attr("data-ids"));
+    maildata = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (maildata.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -45,7 +45,7 @@ function bulkSendViaMail() {
             if (result.isConfirmed) {
 
                 // ids.push($("#selectedInstances").attr("data-ids"));
-                //ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                //ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
 
                 $.ajax({
 
@@ -70,7 +70,7 @@ function payslipBulkDelete() {
     var checkedRows = $(".payslip-checkbox").filter(":checked");
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if ((ids.length === 0) & (checkedRows.length === 0)) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -97,7 +97,7 @@ function payslipBulkDelete() {
                 } else if (checkedRows.length === 0) {
                     ids = [];
                     ids.push($("#selectedInstances").attr("data-ids"));
-                    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 }
                 $.ajax({
                     type: "POST",

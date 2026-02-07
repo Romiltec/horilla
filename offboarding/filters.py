@@ -28,7 +28,7 @@ class LetterFilter(HorillaFilterSet):
     search = django_filters.CharFilter(field_name="title", lookup_expr="icontains")
     planned_to_leave_on = django_filters.DateFilter(
         field_name="planned_to_leave_on",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     class Meta:
@@ -108,12 +108,12 @@ class PipelineEmployeeFilter(HorillaFilterSet):
     notice_period_starts = django_filters.DateFilter(
         field_name="notice_period_starts",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     notice_period_ends = django_filters.DateFilter(
         field_name="notice_period_ends",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     offboarding_stage_id = django_filters.CharFilter(
         field_name="stage_id",

@@ -1,14 +1,14 @@
-tickCheckboxes();
+if (typeof tickCheckboxes === "function") tickCheckboxes();
 function makeListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickactivityCheckboxes();
+if (typeof tickactivityCheckboxes === "function") tickactivityCheckboxes();
 function makeactivityListUnique(list) {
     return Array.from(new Set(list));
 }
 
-ticklatecomeCheckboxes();
+if (typeof ticklatecomeCheckboxes === "function") ticklatecomeCheckboxes();
 function makelatecomeListUnique(list) {
     return Array.from(new Set(list));
 }
@@ -854,7 +854,7 @@ $("#exportAccounts").click(function (e) {
     var currentDate = new Date().toISOString().slice(0, 10);
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
 
     Swal.fire({
         text: i18nMessages.downloadExcel,
@@ -1046,7 +1046,7 @@ $("#hourAccountbulkDelete").click(function (e) {
     e.preventDefault();
     ids = [];
     ids.push($("#selectedInstances").attr("data-ids"));
-    ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+    ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
     if (ids.length === 0) {
         Swal.fire({
             text: i18nMessages.noRowsSelected,
@@ -1066,7 +1066,7 @@ $("#hourAccountbulkDelete").click(function (e) {
             if (result.isConfirmed) {
                 ids = [];
                 ids.push($("#selectedInstances").attr("data-ids"));
-                ids = JSON.parse($("#selectedInstances").attr("data-ids"));
+                ids = JSON.parse($("#selectedInstances").attr("data-ids") || "[]");
                 $.ajax({
                     type: "POST",
                     url: "/attendance/attendance-account-bulk-delete",

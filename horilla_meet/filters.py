@@ -17,12 +17,12 @@ class GoogleMeetingFilter(HorillaFilterSet):
     from_date = django_filters.DateFilter(
         field_name="start_time",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     to_date = django_filters.DateFilter(
         field_name="start_time",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     class Meta:

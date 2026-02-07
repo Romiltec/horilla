@@ -27,13 +27,13 @@ class ProjectFilter(HorillaFilterSet):
     start_from = django_filters.DateFilter(
         field_name="start_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         label=_("Start From"),
     )
     end_till = django_filters.DateFilter(
         field_name="end_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         label=_("End Till"),
     )
 
@@ -52,7 +52,7 @@ class TaskFilter(FilterSet):
     end_till = django_filters.DateFilter(
         field_name="end_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     class Meta:
@@ -76,7 +76,7 @@ class TaskAllFilter(HorillaFilterSet):
     end_till = django_filters.DateFilter(
         field_name="end_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         label=_("End Date Till"),
     )
 
@@ -104,18 +104,18 @@ class TimeSheetFilter(HorillaFilterSet):
     """
 
     date = django_filters.DateFilter(
-        field_name="date", widget=forms.DateInput(attrs={"type": "date"})
+        field_name="date", widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d")
     )
     start_from = django_filters.DateFilter(
         field_name="date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         label=_("Start Date From"),
     )
     end_till = django_filters.DateFilter(
         field_name="date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         label=_("End Date Till"),
     )
 

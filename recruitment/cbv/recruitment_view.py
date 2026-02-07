@@ -192,8 +192,8 @@ class RecruitmentCreationFormExtended(RecruitmentCreationForm):
         ]
         exclude = ["is_active"]
         widgets = {
-            "start_date": forms.DateInput(attrs={"type": "date"}),
-            "end_date": forms.DateInput(attrs={"type": "date"}),
+            "start_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+            "end_date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
             "description": forms.Textarea(attrs={"data-summernote": ""}),
         }
         labels = {

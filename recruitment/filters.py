@@ -57,47 +57,47 @@ class CandidateFilter(HorillaFilterSet):
     )
     start_date = django_filters.DateFilter(
         field_name="recruitment_id__start_date",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     end_date = django_filters.DateFilter(
         field_name="recruitment_id__end_date",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     scheduled_from = django_filters.DateFilter(
         field_name="candidate_interview__interview_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     probation_end = django_filters.DateFilter(
         field_name="probation_end",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     probation_end_till = django_filters.DateFilter(
         field_name="probation_end",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     probation_end_from = django_filters.DateFilter(
         field_name="probation_end",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     schedule_date = django_filters.DateFilter(
         field_name="schedule_date",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     hired_date = django_filters.DateFilter(
         field_name="hired_date",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     interview_date = django_filters.DateFilter(
         field_name="candidate_interview__interview_date",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     scheduled_till = django_filters.DateFilter(
         field_name="candidate_interview__interview_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     recruitment = django_filters.CharFilter(
         field_name="recruitment_id__title", lookup_expr="icontains"
@@ -312,20 +312,20 @@ class RecruitmentFilter(HorillaFilterSet):
     )
     description = django_filters.CharFilter(lookup_expr="icontains")
     start_date = django_filters.DateFilter(
-        field_name="start_date", widget=forms.DateInput(attrs={"type": "date"})
+        field_name="start_date", widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d")
     )
     end_date = django_filters.DateFilter(
-        field_name="end_date", widget=forms.DateInput(attrs={"type": "date"})
+        field_name="end_date", widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d")
     )
     start_from = django_filters.DateFilter(
         field_name="start_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     end_till = django_filters.DateFilter(
         field_name="end_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     search = django_filters.CharFilter(method="filter_by_name")
     is_active = django_filters.ChoiceFilter(
@@ -611,42 +611,42 @@ class SkillZoneCandFilter(HorillaFilterSet):
     )
     start_date = django_filters.DateFilter(
         field_name="candidate__id__recruitment_id__start_date",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     end_date = django_filters.DateFilter(
         field_name="candidate__id__recruitment_id__end_date",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     scheduled_from = django_filters.DateFilter(
         field_name="candidate__id__joining_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         label=_("Joining From"),
     )
     probation_end = django_filters.DateFilter(
         field_name="candidate__id__probation_end",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     probation_end_till = django_filters.DateFilter(
         field_name="candidate__id__probation_end",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         label=_("Probation Till"),
     )
     probation_end_from = django_filters.DateFilter(
         field_name="candidate__id__probation_end",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         label=_("Probation From"),
     )
     schedule_date = django_filters.DateFilter(
         field_name="candidate__id__schedule_date",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     scheduled_till = django_filters.DateFilter(
         field_name="candidate__id__joining_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
         label=_("Joining Till"),
     )
     recruitment = django_filters.CharFilter(
@@ -734,12 +734,12 @@ class InterviewFilter(HorillaFilterSet):
     scheduled_from = django_filters.DateFilter(
         field_name="interview_date",
         lookup_expr="gte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
     scheduled_till = django_filters.DateFilter(
         field_name="interview_date",
         lookup_expr="lte",
-        widget=forms.DateInput(attrs={"type": "date"}),
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
     )
 
     class Meta:

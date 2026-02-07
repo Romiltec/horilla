@@ -1,4 +1,4 @@
-tickObjectivesCheckboxes();
+if (typeof tickObjectivesCheckboxes === "function") tickObjectivesCheckboxes();
 function makeObjectivesListUnique(list) {
     return Array.from(new Set(list));
 }

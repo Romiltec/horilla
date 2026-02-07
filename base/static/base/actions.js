@@ -1,19 +1,19 @@
-tickShiftCheckboxes();
+if (typeof tickShiftCheckboxes === "function") tickShiftCheckboxes();
 function makeShiftListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickWorktypeCheckboxes();
+if (typeof tickWorktypeCheckboxes === "function") tickWorktypeCheckboxes();
 function makeWorktypeListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickRShiftCheckboxes();
+if (typeof tickRShiftCheckboxes === "function") tickRShiftCheckboxes();
 function makeRShiftListUnique(list) {
     return Array.from(new Set(list));
 }
 
-tickRWorktypeCheckboxes();
+if (typeof tickRWorktypeCheckboxes === "function") tickRWorktypeCheckboxes();
 function makeRWorktypeListUnique(list) {
     return Array.from(new Set(list));
 }
