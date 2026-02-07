@@ -19,12 +19,13 @@ from django.core.paginator import Page
 from django.db import transaction
 from django.db.models import CharField, F
 from django.db.models.functions import Cast
-from django.http import HttpRequest, HttpResponse, JsonResponse, QueryDict
+from django.http import Http404, HttpRequest, HttpResponse, JsonResponse, QueryDict
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.urls import resolve, reverse
 from django.utils.decorators import method_decorator
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import override as translation_override
 from django.views.generic import DetailView, FormView, ListView, TemplateView
 from xhtml2pdf import pisa
 
@@ -2298,6 +2299,7 @@ class HorillaProfileView(DetailView):
     actions: list = []
 
     tabs: list = []
+    _tab_registry: dict = {}
 
     def __init__(self, **kwargs: Any) -> None:
         self.url_prefix = str(self.__class__.__name__.lower())
@@ -2308,20 +2310,21 @@ class HorillaProfileView(DetailView):
         request = getattr(_thread_locals, "request", None)
         self.request = request
         self.ordered_ids_key = f"ordered_ids_{self.model.__name__.lower()}"
-        # update_initial_cache(request, CACHE, HorillaProfileView)
-
-        from horilla.urls import path, urlpatterns
 
         for tab in self.tabs:
             if not tab.get("url"):
-                url = f"{self.url_prefix}-{tab['title']}"
-                urlpatterns.append(
-                    path(
-                        url + "/<int:pk>/",
-                        tab["view"],
-                    )
-                )
-                tab["url"] = "/" + url + "/{pk}/"
+                self._register_tab(self.url_prefix, tab)
+
+    @classmethod
+    def _register_tab(cls, url_prefix, tab):
+        """Register a single tab's URL in the class-level registry."""
+        if not tab.get("url"):
+            with translation_override("en"):
+                url_title = str(tab["title"])
+            tab["url"] = f"/{url_prefix}-{url_title}/{{pk}}/"
+            if url_prefix not in HorillaProfileView._tab_registry:
+                HorillaProfileView._tab_registry[url_prefix] = {}
+            HorillaProfileView._tab_registry[url_prefix][url_title] = tab["view"]
 
     @classmethod
     def add_tab(cls, tab: dict = None, index: int = None, tabs: list = None) -> None:
@@ -2338,9 +2341,13 @@ class HorillaProfileView(DetailView):
 
         add_tab(tabs=tabs) / add_tab(tab=tab)
         """
+        url_prefix = cls.__name__.lower()
         if tabs:
+            for t in tabs:
+                cls._register_tab(url_prefix, t)
             cls.tabs = cls.tabs + tabs
         if tab:
+            cls._register_tab(url_prefix, tab)
             if index is None:
                 cls.tabs.append(tab)
                 return
@@ -2446,3 +2453,12 @@ class HorillaProfileView(DetailView):
         }
         CACHE.set(f"{self.request.session.session_key}search_in_instance_ids", cache)
         return context
+
+
+def profile_tab_dispatch(request, prefix, tab_name, pk):
+    """Dispatch profile tab requests to the correct view via the registry."""
+    registry = HorillaProfileView._tab_registry.get(prefix, {})
+    view_func = registry.get(tab_name)
+    if view_func is None:
+        raise Http404
+    return view_func(request, pk=pk)

@@ -22,6 +22,8 @@ from django.views.i18n import JavaScriptCatalog
 
 import notifications.urls
 
+from horilla_views.generic.cbv.views import profile_tab_dispatch
+
 from . import settings
 
 
@@ -44,6 +46,11 @@ urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
     path("jsi18n/", JavaScriptCatalog.as_view(), name="javascript-catalog"),
     path("health/", health_check),
+    re_path(
+        r"^(?P<prefix>\w+profileview)-(?P<tab_name>[^/]+)/(?P<pk>\d+)/$",
+        profile_tab_dispatch,
+        name="profile-tab-dispatch",
+    ),
 ]
 
 # if settings.DEBUG:
