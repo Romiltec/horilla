@@ -38,7 +38,7 @@
 
 <script>
     window.CURRENT_LANGUAGE = "{{ LANGUAGE_CODE }}";
-    var at_work_seconds = {{ request.user.employee_get.get_forecasted_at_work.forecasted_at_work_seconds }}
+    var at_work_seconds = {{ request.user.employee_get.get_forecasted_at_work.forecasted_at_work_seconds|default:"0" }}
     var run = 0
 </script>
 <script src="{% static 'horilla_theme/assets/js/tailwind.js' %}"></script>
@@ -133,7 +133,7 @@
 <script src="{% static '/build/js/orgChart.js' %}"></script>
 <script src="{% static 'build/js/driver.js' %}"></script>
 <script src="{% static 'build/js/clearFilter.js' %}"></script>
-<script src="{% static '/cdn/alpine/alpine.min.js' %}"></script>
+<script defer src="{% static '/cdn/alpine/alpine.min.js' %}"></script>
 <script src="{% static 'cdn/chartJs/scripts/chart.js' %}"></script>
 
 {% block header_scripts %}

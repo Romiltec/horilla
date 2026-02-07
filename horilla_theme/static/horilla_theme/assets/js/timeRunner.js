@@ -1,10 +1,10 @@
-var at_work_seconds = $(".at_work_seconds").data("at-work-seconds");
+var at_work_seconds = $(".at_work_seconds").data("at-work-seconds") || 0;
 var run = $(".at_work_seconds").data("run");
 var whiteLabelCompany = $("#whiteLabelCompany").data("company");
 
 // time-runner
 function secondsToDuration(seconds) {
-    if (seconds < 0){
+    if (isNaN(seconds) || seconds < 0){
         seconds = 0
     }
     var hours = Math.floor(seconds / 3600);
