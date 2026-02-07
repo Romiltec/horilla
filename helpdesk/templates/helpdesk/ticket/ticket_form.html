@@ -65,12 +65,12 @@
                 {% csrf_token %}
 
                 <label class="oh-label">{% trans "Title" %}</label>
-                <input type="text" name="title" maxlength="30" class="oh-input w-100" placeholder="Title" required=""
+                <input type="text" name="title" maxlength="30" class="oh-input w-100" placeholder="{% trans 'Title' %}" required=""
                     id="id_tag_title" />
 
                 <label class="oh-label">{% trans "Color" %}</label>
                 <input type="color" name="color" style="height: 50px" maxlength="30" class="oh-input w-100"
-                    placeholder="Color" required="" id="id_tag_color" />
+                    placeholder="{% trans 'Color' %}" required="" id="id_tag_color" />
                 <input type="checkbox" name="is_active" class="oh-switch__checkbox" id="id_tag_is_active" checked
                     style="display: none" />
 
@@ -106,7 +106,7 @@
 
                 <div class="oh-input-group">
                     <label class="oh-label" for="{{t_type_form.title.id_for_label}}">{{t_type_form.title.label}}</label>
-                    <input type="text" name="title" maxlength="30" class="oh-input w-100" placeholder="Title"
+                    <input type="text" name="title" maxlength="30" class="oh-input w-100" placeholder="{% trans 'Title' %}"
                         required="" id="id_ticket_type_title" />
                 </div>
 

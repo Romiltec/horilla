@@ -2966,7 +2966,7 @@ def validate_ip_address(self, value):
     try:
         validate_ipv46_address(value)
     except ValidationError:
-        raise ValidationError("Enter a valid IPv4 or IPv6 address.")
+        raise ValidationError(_("Enter a valid IPv4 or IPv6 address."))
     return value
 
 
@@ -2998,7 +2998,7 @@ def create_allowed_ips(request):
                         existing_ips.union(non_duplicates)
                     )
                     allowed_ips.save()
-                    messages.success(request, "IP addresses saved successfully")
+                    messages.success(request, _("IP addresses saved successfully"))
                 else:
                     messages.info(
                         request,
@@ -3009,7 +3009,7 @@ def create_allowed_ips(request):
                 AttendanceAllowedIP.objects.create(
                     is_enabled=True, additional_data={"allowed_ips": ip_addresses}
                 )
-                messages.success(request, "IP addresses saved successfully")
+                messages.success(request, _("IP addresses saved successfully"))
 
             return HttpResponse("<script>window.location.reload()</script>")
     else:
@@ -3036,9 +3036,9 @@ def delete_allowed_ips(request):
         allowed_ips.additional_data["allowed_ips"] = ips
         allowed_ips.save()
 
-        messages.success(request, "IP address removed successfully")
+        messages.success(request, _("IP address removed successfully"))
     except:
-        messages.error(request, "Invalid id")
+        messages.error(request, _("Invalid id"))
     return redirect("allowed-ips")
 
 
@@ -3050,7 +3050,7 @@ def edit_allowed_ips(request):
     """
     allowed_ips = AttendanceAllowedIP.objects.first()
     if not allowed_ips:
-        messages.error(request, "No allowed IPs found.")
+        messages.error(request, _("No allowed IPs found."))
         return redirect("allowed-ips")
 
     ips = allowed_ips.additional_data.get("allowed_ips", [])
@@ -3072,18 +3072,18 @@ def edit_allowed_ips(request):
                 existing_ips = set(allowed_ips.additional_data.get("allowed_ips", []))
 
                 if new_ip in existing_ips:
-                    messages.error(request, "IP address already exists.")
+                    messages.error(request, _("IP address already exists."))
                 else:
                     existing_ips.discard(initial_ip)
                     existing_ips.add(new_ip)
 
                     allowed_ips.additional_data["allowed_ips"] = list(existing_ips)
                     allowed_ips.save()
-                    messages.success(request, "IP address updated successfully")
+                    messages.success(request, _("IP address updated successfully"))
                 return HttpResponse("<script>window.location.reload()</script>")
 
     except (ValueError, IndexError):
-        messages.error(request, "Invalid ID provided.")
+        messages.error(request, _("Invalid ID provided."))
 
     return render(
         request,

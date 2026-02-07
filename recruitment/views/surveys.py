@@ -446,7 +446,7 @@ def create_template(request):
         request.user.has_perm("recruitment.add_surveytemplate")
         or request.user.has_perm("recruitment.change_surveytemplate")
     ):
-        messages.info(request, "You dont have permission.")
+        messages.info(request, _("You dont have permission."))
         return HttpResponse("<script>window.location.reload()</script>")
 
     title = request.GET.get("title")
@@ -458,7 +458,7 @@ def create_template(request):
         form = TemplateForm(request.POST, instance=instance)
         if form.is_valid():
             form.save()
-            messages.success(request, "Template saved")
+            messages.success(request, _("Template saved"))
             return HttpResponse("<script>window.location.reload()</script>")
     return render(request, "survey/main_form.html", {"form": form})
 
@@ -472,9 +472,9 @@ def delete_template(request):
     title = request.GET.get("title")
     SurveyTemplate.objects.filter(title=str(title)).delete()
     if title == "None":
-        messages.info(request, "This template group cannot be deleted")
+        messages.info(request, _("This template group cannot be deleted"))
     else:
-        messages.success(request, "Template group deleted")
+        messages.success(request, _("Template group deleted"))
 
     return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
@@ -496,6 +496,6 @@ def question_add(request):
         form = AddQuestionForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Question added")
+            messages.success(request, _("Question added"))
             return HttpResponse("<script>window.location.reload()</script>")
     return render(request, "survey/add_form.html", {"form": form})

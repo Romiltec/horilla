@@ -1,3 +1,4 @@
+{% load i18n %}
 <form hx-post="{% url 'geo-config' %}" hx-swap="none" hx-on-htmx-after-request="$('#reloadMessagesButton').click();">
     {% csrf_token %}
     {{form.as_p}}

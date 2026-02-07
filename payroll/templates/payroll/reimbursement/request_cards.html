@@ -91,7 +91,7 @@
                                         {% endif %}
                                     {% endif %}
                                     {% if perms.payroll.delete_reimbursement  %}
-                                    <a href="{% url "delete-reimbursement" %}?ids={{req.id}}" onclick="return confirm('Do you want to delete this record?')"
+                                    <a href="{% url "delete-reimbursement" %}?ids={{req.id}}" onclick="return confirm(gettext("Do you want to delete this record?"))"
                                         title='{% trans "Delete" %}'
                                         ><ion-icon
                                             class="text-danger md hydrated"
@@ -193,7 +193,7 @@
                                     </i>
                                     <input style="display: block;padding:
                                     10px;margin-top: 10px;" type="number" required
-                                    default="0" min="0" placeholder="Amount"
+                                    default="0" min="0" placeholder="{% trans 'Amount' %}"
                                     name="amount" class="mt-2"{% if req.status == "approved" %}disabled{% endif %} {% if req.amount %}
                                     value="{{req.amount}}"{% endif %} />
                                 </p>
@@ -208,7 +208,7 @@
                                     </i>
                                     <input style="display: block;padding:
                                     10px;margin-top: 10px;" type="number" required
-                                    default="0" min="0" placeholder="Amount"
+                                    default="0" min="0" placeholder="{% trans 'Amount' %}"
                                     name="amount" class="mt-2"{% if req.status == "approved" %}disabled{% endif %} {% if req.amount %}
                                     value="{{req.amount}}"{% endif %} />
                                 </p>
@@ -382,7 +382,7 @@
                                         {% endif %}
                                     {% endif %}
                                     {% if perms.payroll.delete_reimbursement  %}
-                                    <a href="{% url "delete-reimbursement" %}?ids={{req.id}}" onclick="return confirm('Do you want to delete this record?')"
+                                    <a href="{% url "delete-reimbursement" %}?ids={{req.id}}" onclick="return confirm(gettext("Do you want to delete this record?"))"
                                         title='{% trans "Delete" %}'
                                         ><ion-icon
                                             class="text-danger md hydrated"
@@ -450,7 +450,7 @@
                                         hx-get="{% url "reimbursement-attachments" req.id %}"
                                         hx-target="#reimbursementAttachementModalBody"
                                         class="text-danger"
-                                        title="Attachments"
+                                        title="{% trans 'Attachments' %}"
                                         rel="noopener noreferrer"
                                         >{% trans 'View Attachments' %}</a
                                     ></i
@@ -481,7 +481,7 @@
                                     </i>
                                     <input style="display: block;padding:
                                     10px;margin-top: 10px;" type="number" required
-                                    default="0" min="0" placeholder="Amount"
+                                    default="0" min="0" placeholder="{% trans 'Amount' %}"
                                     name="amount" class="mt-2"{% if req.status == "approved" %}disabled{% endif %} {% if req.amount %}
                                     value="{{req.amount}}"{% endif %} />
                                 </p>
@@ -496,7 +496,7 @@
                                     </i>
                                     <input style="display: block;padding:
                                     10px;margin-top: 10px;" type="number" required
-                                    default="0" min="0" placeholder="Amount"
+                                    default="0" min="0" placeholder="{% trans 'Amount' %}"
                                     name="amount" class="mt-2"{% if req.status == "approved" %}disabled{% endif %} {% if req.amount %}
                                     value="{{req.amount}}"{% endif %} />
                                 </p>
@@ -668,7 +668,7 @@
                                         {% endif %}
                                     {% endif %}
                                     {% if perms.payroll.delete_reimbursement  %}
-                                    <a href="{% url "delete-reimbursement" %}?ids={{req.id}}" onclick="return confirm('Do you want to delete this record?')"
+                                    <a href="{% url "delete-reimbursement" %}?ids={{req.id}}" onclick="return confirm(gettext("Do you want to delete this record?"))"
                                         title='{% trans "Delete" %}'><ion-icon
                                             class="text-danger md hydrated"
                                             name="trash-outline"
@@ -767,7 +767,7 @@
                                     </i>
                                     <input style="display: block;padding:
                                     10px;margin-top: 10px;" type="number" required
-                                    default="0" min="0" placeholder="Amount"
+                                    default="0" min="0" placeholder="{% trans 'Amount' %}"
                                     name="amount" class="mt-2"{% if req.status == "approved" %}disabled{% endif %} {% if req.amount %}
                                     value="{{req.amount}}"{% endif %} />
                                 </p>
@@ -782,7 +782,7 @@
                                     </i>
                                     <input style="display: block;padding:
                                     10px;margin-top: 10px;" type="number" required
-                                    default="0" min="0" placeholder="Amount"
+                                    default="0" min="0" placeholder="{% trans 'Amount' %}"
                                     name="amount" class="mt-2"{% if req.status == "approved" %}disabled{% endif %} {% if req.amount %}
                                     value="{{req.amount}}"{% endif %} />
                                 </p>
@@ -937,8 +937,8 @@
                 showCancelButton: true,
                 confirmButtonColor: "#008000",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Confirm",
-                cancelButtonText: "Close",
+                confirmButtonText: gettext("Confirm"),
+                cancelButtonText: gettext("Close"),
             }).then((result) => {
                 if (result.isConfirmed) {
                     if (approve) {

@@ -19,12 +19,12 @@
       onclick="
       event.preventDefault()
       Swal.fire({
-          title: 'Are you sure?',
-          text: '{% trans "Do you want to add this candidate to onboarding stage?" %}',
+          title: gettext("Are you sure?"),
+          text: gettext("{% trans \"Do you want to add this candidate to onboarding stage?\" %}"),
           icon: 'question',
           showCancelButton: true,
-          confirmButtonText: '{% trans "Yes" %}',
-          cancelButtonText: '{% trans "Cancel" %}'
+          confirmButtonText: gettext("{% trans \"Yes\" %}"),
+          cancelButtonText: gettext("{% trans \"Cancel\" %}")
       }).then((result) => {
           if (result.isConfirmed) {
               this.nextElementSibling.nextElementSibling.click();
@@ -45,9 +45,9 @@
       event.preventDefault();
       Swal.fire({
           icon: 'warning',
-          title: '{% trans "Already Added!" %}',
-          text: '{% trans "Candidate already added to onboarding" %}.',
-          confirmButtonText: 'OK'
+          title: gettext("{% trans \"Already Added!\" %}"),
+          text: gettext("{% trans \"Candidate already added to onboarding\" %}."),
+          confirmButtonText: gettext("OK")
       });
       "
       style="background-color: #1dbfca;color: white;"
@@ -67,7 +67,7 @@
       data-toggle="oh-modal-toggle" href="{% url 'email-send' %}?ids={{instance.id}}"><ion-icon
         name="link-outline"></ion-icon></a>
     {% endif %}
-    <a class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100" onclick="return confirm('{% trans "Do you want to delete this record" %}?')"  id="delete-link"
+    <a class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100" onclick="return confirm(gettext("{% trans \"Do you want to delete this record\" %}?"))"  id="delete-link"
       href="{% url 'candidate-delete' instance.id %}" title="{% trans 'Delete' %}"><ion-icon
         name="trash-outline"></ion-icon></a>
   </div>

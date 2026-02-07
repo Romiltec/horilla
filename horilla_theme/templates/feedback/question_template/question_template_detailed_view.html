@@ -20,7 +20,7 @@
                         {{ form.question_type.errors }}
                     </div>
                     <div class="flex-1">
-                        {% render_field form.question class="form-control" placeholder="Enter question here" %}
+                        {% render_field form.question class="form-control" placeholder="{% trans 'Enter question here' %}" %}
                         <p id="id_question_template_error" class="text-danger mt-1 p-2"></p>
                     </div>
                 </div>
@@ -36,19 +36,19 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                         <label class="oh-label d-block text-muted fw-bold">{% trans "Option" %} 1</label>
-                        <input type="text" name="option_a" style="width:auto;" class="oh-input oh-input--res-height mt-1" placeholder="Option #1">
+                        <input type="text" name="option_a" style="width:auto;" class="oh-input oh-input--res-height mt-1" placeholder="{% trans 'Option #1' %}">
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                         <label class="oh-label d-block text-muted fw-bold">{% trans "Option" %} 2</label>
-                        <input type="text" name="option_b" style="width:auto;" class="oh-input oh-input--res-height mt-1" placeholder="Option #2">
+                        <input type="text" name="option_b" style="width:auto;" class="oh-input oh-input--res-height mt-1" placeholder="{% trans 'Option #2' %}">
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                         <label class="oh-label d-block text-muted fw-bold">{% trans "Option" %} 3</label>
-                        <input type="text" name="option_c" style="width:auto;" class="oh-input oh-input--res-height mt-1" placeholder="Option #3">
+                        <input type="text" name="option_c" style="width:auto;" class="oh-input oh-input--res-height mt-1" placeholder="{% trans 'Option #3' %}">
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                         <label class="oh-label d-block text-muted fw-bold">{% trans "Option" %} 4</label>
-                        <input type="text" name="option_d" style="width:auto;" class="oh-input oh-input--res-height mt-1" placeholder="Option #4">
+                        <input type="text" name="option_d" style="width:auto;" class="oh-input oh-input--res-height mt-1" placeholder="{% trans 'Option #4' %}">
                     </div>
                 </div>
             </div>

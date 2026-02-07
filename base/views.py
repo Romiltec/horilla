@@ -851,13 +851,13 @@ def two_factor_auth(request):
             request.session["otp_code_timestamp"] = None
             request.session["otp_code_verified"] = True
             request.session.save()
-            messages.success(request, "OTP verified successfully.")
+            messages.success(request, _("OTP verified successfully."))
             return redirect("/")
         elif otp is None:
-            messages.error(request, "OTP expired. Please request a new one.")
+            messages.error(request, _("OTP expired. Please request a new one."))
             return render(request, "base/auth/two_factor_auth.html")
         else:
-            messages.error(request, "Invalid OTP.")
+            messages.error(request, _("Invalid OTP."))
             return render(request, "base/auth/two_factor_auth.html")
 
     if not settings.TWO_FACTORS_AUTHENTICATION:
@@ -1678,7 +1678,7 @@ def mail_server_delete(request):
             delete = False
     if delete:
         DynamicEmailConfiguration.objects.filter(id__in=ids).delete()
-        messages.success(request, "Mail server configuration deleted")
+        messages.success(request, _("Mail server configuration deleted"))
         return HttpResponse("<script>window.location.reload()</script>")
     else:
         if DynamicEmailConfiguration.objects.all().count() == 1:
@@ -1770,7 +1770,7 @@ def view_mail_template(request, obj_id):
         form = MailTemplateForm(request.POST, instance=template)
         if form.is_valid():
             form.save()
-            messages.success(request, "Template updated")
+            messages.success(request, _("Template updated"))
             return HttpResponse("<script>window.location.reload()</script>")
 
     return render(
@@ -1795,7 +1795,7 @@ def create_mail_templates(request):
         if form.is_valid():
             instance = form.save()
             instance.save()
-            messages.success(request, "Template created")
+            messages.success(request, _("Template created"))
             return HttpResponse("<script>window.location.reload()</script>")
 
     return render(
@@ -1810,7 +1810,7 @@ def create_mail_templates(request):
 def delete_mail_templates(request):
     ids = request.GET.getlist("ids")
     result = HorillaMailTemplate.objects.filter(id__in=ids).delete()
-    messages.success(request, "Template deleted")
+    messages.success(request, _("Template deleted"))
     return redirect(view_mail_templates)
 
 
@@ -2541,7 +2541,7 @@ def rotating_work_type_assign_archive(request, obj_id):
         )
         rwork_type.is_active = not rwork_type.is_active
         if rwork_type.is_active and employees_rwork_types:
-            messages.error(request, "Already on record is active")
+            messages.error(request, _("Already on record is active"))
         else:
             rwork_type.save()
             message = _("un-archived") if rwork_type.is_active else _("archived")
@@ -3198,7 +3198,7 @@ def rotating_shift_assign_import(request):
             keys_list = list(work_info_dicts[0].keys())
             error_dict = {key: [] for key in keys_list}
         except:
-            messages.error(request, "something went wrong....")
+            messages.error(request, _("something went wrong...."))
             data_frame = pd.DataFrame(
                 ["Please provide valid data"],
                 columns=["Title Error"],
@@ -3416,7 +3416,7 @@ def rotating_shift_assign_archive(request, obj_id):
         )
         rshift.is_active = not rshift.is_active
         if rshift.is_active and employees_rshift_assigns:
-            messages.error(request, "Already on record is active")
+            messages.error(request, _("Already on record is active"))
         else:
             rshift.save()
             message = _("un-archived") if rshift.is_active else _("archived")
@@ -5163,7 +5163,7 @@ def shift_request_delete(request, id):
     try:
         shift_request = ShiftRequest.find(id)
         user = shift_request.employee_id.employee_user_id
-        messages.success(request, "Shift request deleted")
+        messages.success(request, _("Shift request deleted"))
         shift_request.delete()
         notify.send(
             request.user.employee_get,
@@ -7670,7 +7670,7 @@ class EnableIntegrationsView(View):
         app_label = request.GET.get("app_label")
 
         if not app_label:
-            messages.error(request, "Missing app_label")
+            messages.error(request, _("Missing app_label"))
             return HttpResponse("<script>window.location.reload()</script>")
 
         enabled = request.POST.get("is_enabled") is not None

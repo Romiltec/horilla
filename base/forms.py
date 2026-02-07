@@ -506,7 +506,7 @@ class AssignPermission(Form):
             filter_template_path="employee_filters.html",
             required=True,
         ),
-        label="Employee",
+        label=_("Employee"),
     )
     try:
         permissions = forms.MultipleChoiceField(
@@ -580,13 +580,13 @@ class CompanyForm(ModelForm):
         max_size = 5 * 1024 * 1024
 
         if file.size > max_size:
-            raise ValidationError("File size should be less than 5MB.")
+            raise ValidationError(_("File size should be less than 5MB."))
 
         # Check file extension
         valid_extensions = [".jpg", ".jpeg", ".png", ".webp", ".svg"]
         ext = os.path.splitext(file.name)[1].lower()
         if ext not in valid_extensions:
-            raise ValidationError("Unsupported file extension.")
+            raise ValidationError(_("Unsupported file extension."))
 
     def clean_icon(self):
         icon = self.cleaned_data.get("icon")
@@ -619,7 +619,7 @@ class JobPositionForm(ModelForm):
 
     department_id = forms.ModelMultipleChoiceField(
         queryset=Department.objects.all(),
-        label="Department",
+        label=_("Department"),
         widget=forms.SelectMultiple(
             attrs={"class": "oh-select oh-select2 w-100", "style": "height:45px;"}
         ),
@@ -641,7 +641,7 @@ class JobPositionForm(ModelForm):
         if self.instance.pk:
             self.fields["department_id"] = forms.ModelChoiceField(
                 queryset=self.fields["department_id"].queryset,
-                label="Department",
+                label=_("Department"),
                 widget=forms.Select(
                     attrs={
                         "class": "oh-select oh-select2 w-100",
@@ -783,7 +783,7 @@ class JobRoleForm(ModelForm):
 
     job_position_id = forms.ModelMultipleChoiceField(
         queryset=JobPosition.objects.all(),
-        label="Job Position",
+        label=_("Job Position"),
         widget=forms.SelectMultiple(
             attrs={
                 "class": "w-100 oh-select",
@@ -799,7 +799,7 @@ class JobRoleForm(ModelForm):
         if self.instance.pk:
             job_position_id = forms.ModelChoiceField(
                 queryset=self.fields["job_position_id"].queryset,
-                label="Job Position",
+                label=_("Job Position"),
                 widget=forms.Select(
                     attrs={
                         "class": "w-100 oh-select",
@@ -2176,14 +2176,14 @@ class ChangePasswordForm(forms.Form):
     def clean_old_password(self):
         old_password = self.cleaned_data.get("old_password")
         if not self.user.check_password(old_password):
-            raise forms.ValidationError("Incorrect old password.")
+            raise forms.ValidationError(_("Incorrect old password."))
         return old_password
 
     def clean_new_password(self):
         new_password = self.cleaned_data.get("new_password")
         if self.user.check_password(new_password):
             raise forms.ValidationError(
-                "New password must be different from the old password."
+                _("New password must be different from the old password.")
             )
 
         return new_password
@@ -2243,10 +2243,10 @@ class ChangeUsernameForm(forms.Form):
     def clean_password(self):
         username = self.cleaned_data.get("username")
         if HorillaUser.objects.filter(username=username).exists():
-            raise forms.ValidationError("Username already exists.")
+            raise forms.ValidationError(_("Username already exists."))
         password = self.cleaned_data.get("password")
         if not self.user.check_password(password):
-            raise forms.ValidationError("Incorrect password.")
+            raise forms.ValidationError(_("Incorrect password."))
         return password
 
 
@@ -2673,7 +2673,7 @@ class AnnouncementForm(ModelForm):
             filter_instance_context_name="f",
             filter_template_path="employee_filters.html",
         ),
-        label="Employees",
+        label=_("Employees"),
         help_text=_(
             "If no employee, department or job position is selected, the announcement will be visible to all employees in the selected company."
         ),
@@ -2707,7 +2707,7 @@ class AnnouncementForm(ModelForm):
         # Remove HTML tags and check if there's meaningful content
         text_content = strip_tags(description).strip()
         if not text_content:  # Checks if the field is empty after stripping HTML
-            raise forms.ValidationError("Description is required.")
+            raise forms.ValidationError(_("Description is required."))
         return description
 
     def __init__(self, *args, **kwargs):
@@ -2934,8 +2934,8 @@ def validate_ip_or_cidr(value):
 class AttendanceAllowedIPForm(forms.ModelForm):
     ip_addresses = forms.CharField(
         widget=forms.Textarea(attrs={"rows": 3, "class": "form-control oh-input"}),
-        label="Allowed IP Addresses or Network Prefixes",
-        help_text="Enter multiple IP addresses or network prefixes, separated by commas.",
+        label=_("Allowed IP Addresses or Network Prefixes"),
+        help_text=_("Enter multiple IP addresses or network prefixes, separated by commas."),
     )
 
     class Meta:
@@ -2972,7 +2972,7 @@ class AttendanceAllowedIPForm(forms.ModelForm):
 
 
 class AttendanceAllowedIPUpdateForm(ModelForm):
-    ip_address = forms.CharField(max_length=30, label="IP Address")
+    ip_address = forms.CharField(max_length=30, label=_("IP Address"))
 
     class Meta:
         model = AttendanceAllowedIP
@@ -2982,7 +2982,7 @@ class AttendanceAllowedIPUpdateForm(ModelForm):
         try:
             validate_ipv46_address(value)
         except ValidationError:
-            raise ValidationError("Enter a valid IPv4 or IPv6 address.")
+            raise ValidationError(_("Enter a valid IPv4 or IPv6 address."))
         return value
 
     def clean(self):
@@ -3147,7 +3147,7 @@ class PenaltyAccountForm(ModelForm):
         employee = kwargs.pop("employee", None)
         super().__init__(*args, **kwargs)
         if apps.is_installed("leave") and employee:
-            LeaveType = get_horilla_model_class(app_label="leave", model="leavetype")
+            LeaveType = get_horilla_model_class(app_label=_("leave"), model="leavetype")
             available_leaves = employee.available_leave.all()
             assigned_leave_types = LeaveType.objects.filter(
                 id__in=available_leaves.values_list("leave_type_id", flat=True)

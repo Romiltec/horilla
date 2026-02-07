@@ -235,7 +235,7 @@
     async function exportTableToExcel(containerId, filename) {
         let table = document.querySelector(`#${containerId} .pvtTable`);
         if (!table) {
-            alert("No table found to export.");
+            alert(gettext("No table found to export."));
             return;
         }
 

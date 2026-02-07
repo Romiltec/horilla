@@ -382,7 +382,7 @@
 	      event.preventDefault();
 
 	      const link = $(this);
-	      const confirmation = confirm("{% trans 'Are you sure you want to delete?' %}");
+	      const confirmation = confirm(gettext("{% trans 'Are you sure you want to delete?' %}"));
 
 	      if (confirmation) {
 			  window.location.href = link.attr('href');

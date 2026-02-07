@@ -30,15 +30,15 @@ class AzureApi(models.Model):
     outlook_redirect_uri = models.URLField(verbose_name=("Redirect URi"))
     outlook_authorization_url = models.URLField(
         default="https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
-        verbose_name="OAuth authorization endpoint",
+        verbose_name=_("OAuth authorization endpoint"),
     )
     outlook_token_url = models.URLField(
         default="https://login.microsoftonline.com/common/oauth2/v2.0/token",
-        verbose_name="OAuth token endpoint",
+        verbose_name=_("OAuth token endpoint"),
     )
     outlook_api_endpoint = models.URLField(
         default="https://graph.microsoft.com/v1.0",
-        verbose_name="Microsoft Graph API endpoint",
+        verbose_name=_("Microsoft Graph API endpoint"),
     )
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     is_primary = models.BooleanField(default=False)

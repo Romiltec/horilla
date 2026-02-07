@@ -26,6 +26,7 @@ from typing import Any
 
 from django import forms
 from django.template.loader import render_to_string
+from django.utils.translation import gettext_lazy as _
 
 from base.forms import ModelForm
 from base.methods import filtersubordinatesemployeemodel, is_reportingmanager
@@ -136,7 +137,7 @@ class TicketForm(ModelForm):
             self.fields.pop("attachment", None)
         else:
             self.fields["attachment"] = MultipleFileField(
-                label="Attachements", required=False
+                label=_("Attachements"), required=False
             )
         request = getattr(horilla_middlewares._thread_locals, "request", None)
         instance = kwargs.get("instance")

@@ -7,6 +7,7 @@ from django.db.models import Q
 from django.forms import ValidationError
 from django.urls import reverse_lazy
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from google.oauth2.credentials import Credentials
 
 from base.horilla_company_manager import HorillaCompanyManager
@@ -28,13 +29,13 @@ class GoogleCloudCredential(models.Model):
     project_id = models.CharField(max_length=255, blank=True, null=True)
     client_id = models.CharField(max_length=255)
     client_secret = models.CharField(max_length=255)
-    redirect_uris = models.TextField(help_text="Comma separated URIs")
+    redirect_uris = models.TextField(help_text=_("Comma separated URIs"))
     company_id = models.ForeignKey(
         Company,
         on_delete=models.PROTECT,
         null=True,
         blank=True,
-        verbose_name="Company",
+        verbose_name=_("Company"),
     )
     objects = HorillaCompanyManager("company_id")
 
@@ -124,8 +125,8 @@ class GoogleCloudCredential(models.Model):
         on the combination of `project_id` and `company_id`.
         """
 
-        verbose_name = "Google Cloud Credential"
-        verbose_name_plural = "Google Cloud Credentials"
+        verbose_name = _("Google Cloud Credential")
+        verbose_name_plural = _("Google Cloud Credentials")
         unique_together = ["project_id", "company_id"]
 
 
@@ -225,7 +226,7 @@ class GoogleMeeting(HorillaModel):
     start_time = models.DateTimeField()
     meet_url = models.URLField()
     event_id = models.CharField(max_length=255, null=True)
-    duration = models.PositiveIntegerField(default=60, help_text="Duration in minutes")
+    duration = models.PositiveIntegerField(default=60, help_text=_("Duration in minutes"))
     attendees = models.JSONField(default=list, blank=True, null=True)
 
     class Meta:
@@ -380,7 +381,7 @@ class GoogleMeeting(HorillaModel):
             and self.event_id
             and GoogleMeeting.objects.filter(event_id=self.event_id).exists()
         ):
-            raise ValidationError("Meeting with this Event already exists")
+            raise ValidationError(_("Meeting with this Event already exists"))
         super().save(*args, **kwargs)
 
 

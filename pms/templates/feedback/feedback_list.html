@@ -168,7 +168,7 @@
                       </button>
                     </form>
                     {% if not feedback.feedback_answer.all %}
-                      <form action="{% url 'feedback-delete' id=feedback.id %}" method="post" onsubmit="return confirm('{% trans "Do you want Delete this Feedback ?" %}')" style="display: contents">
+                      <form action="{% url 'feedback-delete' id=feedback.id %}" method="post" onsubmit="return confirm(gettext("{% trans \"Do you want Delete this Feedback ?\" %}"))" style="display: contents">
                         {% csrf_token %}
                         <button  class="oh-btn oh-btn--danger-outline  w-100" title="{% trans 'Delete' %}" >
                             <ion-icon name="trash-outline" role="img" class="md hydrated" aria-label="trash outline"></ion-icon>
@@ -463,7 +463,7 @@
                       </button>
                   </form>
                   {% if not feedback.feedback_answer.all %}
-                    <form action="{% url 'feedback-delete' id=feedback.id %}" method="post" onsubmit="return confirm('{% trans "Do you want Delete this Feedback ?" %}')" style="display: contents">
+                    <form action="{% url 'feedback-delete' id=feedback.id %}" method="post" onsubmit="return confirm(gettext("{% trans \"Do you want Delete this Feedback ?\" %}"))" style="display: contents">
                       {% csrf_token %}
                       <button  class="oh-btn oh-btn--danger-outline  w-100" title="{% trans 'Delete' %}" >
                           <ion-icon name="trash-outline" role="img" class="md hydrated" aria-label="trash outline"></ion-icon>
@@ -621,7 +621,7 @@
                     </button>
                   {% endif %}
                   {% if perms.pms.delete_feedback %}
-                    <form action="{% url 'delete-anonymous-feedback' obj_id=feedback.id %}" method="post" onsubmit="return confirm('{% trans "Do you want Delete this Feedback ?" %}')" style="display: contents">
+                    <form action="{% url 'delete-anonymous-feedback' obj_id=feedback.id %}" method="post" onsubmit="return confirm(gettext("{% trans \"Do you want Delete this Feedback ?\" %}"))" style="display: contents">
                       {% csrf_token %}
                       <button  class="oh-btn oh-btn--danger-outline  w-100" title="{% trans 'Delete' %}" >
                           <ion-icon name="trash-outline" role="img" class="md hydrated" aria-label="trash outline"></ion-icon>

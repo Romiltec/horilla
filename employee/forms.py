@@ -670,7 +670,7 @@ class EmployeeNoteForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["note_files"] = MultipleFileField(label="files")
+        self.fields["note_files"] = MultipleFileField(label=_("files"))
         self.fields["note_files"].required = False
 
     def save(self, commit: bool = ...) -> Any:
@@ -733,7 +733,7 @@ class PolicyForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["attachment"] = MultipleFileField(
-            label="Attachements", required=False
+            label=_("Attachements"), required=False
         )
 
     def save(self, *args, commit=True, **kwargs):

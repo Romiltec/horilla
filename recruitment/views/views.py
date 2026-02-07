@@ -840,7 +840,7 @@ def recruitment_close_pipeline(request, rec_id):
         recruitment_obj = Recruitment.objects.get(id=rec_id)
         recruitment_obj.closed = True
         recruitment_obj.save()
-        messages.success(request, "Recruitment closed successfully")
+        messages.success(request, _("Recruitment closed successfully"))
     except (Recruitment.DoesNotExist, OverflowError):
         messages.error(request, _("Recruitment Does not exists.."))
     return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
@@ -856,7 +856,7 @@ def recruitment_reopen_pipeline(request, rec_id):
     recruitment_obj.closed = False
     recruitment_obj.save()
 
-    messages.success(request, "Recruitment reopend successfully")
+    messages.success(request, _("Recruitment reopend successfully"))
     return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
 
@@ -1296,10 +1296,10 @@ def update_stage_order(request, pk):
                 stage = recruitment.stage_set.get(id=stage_id)
                 stage.sequence = index + 1
                 stage.save()
-            messages.success(request, "Sequence Updated Successfully")
+            messages.success(request, _("Sequence Updated Successfully"))
             return JsonResponse({"status": "success"})
         except Exception as e:
-            messages.error(request, "Error Updating Sequence..")
+            messages.error(request, _("Error Updating Sequence.."))
             return JsonResponse({"status": "error", "message": str(e)}, status=400)
 
     stages = recruitment.stage_set.order_by("sequence")
@@ -1330,7 +1330,7 @@ def add_candidate(request):
         )
         if form.is_valid():
             form.save()
-            messages.success(request, "Candidate Added")
+            messages.success(request, _("Candidate Added"))
             return HttpResponse("<script>window.location.reload()</script>")
     return render(request, "pipeline/form/candidate_form.html", {"form": form})
 
@@ -1380,7 +1380,7 @@ def candidate(request):
                 candidate_obj.save()
                 messages.success(request, _("Candidate added."))
             else:
-                messages.error(request, "Job position field is required")
+                messages.error(request, _("Job position field is required"))
                 return render(
                     request,
                     "candidate/candidate_create_form.html",
@@ -1535,7 +1535,7 @@ def interview_employee_remove(request, interview_id, employee_id):
     """
     interview = InterviewSchedule.objects.filter(id=interview_id).first()
     interview.employee_id.remove(employee_id)
-    messages.success(request, "Interviewer removed succesfully.")
+    messages.success(request, _("Interviewer removed succesfully."))
     interview.save()
     # return redirect(interview_filter_view)
     return HttpResponse("<script> $('#applyFilter').click();</script>")
@@ -1906,7 +1906,7 @@ def candidate_conversion(request, cand_id, **kwargs):
         return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
     if candidate_obj.converted_employee_id:
-        messages.info(request, "This candidate is already converted to an employee.")
+        messages.info(request, _("This candidate is already converted to an employee."))
         return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
     user_exists = HorillaUser.objects.filter(username=candidate_obj.email).exists()
@@ -1953,10 +1953,10 @@ def candidate_conversion(request, cand_id, **kwargs):
                 _("Candidate has been successfully converted into an employee."),
             )
         except IntegrityError:
-            messages.warning(request, "An error occurred while creating employee data.")
+            messages.warning(request, _("An error occurred while creating employee data."))
 
     else:
-        messages.info(request, "An employee with this email already exists")
+        messages.info(request, _("An employee with this email already exists"))
 
     if "HTTP_HX_REQUEST" in request.META:
         return HttpResponse(status=204, headers={"HX-Refresh": "true"})
@@ -2071,7 +2071,7 @@ def interview_schedule(request, cand_id):
                 redirect=reverse("interview-view"),
             )
 
-            messages.success(request, "Interview Scheduled successfully.")
+            messages.success(request, _("Interview Scheduled successfully."))
             return HttpResponse("<script>window.location.reload()</script>")
     return render(request, template, {"form": form, "cand_id": cand_id})
 
@@ -2110,7 +2110,7 @@ def create_interview_schedule(request):
                 redirect=reverse("interview-view"),
             )
 
-            messages.success(request, "Interview Scheduled successfully.")
+            messages.success(request, _("Interview Scheduled successfully."))
     return render(request, template, {"form": form})
 
 
@@ -2174,7 +2174,7 @@ def interview_edit(request, interview_id):
                 icon="people-circle",
                 redirect=reverse("interview-view"),
             )
-            messages.success(request, "Interview updated successfully.")
+            messages.success(request, _("Interview updated successfully."))
             return HttpResponse("<script>window.location.reload()</script>")
     return render(
         request,
@@ -2290,10 +2290,10 @@ def send_acknowledgement(request):
         email.attachments = attachments
         try:
             email.send()
-            messages.success(request, "Mail sent to candidate")
+            messages.success(request, _("Mail sent to candidate"))
         except Exception as e:
             logger.exception(e)
-            messages.error(request, "Something went wrong")
+            messages.error(request, _("Something went wrong"))
     return HttpResponse("<script>window.location.reload()</script>")
 
 
@@ -2809,7 +2809,7 @@ def to_skill_zone(request, cand_id):
         request.user.has_perm("recruitment.change_candidate")
         or request.user.has_perm("recruitment.add_skillzonecandidate")
     ):
-        messages.info(request, "You dont have permission.")
+        messages.info(request, _("You dont have permission."))
         return HttpResponse("<script>window.location.reload()</script>")
 
     candidate = Candidate.objects.get(id=cand_id)
@@ -2835,7 +2835,7 @@ def to_skill_zone(request, cand_id):
                     zone_candidate.skill_zone_id = zone
                     zone_candidate.reason = form.cleaned_data["reason"]
                     zone_candidate.save()
-            messages.success(request, "Candidate Added to skill zone successfully")
+            messages.success(request, _("Candidate Added to skill zone successfully"))
             return HttpResponse("<script>window.location.reload()</script>")
     return render(request, template, {"form": form, "cand_id": cand_id})
 
@@ -2972,7 +2972,7 @@ def candidate_logout(request):
 
     request.session.pop("candidate_id", None)
     request.session.pop("candidate_email", None)
-    messages.success(request, "You have been logged out.")
+    messages.success(request, _("You have been logged out."))
     return redirect("candidate_login")
 
 
@@ -3063,7 +3063,7 @@ def create_reject_reason(request):
         form = RejectReasonForm(request.POST, instance=instance)
         if form.is_valid():
             form.save()
-            messages.success(request, "Reject reason saved")
+            messages.success(request, _("Reject reason saved"))
             return HttpResponse("<script>window.location.reload()</script>")
     return render(request, "settings/reject_reason_form.html", {"form": form})
 
@@ -3296,7 +3296,7 @@ def create_skills(request):
         form = SkillsForm(request.POST, instance=instance)
         if form.is_valid():
             form.save()
-            messages.success(request, "Skill created successfully")
+            messages.success(request, _("Skill created successfully"))
 
             if request.GET.get("dynamic") == "True":
 
@@ -3882,9 +3882,9 @@ def delete_candidate_rejection(request, rej_id):
         instance = RejectedCandidate.objects.filter(id=rej_id).first()
         if instance:
             instance.delete()
-            messages.success(request, "Candidate rejection deleted successfully")
+            messages.success(request, _("Candidate rejection deleted successfully"))
         else:
-            messages.error(request, "Candidate rejection not found")
+            messages.error(request, _("Candidate rejection not found"))
     except Exception as e:
-        messages.error(request, "Error occurred while deleting candidate rejection")
+        messages.error(request, _("Error occurred while deleting candidate rejection"))
     return HttpResponse("<script>window.location.reload()</script>")

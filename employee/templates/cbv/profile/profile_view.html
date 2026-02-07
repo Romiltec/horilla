@@ -35,8 +35,8 @@ style="display: flex;">
             showCancelButton: true,
             confirmButtonColor: "green",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Confirm",
-            cancelButtonText: "Cancel"
+            confirmButtonText: gettext("Confirm"),
+            cancelButtonText: gettext("Cancel")
         }).then((result) => {
             if (result.isConfirmed) {
                 // Redirect to the URL

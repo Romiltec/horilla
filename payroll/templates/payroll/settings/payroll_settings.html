@@ -8,7 +8,7 @@
   {% comment %} <div class="oh-label__info" for="currency_symbol">
     <label class="oh-label" for="currency_symbol">{% trans "Currency Symbol" %}</label>
   </div>
-  <input type="text" name="currency_symbol" value="{{currency_form.instance.currency_symbol}}" maxlength="5" class="oh-input w-25" placeholder="Currency Symbol" required="" id="id_currency_symbol">
+  <input type="text" name="currency_symbol" value="{{currency_form.instance.currency_symbol}}" maxlength="5" class="oh-input w-25" placeholder="{% trans 'Currency Symbol' %}" required="" id="id_currency_symbol">
 
   <div class="oh-label__info" for="position">
     <label class="oh-label" for="position">{% trans "Position" %}</label>
@@ -33,7 +33,7 @@
           <div class="oh-label__info" for="currency_symbol">
               <label class="oh-label" for="currency_symbol">{% trans "Currency Symbol" %}</label>
             </div>
-            <input type="text" name="currency_symbol" value="{{currency_form.instance.currency_symbol}}" maxlength="5" class="oh-input w-100" placeholder="Currency Symbol" required="" id="id_currency_symbol">
+            <input type="text" name="currency_symbol" value="{{currency_form.instance.currency_symbol}}" maxlength="5" class="oh-input w-100" placeholder="{% trans 'Currency Symbol' %}" required="" id="id_currency_symbol">
           </div>
       </div>
       <div class="col-sm-12 col-md-12 col-lg-3">

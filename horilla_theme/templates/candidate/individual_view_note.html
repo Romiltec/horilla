@@ -68,7 +68,7 @@
                                   hx-target="#note"
                                   class="add-files-form">
                                 {% csrf_token %}
-                                <label for="addFile_{{note.id}}" title="Add Files">
+                                <label for="addFile_{{note.id}}" title="{% trans 'Add Files' %}">
                                     <ion-icon name="add-outline" style="font-size: 12px;border: 1px solid #818791; border-radius: 5px;" class="text-gray-700"></ion-icon>
                                 </label>
                                 <input type="file" name="files" id="addFile_{{note.id}}" class="d-none" multiple

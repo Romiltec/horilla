@@ -1,3 +1,4 @@
+{% load i18n %}
 <form hx-post="{% url 'add-to-rejected-candidates' %}?candidate_id={{form.instance.candidate_id.id}}">
     {{form.as_p}}
 </form>

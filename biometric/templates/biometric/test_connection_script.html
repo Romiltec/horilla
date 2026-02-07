@@ -1,7 +1,8 @@
+{% load i18n %}
 <script>
     Swal.fire({
-        title: "{{ title }}",
-        text: "{{ text }}",
+        title: gettext("{{ title }}"),
+        text: gettext("{{ text }}"),
         icon: "{{ icon }}",
         showConfirmButton: false,
         timer: 3500,

@@ -1008,7 +1008,7 @@ class Allowance(HorillaModel):
             ),
             # ("monthly_working_days", "For working days on month"),
         ],
-        help_text="The maximum amount for ?",
+        help_text=_("The maximum amount for ?"),
         verbose_name=_("Maximum Unit"),
     )
     if_choice = models.CharField(
@@ -2106,7 +2106,7 @@ class LoanAccount(HorillaModel):
     )
     installments = models.IntegerField(verbose_name=_("Total installments"))
     installment_start_date = models.DateField(
-        help_text="From the start date deduction will apply",
+        help_text=_("From the start date deduction will apply"),
         verbose_name=_("Installment start date"),
     )
     apply_on = models.CharField(default="end_of_month", max_length=20, editable=False)
@@ -2287,7 +2287,7 @@ class Reimbursement(HorillaModel):
         choices=reimbursement_types, max_length=16, default="reimbursement"
     )
     employee_id = models.ForeignKey(
-        Employee, on_delete=models.PROTECT, verbose_name="Employee"
+        Employee, on_delete=models.PROTECT, verbose_name=_("Employee")
     )
     allowance_on = models.DateField()
     attachment = models.FileField(upload_to=upload_path, null=True)
@@ -2470,7 +2470,7 @@ class Reimbursement(HorillaModel):
             if self.allowance_id:
                 self.allowance_id.delete()
                 super().delete(*args, **kwargs)
-                message = messages.success(request, "Reimbursement deleted")
+                message = messages.success(request, _("Reimbursement deleted"))
 
         return message
 
@@ -2595,7 +2595,7 @@ class PayrollGeneralSetting(models.Model):
     """
 
     notice_period = models.IntegerField(
-        help_text="Notice period in days",
+        help_text=_("Notice period in days"),
         validators=[min_zero],
         default=30,
     )
@@ -2608,7 +2608,7 @@ class EncashmentGeneralSettings(models.Model):
     """
 
     bonus_amount = models.IntegerField(default=1)
-    leave_amount = models.IntegerField(blank=True, null=True, verbose_name="Amount")
+    leave_amount = models.IntegerField(blank=True, null=True, verbose_name=_("Amount"))
     objects = models.Manager()
 
 

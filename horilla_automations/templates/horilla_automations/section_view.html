@@ -1,3 +1,4 @@
+{% load i18n %}
 {% include "generic/horilla_section.html" %}
 <script>
   function confirm(message, url) {
@@ -7,7 +8,7 @@
       showCancelButton: true,
       confirmButtonColor: "#008000",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Confirm",
+      confirmButtonText: gettext("Confirm"),
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = url;

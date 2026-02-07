@@ -4113,7 +4113,7 @@ def cut_available_leave(request, instance_id):
             penalty.penalty_amount = penalty_instance.penalty_amount
             penalty.save()
             form = PenaltyAccountForm()
-            messages.success(request, "Penalty/Fine added")
+            messages.success(request, _("Penalty/Fine added"))
     return render(
         request,
         "leave/leave_request/penalty/form.html",
@@ -5265,11 +5265,11 @@ def employee_past_leave_restriction(request):
 
         if enabled_restriction.enabled:
             messages.success(
-                request, "Past Date Leave Request Restriction has been enabled"
+                request, _("Past Date Leave Request Restriction has been enabled")
             )
         else:
             messages.success(
-                request, "Past Date Leave Request Restriction has been disabled"
+                request, _("Past Date Leave Request Restriction has been disabled")
             )
 
     return render(

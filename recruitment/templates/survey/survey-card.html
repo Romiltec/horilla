@@ -42,7 +42,7 @@
             <li class="oh-dropdown__item">
               <a
                 href="{% url 'recruitment-survey-question-template-delete' question.id %}"
-                onclick="return confirm('Are you sure want to delete?')"
+                onclick="return confirm(gettext("Are you sure want to delete?"))"
                 class="text-danger"
                 >{% trans "Delete" %}</a
               >

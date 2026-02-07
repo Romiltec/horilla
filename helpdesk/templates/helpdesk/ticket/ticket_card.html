@@ -141,14 +141,14 @@
                                                             {% if ticket.is_active %}
                                                                 <a
                                                                     href="{% url 'ticket-archive' ticket.id %}"
-                                                                    onclick="event.stopPropagation();return confirm('{% trans "Do you want to archive this ticket?" %}');"
+                                                                    onclick="event.stopPropagation();return confirm(gettext("{% trans \"Do you want to archive this ticket?\" %}"));"
                                                                     class="oh-dropdown__link"
                                                                     >{% trans "Archive" %}</a
                                                                 >
                                                             {% else %}
                                                                 <a
                                                                     href="{% url 'ticket-archive' ticket.id %}"
-                                                                    onclick="event.stopPropagation();return confirm('{% trans "Do you want to un-archive this ticket?" %}');"
+                                                                    onclick="event.stopPropagation();return confirm(gettext("{% trans \"Do you want to un-archive this ticket?\" %}"));"
                                                                     class="oh-dropdown__link"
                                                                     >{% trans "Un-archive" %}</a
                                                                 >
@@ -160,7 +160,7 @@
                                                             >
                                                                 <form
                                                                     action="{% url 'ticket-delete' ticket.id %}"
-                                                                    onsubmit="return confirm('{% trans "Are you sure you want to delete	this Ticket?" %}');"
+                                                                    onsubmit="return confirm(gettext("{% trans \"Are you sure you want to delete	this Ticket?\" %}"));"
                                                                     method="post"
                                                                 >
                                                                     {% csrf_token %}
@@ -471,7 +471,7 @@
                                                                     >
                                                                         <a
                                                                             href="{% url 'ticket-archive' ticket.id %}"
-                                                                            onclick="event.stopPropagation();return confirm('{% trans "Do you want to archive this ticket?" %}');"
+                                                                            onclick="event.stopPropagation();return confirm(gettext("{% trans \"Do you want to archive this ticket?\" %}"));"
                                                                             class="oh-dropdown__link"
                                                                             >{% trans "Archive" %}</a
                                                                         >
@@ -482,7 +482,7 @@
                                                                     >
                                                                         <a
                                                                             href="{% url 'ticket-archive' ticket.id %}"
-                                                                            onclick="event.stopPropagation();return confirm('{% trans "Do you want to un-archive this ticket?" %}');"
+                                                                            onclick="event.stopPropagation();return confirm(gettext("{% trans \"Do you want to un-archive this ticket?\" %}"));"
                                                                             class="oh-dropdown__link"
                                                                             >{% trans "Un-archive" %}</a
                                                                         >
@@ -496,7 +496,7 @@
                                                                     >
                                                                         <form
                                                                             action="{% url 'ticket-delete' ticket.id %}"
-                                                                            onsubmit="return confirm('{% trans "Are you sure you want to delete	this Ticket?" %}');"
+                                                                            onsubmit="return confirm(gettext("{% trans \"Are you sure you want to delete	this Ticket?\" %}"));"
                                                                             method="post"
                                                                         >
                                                                             {% csrf_token %}
@@ -795,7 +795,7 @@
                                                                     >
                                                                         <a
                                                                             href="{% url 'ticket-archive' ticket.id %}"
-                                                                            onclick="event.stopPropagation();return confirm('{% trans "Do you want to archive this ticket?" %}');"
+                                                                            onclick="event.stopPropagation();return confirm(gettext("{% trans \"Do you want to archive this ticket?\" %}"));"
                                                                             class="oh-dropdown__link"
                                                                             >{% trans "Archive" %}</a
                                                                         >
@@ -806,7 +806,7 @@
                                                                     >
                                                                         <a
                                                                             href="{% url 'ticket-archive' ticket.id %}"
-                                                                            onclick="event.stopPropagation();return confirm('{% trans "Do you want to un-archive this ticket?" %}');"
+                                                                            onclick="event.stopPropagation();return confirm(gettext("{% trans \"Do you want to un-archive this ticket?\" %}"));"
                                                                             class="oh-dropdown__link"
                                                                             >{% trans "Un-archive" %}</a
                                                                         >
@@ -820,7 +820,7 @@
                                                                     >
                                                                         <form
                                                                             action="{% url 'ticket-delete' ticket.id %}"
-                                                                            onsubmit="return confirm('{% trans "Are you sure you want to delete	this Ticket?" %}');"
+                                                                            onsubmit="return confirm(gettext("{% trans \"Are you sure you want to delete	this Ticket?\" %}"));"
                                                                             method="post"
                                                                         >
                                                                             {% csrf_token %}

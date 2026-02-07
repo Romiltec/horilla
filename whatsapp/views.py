@@ -12,6 +12,7 @@ from django.dispatch import receiver
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.utils.translation import gettext as _
 
 from base.models import Announcement, IntegrationApps
 from employee.models import Employee
@@ -290,7 +291,7 @@ def create_generic_templates(request, id):
         credential.created_templates = True
         credential.save()
 
-        messages.success(request, "Message templates and flows created successfully.")
+        messages.success(request, _("Message templates and flows created successfully."))
     return HttpResponse("<script>window.location.reload();</script>")
 
 

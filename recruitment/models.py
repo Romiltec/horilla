@@ -49,11 +49,11 @@ def validate_mobile(value):
     if re.match(pattern, value) is None:
         if "+" in value:
             raise forms.ValidationError(
-                "Invalid input: Plus symbol (+) should only appear at the beginning \
-                    or no other characters allowed."
+                _("Invalid input: Plus symbol (+) should only appear at the beginning \
+                    or no other characters allowed.")
             )
         raise forms.ValidationError(
-            "Invalid input: Only digits and spaces are allowed."
+            _("Invalid input: Only digits and spaces are allowed.")
         )
 
 
@@ -1317,11 +1317,11 @@ class RejectedCandidate(HorillaModel):
     candidate_id = models.OneToOneField(
         Candidate,
         on_delete=models.PROTECT,
-        verbose_name="Candidate",
+        verbose_name=_("Candidate"),
         related_name="rejected_candidate",
     )
     reject_reason_id = models.ManyToManyField(
-        RejectReason, verbose_name="Reject reason", blank=True
+        RejectReason, verbose_name=_("Reject reason"), blank=True
     )
     description = models.TextField(max_length=255)
     objects = HorillaCompanyManager(
@@ -1392,7 +1392,7 @@ class RecruitmentSurvey(HorillaModel):
     ]
     question = models.TextField(null=False, max_length=255)
     template_id = models.ManyToManyField(
-        SurveyTemplate, verbose_name="Template", blank=True
+        SurveyTemplate, verbose_name=_("Template"), blank=True
     )
     is_mandatory = models.BooleanField(default=False)
     recruitment_ids = models.ManyToManyField(
@@ -1524,7 +1524,7 @@ class SkillZone(HorillaModel):
     Model for talent pool
     """
 
-    title = models.CharField(max_length=50, verbose_name="Skill Zone")
+    title = models.CharField(max_length=50, verbose_name=_("Skill Zone"))
     description = models.TextField(verbose_name=_("Description"), max_length=255)
     company_id = models.ForeignKey(
         Company,

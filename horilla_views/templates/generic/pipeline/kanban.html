@@ -34,7 +34,7 @@
               <div class="meta-content">
                 <span>May 16</span>
                 <div class="profile-container">
-                  <div class="avatar-placeholder" title="Unassigned">+</div>
+                  <div class="avatar-placeholder" title="{% trans 'Unassigned' %}">+</div>
                   <div class="assignee-dropdown">
                     <div class="assignee-option" data-initials="JD">
                       <div class="avatar" style="background-color: #4f46e5;">JD</div>
@@ -65,7 +65,7 @@
               <div class="meta-content">
                 <span>May 20</span>
                 <div class="profile-container">
-                  <div class="avatar" style="background-color: #10b981;" title="Alice Smith">AS</div>
+                  <div class="avatar" style="background-color: #10b981;" title="{% trans 'Alice Smith' %}">AS</div>
                   <div class="assignee-dropdown">
                     <div class="assignee-option" data-initials="JD">
                       <div class="avatar" style="background-color: #4f46e5;">JD</div>
@@ -191,7 +191,7 @@
 
         if (initials === 'UN') {
           // Unassign
-          profileContainer.find('.avatar, .avatar-placeholder').replaceWith($('<div class="avatar-placeholder" title="Unassigned">+</div>'))
+          profileContainer.find('.avatar, .avatar-placeholder').replaceWith($('<div class="avatar-placeholder" title="{% trans 'Unassigned' %}">+</div>'))
         } else {
           // Assign to selected person
           const personName = $(this).find('span').text()
@@ -265,7 +265,7 @@
                     <div class="meta-content">
                       <span>Today</span>
                       <div class="profile-container">
-                        <div class="avatar-placeholder" title="Unassigned">+</div>
+                        <div class="avatar-placeholder" title="{% trans 'Unassigned' %}">+</div>
                         <div class="assignee-dropdown">
                           <div class="assignee-option" data-initials="JD">
                             <div class="avatar" style="background-color: #4f46e5;">JD</div>
@@ -387,7 +387,7 @@
           if (initials === 'UN') {
             // Unassign
             profileContainer.innerHTML = `
-                      <div class="avatar-placeholder" title="Unassigned">+</div>
+                      <div class="avatar-placeholder" title="{% trans 'Unassigned' %}">+</div>
                       <div class="assignee-dropdown">
                         ${dropdown.innerHTML}
                       </div>

@@ -14,6 +14,9 @@ echo "PostgreSQL is ready!"
 python manage.py makemigrations
 python manage.py migrate --noinput
 
+# Compile translations
+python manage.py compilemessages --ignore=.venv
+
 # Collect static files
 python manage.py collectstatic --noinput
 

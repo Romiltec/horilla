@@ -84,7 +84,7 @@ class AutomationForm(ModelForm):
         self.fields["model"].widget.attrs["onchange"] = "getToMail($(this))"
 
         # --- Field: mail_template ---
-        self.fields["mail_template"].empty_label = "----------"
+        self.fields["mail_template"].empty_label = _("----------")
 
         # --- Field: condition fields ---
         self.fields["condition"].initial = getattr(

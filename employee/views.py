@@ -217,7 +217,7 @@ def employee_profile(request):
         )
 
         if str(company_id) != str(selected_company):
-            messages.error(request, "Employee is not working in the selected company.")
+            messages.error(request, _("Employee is not working in the selected company."))
             return redirect("employee-view")
 
     today = datetime.today()
@@ -321,7 +321,7 @@ def employee_view_individual(request, obj_id, **kwargs):
             company_id = getattr(company, "pk", None)
             if company_id != request.session["selected_company"]:
                 messages.error(
-                    request, "Employee is not working in the selected company."
+                    request, _("Employee is not working in the selected company.")
                 )
                 return redirect("employee-view")
         except Exception as e:
@@ -3670,10 +3670,10 @@ def initial_prefix(request):
         form = EmployeeGeneralSettingPrefixForm(request.POST, instance=instance)
         if form.is_valid():
             form.save()
-            messages.success(request, "Initial prefix updated successfully.")
+            messages.success(request, _("Initial prefix updated successfully."))
             return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
         else:
-            messages.error(request, "There was an error updating the prefix.")
+            messages.error(request, _("There was an error updating the prefix."))
     else:
         form = EmployeeGeneralSettingPrefixForm(instance=instance)
 

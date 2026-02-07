@@ -129,7 +129,7 @@
                 {% if perms.pms.delete_employeeobjective or instance|is_manager:request.user %}
 
                     {% if instance.archive %}
-                        <form  class="oh-btn oh-btn--primary" style="width: 50%;" onsubmit="return confirm('Do you want to Unarchive this Employee objective?')"  action='{% url "archive-employee-objective" instance.id %}'>
+                        <form  class="oh-btn oh-btn--primary" style="width: 50%;" onsubmit="return confirm(gettext("Do you want to Unarchive this Employee objective?"))"  action='{% url "archive-employee-objective" instance.id %}'>
                             <input type="hidden" name="archive" value="False" id="">
                             <input type="hidden" name="single_view" value="True">
                             <button style="background: none;
@@ -144,7 +144,7 @@
                             </button>
                         </form>
                     {% else %}
-                        <form  class="oh-btn oh-btn--primary" style="width: 50%;" onsubmit="return confirm('Do you want to archive this Employee objective?')"  action='{% url "archive-employee-objective" instance.id %}'>
+                        <form  class="oh-btn oh-btn--primary" style="width: 50%;" onsubmit="return confirm(gettext("Do you want to archive this Employee objective?"))"  action='{% url "archive-employee-objective" instance.id %}'>
                             <input type="hidden" name="archive" value="False" id="">
                             <input type="hidden" name="single_view" value="True">
                             <button style="background: none;
@@ -159,7 +159,7 @@
                             </button>
                         </form>
                     {% endif %}
-                    <form  class="oh-btn oh-btn--secondary" method="post" style="width: 50%;" onsubmit="return confirm('Do you Want to delete this employee objective?')"  action='{% url "delete-employee-objective" instance.id %}'>
+                    <form  class="oh-btn oh-btn--secondary" method="post" style="width: 50%;" onsubmit="return confirm(gettext("Do you Want to delete this employee objective?"))"  action='{% url "delete-employee-objective" instance.id %}'>
                         {% csrf_token %}
                         <button style="background: none;
                             color: inherit;

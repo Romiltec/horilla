@@ -8,7 +8,7 @@
     <div class="oh-main__titlebar oh-main__titlebar--right oh-d-flex-column--resp oh-mb-3--small">
       <div class="oh-input-group oh-input__search-group mr-4">
         <ion-icon name="search-outline" class="oh-input-group__icon oh-input-group__icon--left md hydrated" role="img" aria-label="search outline"></ion-icon>
-        <input type="text" id="pipelineSearch" placeholder="Search" style="margin-right:10px" onkeyup="$('.filterButton').click()" name="search" class="oh-input oh-input__icon mr-3" aria-label="Search Input" />
+        <input type="text" id="pipelineSearch" placeholder="{% trans 'Search' %}" style="margin-right:10px" onkeyup="$('.filterButton').click()" name="search" class="oh-input oh-input__icon mr-3" aria-label="Search Input" />
       </div>
       <input type="hidden" name="view" value="{{request.GET.view}}" id="reimbursementViewType">
         <ul class="oh-view-types ml-2" style="margin-bottom: 0">
@@ -37,10 +37,10 @@
         </ul>
       {% comment %} <ul class="oh-view-types ml-2" style="margin-bottom: 0;">
         <li class="oh-view-type" data-view="list" onclick="event.stopPropagation()">
-          <a class="oh-btn oh-btn--view" title="List"><ion-icon name="list-outline" role="img" class="md hydrated" aria-label="list outline"></ion-icon></a>
+          <a class="oh-btn oh-btn--view" title="{% trans 'List' %}"><ion-icon name="list-outline" role="img" class="md hydrated" aria-label="list outline"></ion-icon></a>
         </li>
         <li class="oh-view-type" data-view="card">
-          <a class="oh-btn oh-btn--view oh-btn--view-active" title="Card"><ion-icon name="grid-outline" role="img" class="md hydrated" aria-label="grid outline"></ion-icon></a>
+          <a class="oh-btn oh-btn--view oh-btn--view-active" title="{% trans 'Card' %}"><ion-icon name="grid-outline" role="img" class="md hydrated" aria-label="grid outline"></ion-icon></a>
         </li>
       </ul> {% endcomment %}
       {% include 'payroll/reimbursement/filter.html' %}

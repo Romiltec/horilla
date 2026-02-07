@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.utils.translation import gettext as _
 
 from base.methods import get_pagination, get_subordinates
 from employee.models import Employee
@@ -116,7 +117,7 @@ def is_projectmanager_or_member_or_perms(function, perm):
             or any_task_member(user)
         ):
             return function(request, *args, **kwargs)
-        messages.info(request, "You don't have permission.")
+        messages.info(request, _("You don't have permission."))
         return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
     return _function
@@ -230,7 +231,7 @@ def you_dont_have_permission(request):
     """
     Method to return you dont have permission
     """
-    messages.info(request, "You dont have permission.")
+    messages.info(request, _("You dont have permission."))
     previous_url = request.META.get("HTTP_REFERER", "/")
     key = "HTTP_HX_REQUEST"
     if key in request.META.keys():

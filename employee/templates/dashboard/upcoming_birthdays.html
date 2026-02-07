@@ -1,4 +1,6 @@
 {% extends "index.html" %}
+
+{% load i18n %}
 {% block content %}
 <style>
   .card {
@@ -14,7 +16,7 @@
   }
 </style>
 
-<h1>Upcoming Birthdays</h1>
+<h1>{%trans 'Upcoming Birthdays' %}</h1>
 <div class="row">
   {% for employee in employees %}
   <div class="col-md-3 mb-3">

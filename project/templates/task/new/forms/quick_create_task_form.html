@@ -1,3 +1,4 @@
+{% load i18n %}
 <form class="oh-kanban__add-card-form" hx-post="{% url 'quick-create-task' stage_id %}" hx-target="#{{hx_target}}">
     {% if form.errors %}
         <ul class="errorlist nonfield">

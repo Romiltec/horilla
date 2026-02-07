@@ -1,3 +1,4 @@
+{% load i18n %}
 {% if perms.pms.change_employeeobjective or instance|is_manager_or_owner:request.user %}
 
                     <select name="status" id="{{instance.id}}" class="oh-select"

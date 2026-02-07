@@ -8,7 +8,7 @@
      title="{% trans 'Edit' %}"
      hx-target="#genericModalBody">
      <ion-icon name="create-outline"></ion-icon></a>
-    <form action="{% url 'archive-anonymous-feedback' obj_id=instance.id %}" method="post" onsubmit="return confirm('{% if instance.archive %}{% trans "Are you sure you want to Un-archive this feedback?" %}{% else %}{% trans "Are you sure you want to archive this feedback?" %}{% endif %}')" style="display: contents">
+    <form action="{% url 'archive-anonymous-feedback' obj_id=instance.id %}" method="post" onsubmit="return confirm(gettext("{% if instance.archive %}{% trans \"Are you sure you want to Un-archive this feedback?\" %}{% else %}{% trans \"Are you sure you want to archive this feedback?\" %}{% endif %}"))" style="display: contents">
       {% if instance.archive == True %}
         <button class="oh-btn oh-btn--danger-outline  w-100 "  title="{% trans 'Un-archive' %}" >
       {% else %}
@@ -18,7 +18,7 @@
       <ion-icon name="archive-sharp" type="submit"></ion-icon>
     </button>
     </form>
-      <form action="{% url 'delete-anonymous-feedback' obj_id=instance.id %}" method="post" onsubmit="return confirm('{% trans "Do you want Delete this Feedback ?" %}')" style="display: contents">
+      <form action="{% url 'delete-anonymous-feedback' obj_id=instance.id %}" method="post" onsubmit="return confirm(gettext("{% trans \"Do you want Delete this Feedback ?\" %}"))" style="display: contents">
         {% csrf_token %}
         <button  class="oh-btn oh-btn--danger-outline  w-100" title="{% trans 'Delete' %}" >
             <ion-icon name="trash-outline" role="img" class="md hydrated" aria-label="trash outline"></ion-icon>

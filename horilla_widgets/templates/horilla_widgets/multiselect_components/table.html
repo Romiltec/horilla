@@ -150,7 +150,7 @@
         ).attr("data-avatar");
         $("#{{section_id}} #avatarsContainer").append(
           $(
-            `<a href="#" class="avatars__item" title="${valueOfElement.label}"><img class="avatar" src="${imgUrl}" alt=""></a>`
+            `<a href="#" class="avatars__item" title="{% trans '${valueOfElement.label}' %}"><img class="avatar" src="${imgUrl}" alt=""></a>`
           )
         );
       });
@@ -190,7 +190,7 @@
         ).attr("data-avatar");
         $("#{{section_id}} #avatarsContainer").append(
           $(
-            `<a href="#" class="avatars__item" title="${optionHtml}"><img class="avatar" src="${imgUrl}" alt=""></a>`
+            `<a href="#" class="avatars__item" title="{% trans '${optionHtml}' %}"><img class="avatar" src="${imgUrl}" alt=""></a>`
           )
         );
         var optValue = $(valueOfElement).val();

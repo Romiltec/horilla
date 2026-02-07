@@ -424,7 +424,7 @@
             Swal.fire({
                 text: textMessage,
                 icon: "warning",
-                confirmButtonText: "Close",
+                confirmButtonText: gettext("Close"),
               })
         }else {
             $.ajax({
@@ -453,7 +453,7 @@
             Swal.fire({
                 text: textMessage,
                 icon: "warning",
-                confirmButtonText: "Close",
+                confirmButtonText: gettext("Close"),
               })
         }else {
             Swal.fire({
@@ -462,7 +462,7 @@
                 showCancelButton: true,
                 confirmButtonColor: "#008000",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Confirm",
+                confirmButtonText: gettext("Confirm"),
             }).then(function (result) {
                 if (result.isConfirmed) {
                     $.ajax({

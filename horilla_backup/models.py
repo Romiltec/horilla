@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
@@ -6,7 +7,7 @@ from django.db import models
 class LocalBackup(models.Model):
     backup_path = models.CharField(
         max_length=255,
-        help_text="Specify the path in the server were the backup files should keep",
+        help_text=_("Specify the path in the server were the backup files should keep"),
     )
     backup_media = models.BooleanField(blank=True, null=True)
     backup_db = models.BooleanField(blank=True, null=True)
@@ -43,13 +44,13 @@ class LocalBackup(models.Model):
 class GoogleDriveBackup(models.Model):
     service_account_file = models.FileField(
         upload_to="gdrive_service_account_file",
-        verbose_name="Service Account File",
-        help_text="Make sure your file is in JSON format and contains your Google Service Account credentials",
+        verbose_name=_("Service Account File"),
+        help_text=_("Make sure your file is in JSON format and contains your Google Service Account credentials"),
     )
     gdrive_folder_id = models.CharField(
         max_length=255,
-        verbose_name="Gdrive Folder ID",
-        help_text="Shared Gdrive folder Id with access granted to Gmail service account. Enable full permissions for seamless connection.",
+        verbose_name=_("Gdrive Folder ID"),
+        help_text=_("Shared Gdrive folder Id with access granted to Gmail service account. Enable full permissions for seamless connection."),
     )
     backup_media = models.BooleanField(blank=True, null=True)
     backup_db = models.BooleanField(blank=True, null=True)

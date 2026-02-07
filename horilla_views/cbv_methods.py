@@ -206,7 +206,7 @@ def permission_required(function, perm):
         if request.user.has_perm(perm):
             return function(self, *args, **kwargs)
         else:
-            messages.info(request, "You dont have permission.")
+            messages.info(request, _("You dont have permission."))
             previous_url = request.META.get("HTTP_REFERER", "/")
             key = "HTTP_HX_REQUEST"
             if key in request.META.keys():

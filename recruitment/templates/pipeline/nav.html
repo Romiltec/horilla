@@ -348,7 +348,7 @@
         Toast = Swal.mixin({
             toast: true,
             icon: "success",
-            title: "General Title",
+            title: gettext("General Title"),
             animation: true,
             position: "top-right",
             showConfirmButton: false,
@@ -399,7 +399,7 @@
                             if (!isNextStage(currentStageId, targetStageId, parsedStageOrder)) {
                                 if (sessionStorage.getItem('showRecuitmentKanbanConfirmation') !== 'false') {
                                     Swal.fire({
-                                        title: "Confirm Stage Change",
+                                        title: gettext("Confirm Stage Change"),
                                         html: `
                                             <p>The candidate is being moved from ${preStage.stage} to the ${currentStage.stage} stage. Do you want to proceed?</p>
                                             <label><input type="checkbox" id="doNotShowAgain"> Don't show this again in this session</label>
@@ -408,7 +408,7 @@
                                         showCancelButton: true,
                                         cancelButtonColor: "#d33",
                                         confirmButtonColor: "#008000",
-                                        confirmButtonText: "Confirm",
+                                        confirmButtonText: gettext("Confirm"),
                                         preConfirm: () => {
                                             const doNotShowAgain = Swal.getPopup().querySelector('#doNotShowAgain').checked;
                                             if (doNotShowAgain) {
@@ -488,7 +488,7 @@
                             row.find('[name="stage_id"]').val(stageId);
                             Toast.fire({
                                 icon: "success",
-                                title: '{% trans "Sequence updated" %}',
+                                title: gettext("{% trans \"Sequence updated\" %}"),
                                 position: "top-end",
                             });
                             if (response.message) {
@@ -496,14 +496,14 @@
                                     title: response.message,
                                     text: `Total vacancy is ${response.vacancy}.`,
                                     icon: "info",
-                                    confirmButtonText: "Ok",
+                                    confirmButtonText: gettext("Ok"),
                                 });
                             }
                         },
                         error: function (xhr, status, error) {
                             Toast.fire({
                                 icon: "error",
-                                title: '{% trans "Something went wrong" %}',
+                                title: gettext("{% trans \"Something went wrong\" %}"),
                                 position: "top-end",
                             });
                         },

@@ -148,7 +148,7 @@
         $("#id_job_role_id").append(
           $("<option>", {
             value: "create",
-            text: "Create New Job Role",
+            text: gettext("Create New Job Role"),
           })
         );
       }
@@ -176,7 +176,7 @@
         $("#id_job_position_id").append(
           $("<option>", {
             value: "",
-            text: "---Choose Job Position---",
+            text: gettext("---Choose Job Position---"),
           })
         );
         // Append new options based on the response
@@ -191,7 +191,7 @@
         $("#id_job_position_id").append(
           $("<option>", {
             value: "create",
-            text: "Create New Job Position",
+            text: gettext("Create New Job Position"),
           })
         );
         // Set the selected job position back to the dropdown

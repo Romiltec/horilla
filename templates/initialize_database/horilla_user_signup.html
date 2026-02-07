@@ -4,23 +4,23 @@
     <ul class="oh-onboarding-card__step">
         <li class="oh-onboarding-card__step">
             <div class="oh-onboarding-card__count">1</div>
-            <span class="oh-onboarding-card__text">Authentication</span>
+            <span class="oh-onboarding-card__text">{%trans 'Authentication' %}</span>
         </li>
         <li class="oh-onboarding-card__step oh-onboarding-card__step--active">
             <div class="oh-onboarding-card__count">2</div>
-            <span class="oh-onboarding-card__text">Sign Up</span>
+            <span class="oh-onboarding-card__text">{%trans 'Sign Up' %}</span>
         </li>
         <li class="oh-onboarding-card__step">
             <div class="oh-onboarding-card__count">3</div>
-            <span class="oh-onboarding-card__text">Company</span>
+            <span class="oh-onboarding-card__text">{%trans 'Company' %}</span>
         </li>
         <li class="oh-onboarding-card__step">
             <div class="oh-onboarding-card__count">4</div>
-            <span class="oh-onboarding-card__text">Department</span>
+            <span class="oh-onboarding-card__text">{%trans 'Department' %}</span>
         </li>
         <li class="oh-onboarding-card__step oh-onboarding-card__step">
             <div class="oh-onboarding-card__count">5</div>
-            <span class="oh-onboarding-card__text">Job Position</span>
+            <span class="oh-onboarding-card__text">{%trans 'Job Position' %}</span>
         </li>
     </ul>
 </div>
@@ -36,14 +36,14 @@
         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
             <div class="oh-input-group">
                 <label class="oh-label" for="firstname">{% trans "First Name" %}</label>
-                <input type="text" id="firstname" name="firstname" class="oh-input w-100" placeholder="e.g. Adam"
+                <input type="text" id="firstname" name="firstname" class="oh-input w-100" placeholder="{% trans 'e.g. Adam' %}"
                     required />
             </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
             <div class="oh-input-group">
                 <label class="oh-label" for="lastname">{% trans "Last Name" %}</label>
-                <input type="text" id="lastname" name="lastname" class="oh-input w-100" placeholder="e.g. Luis"
+                <input type="text" id="lastname" name="lastname" class="oh-input w-100" placeholder="{% trans 'e.g. Luis' %}"
                     required />
             </div>
         </div>
@@ -59,7 +59,7 @@
         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
             <div class="oh-input-group">
                 <label class="oh-label" for="phone">{% trans "Phone" %}</label>
-                <input type="text" id="phone" name="phone" class="oh-input w-100" placeholder="e.g. 9865324512"
+                <input type="text" id="phone" name="phone" class="oh-input w-100" placeholder="{% trans 'e.g. 9865324512' %}"
                     required />
             </div>
         </div>
@@ -68,7 +68,7 @@
         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
             <div class="oh-input-group">
                 <label class="oh-label" for="badge_id">{% trans "Badge ID" %}</label>
-                <input type="text" id="badge_id" name="badge_id" class="oh-input w-100" placeholder="e.g. PEP001"
+                <input type="text" id="badge_id" name="badge_id" class="oh-input w-100" placeholder="{% trans 'e.g. PEP001' %}"
                     required />
             </div>
         </div>
@@ -87,11 +87,11 @@
                 <label class="oh-label" for="adminPassword">{% trans "Password" %}</label>
                 <div class="oh-password-input-container">
                     <input type="password" name="password" id="adminPassword" class="oh-input oh-input--password w-100"
-                        placeholder="Use alphanumeric characters" required />
+                        placeholder="{% trans 'Use alphanumeric characters' %}" required />
                     <button type="button" class="oh-btn oh-btn--transparent oh-password-input--toggle">
-                        <ion-icon class="oh-passowrd-input__show-icon" title="Show Password"
+                        <ion-icon class="oh-passowrd-input__show-icon" title="{% trans 'Show Password' %}"
                             name="eye-outline"></ion-icon>
-                        <ion-icon class="oh-passowrd-input__hide-icon d-none" title="Hide Password"
+                        <ion-icon class="oh-passowrd-input__hide-icon d-none" title="{% trans 'Hide Password' %}"
                             name="eye-off-outline"></ion-icon>
                     </button>
                 </div>
@@ -102,11 +102,11 @@
                 <label class="oh-label" for="confirmPassword">{% trans "Confirm Password" %}</label>
                 <div class="oh-password-input-container">
                     <input type="password" id="confirmPassword" name="confirm_password" class="oh-input oh-input--password w-100"
-                        placeholder="Use alphanumeric characters" required />
+                        placeholder="{% trans 'Use alphanumeric characters' %}" required />
                     <button type="button" class="oh-btn oh-btn--transparent oh-password-input--toggle">
-                        <ion-icon class="oh-passowrd-input__show-icon" title="Show Password"
+                        <ion-icon class="oh-passowrd-input__show-icon" title="{% trans 'Show Password' %}"
                             name="eye-outline"></ion-icon>
-                        <ion-icon class="oh-passowrd-input__hide-icon d-none" title="Hide Password"
+                        <ion-icon class="oh-passowrd-input__hide-icon d-none" title="{% trans 'Hide Password' %}"
                             name="eye-off-outline"></ion-icon>
                     </button>
                 </div>

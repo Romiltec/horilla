@@ -9,9 +9,9 @@
     <a hx-get="{% url 'recruitment-duplicate' instance.id %}" hx-target='#genericModalBody' hx-swap='innerHTML' data-toggle='oh-modal-toggle' data-target='#genericModal'  class="oh-btn oh-btn--light-bkg w-100" title="{% trans 'Duplicate' %}"><ion-icon name="copy-outline"></ion-icon></a>
     {% if perms.recruitment.delete_recruitment %}
       {% if instance.is_active %}
-        <a onclick="return confirm('{% trans "Are you sure you want to archive this recruitment?" %}');" href="{% url 'recruitment-archive' instance.id %}" class="oh-btn oh-btn--light-bkg w-100" title="{% trans 'Archive' %}"><ion-icon name="archive"></ion-icon></a>
+        <a onclick="return confirm(gettext("{% trans \"Are you sure you want to archive this recruitment?\" %}"));" href="{% url 'recruitment-archive' instance.id %}" class="oh-btn oh-btn--light-bkg w-100" title="{% trans 'Archive' %}"><ion-icon name="archive"></ion-icon></a>
         {% else %}
-        <a onclick="return confirm('{% trans "Are you sure you want to unarchive this recruitment?" %}');" href="{% url 'recruitment-archive' instance.id %}" class="oh-btn oh-btn--light-bkg w-100" title="{% trans 'Unarchive' %}"><ion-icon name="archive"></ion-icon></a>
+        <a onclick="return confirm(gettext("{% trans \"Are you sure you want to unarchive this recruitment?\" %}"));" href="{% url 'recruitment-archive' instance.id %}" class="oh-btn oh-btn--light-bkg w-100" title="{% trans 'Unarchive' %}"><ion-icon name="archive"></ion-icon></a>
       {% endif %}
     {% endif %}
     {% if perms.recruitment.delete_recruitment %}

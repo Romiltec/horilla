@@ -35,7 +35,7 @@
                   <form id="delete-form-{{ group.id }}"
                         action="{% url 'user-group-delete' group.id %}"
                         method="post"
-                        onsubmit="return confirm('Do you want to delete this group permission?')"
+                        onsubmit="return confirm(gettext("Do you want to delete this group permission?"))"
                         style="display: inline;">
                       {% csrf_token %}
                       <a href="#" class="cursor-pointer px-2 py-1 text-sm bg-white shadow-card text-primary-600 rounded-sm w-7 h-7 flex items-center justify-center

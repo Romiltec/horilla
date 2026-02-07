@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.utils.translation import gettext as _
 
 from employee.models import Employee
 from horilla.horilla_middlewares import _thread_locals
@@ -48,7 +49,7 @@ def manager_can_enter(function, perm):
         )
         if user.has_perm(perm) or is_manager:
             return function(self, *args, **kwargs)
-        messages.info(request, "You dont have permission.")
+        messages.info(request, _("You dont have permission."))
         previous_url = request.META.get("HTTP_REFERER", "/")
         script = f'<script>window.location.href = "{previous_url}"</script>'
         key = "HTTP_HX_REQUEST"
@@ -101,7 +102,7 @@ def all_manager_can_enter(function, perm):
         )
         if user.has_perm(perm) or is_manager:
             return function(self, *args, **kwargs)
-        messages.info(request, "You dont have permission.")
+        messages.info(request, _("You dont have permission."))
         previous_url = request.META.get("HTTP_REFERER", "/")
         script = f'<script>window.location.href = "{previous_url}"</script>'
         key = "HTTP_HX_REQUEST"

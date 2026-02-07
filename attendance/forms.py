@@ -1114,7 +1114,7 @@ class BulkAttendanceRequestForm(BaseModelForm):
     batch_attendance_id = forms.ModelChoiceField(
         queryset=BatchAttendance.objects.all(),
         required=False,
-        label="Batch",
+        label=_("Batch"),
         widget=forms.Select(attrs={"onchange": "dynamicBatchAttendance($(this))"}),
     )
 

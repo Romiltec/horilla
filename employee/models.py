@@ -155,7 +155,7 @@ class Employee(models.Model):
                 value = getattr(self, field.name, None)
                 if value and has_xss(value):
                     errors[field.name] = ValidationError(
-                        "Potential XSS content detected."
+                        _("Potential XSS content detected.")
                     )
 
         if errors:
@@ -966,10 +966,10 @@ class EmployeeBankDetails(HorillaModel):
     state = models.CharField(max_length=50, null=True, blank=True)
     city = models.CharField(max_length=50, null=True, blank=True)
     any_other_code1 = models.CharField(
-        max_length=50, verbose_name="Bank Code #1", null=True
+        max_length=50, verbose_name=_("Bank Code #1"), null=True
     )
     any_other_code2 = models.CharField(
-        max_length=50, null=True, blank=True, verbose_name="Bank Code #2"
+        max_length=50, null=True, blank=True, verbose_name=_("Bank Code #2")
     )
     additional_info = models.JSONField(null=True, blank=True)
     objects = HorillaCompanyManager(
@@ -1078,7 +1078,7 @@ class BonusPoint(HorillaModel):
         related_name="bonus_point",
     )
     points = models.IntegerField(
-        default=0, help_text="Use negative numbers to reduce points."
+        default=0, help_text=_("Use negative numbers to reduce points.")
     )
     encashment_condition = models.CharField(
         max_length=100, choices=CONDITIONS, blank=True, null=True

@@ -10,10 +10,10 @@
           </div>
           <span class="oh-profile__active-badge oh-profile__active-badge--secondary"
           {% if instance.employee_user_id.is_active %}
-          title="Active"
+          title="{% trans 'Active' %}"
           style="background-color: yellowgreen;"
           {% else %}
-          title="In-active"
+          title="{% trans 'In-active' %}"
           {% endif %}
            ></span>
         </div>

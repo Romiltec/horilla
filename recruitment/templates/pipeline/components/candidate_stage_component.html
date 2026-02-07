@@ -71,7 +71,7 @@
                             candidateCheckBoxes = $(this).closest('.oh-sticky-table').find('.stage-candidate-row[type=checkbox]:checked')
                             if (!candidateCheckBoxes.length) {
                                 Swal.fire({
-                                    title: 'No rows selected!',
+                                    title: gettext("No rows selected!"),
                                     icon: 'warning'
                                 });
                             }else{

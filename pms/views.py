@@ -1258,7 +1258,7 @@ def change_employee_objective_status(request):
             and (emp_objective.employee_id == request.user.employee_get)
         )
     ):
-        messages.info(request, "You dont have permission")
+        messages.info(request, _("You dont have permission"))
         return HttpResponse("<script>$('#reloadMessagesButton').click();</script>")
 
     status = request.GET.get("status")
@@ -3385,7 +3385,7 @@ def employee_keyresult_update_status(request, kr_id):
             f"/pms/kr-table-view/{emp_kr.employee_objective_id.id}?&objective_id={emp_kr.employee_objective_id.objective_id.id}"
         )
 
-    messages.info(request, "You dont have permission")
+    messages.info(request, _("You dont have permission"))
     return HttpResponse("<script>window.location.reload()</script>")
 
 
@@ -3416,10 +3416,10 @@ def key_result_current_value_update(request):
             emp_kr.current_value = current_value
             emp_kr.save()
             emp_kr.employee_objective_id.update_objective_progress()
-            messages.success(request, "Value updated")
+            messages.success(request, _("Value updated"))
         else:
             messages.info(
-                request, "You dont have permission to update the current value"
+                request, _("You dont have permission to update the current value")
             )
         return JsonResponse(
             {
@@ -3905,10 +3905,10 @@ def delete_bonus_point_setting(request, pk):
     """
     try:
         BonusPointSetting.objects.get(id=pk).delete()
-        messages.success(request, "Bonus Point Setting deleted")
+        messages.success(request, _("Bonus Point Setting deleted"))
     except Exception as e:
         logger.error(e)
-        messages.error(request, "Something went wrong")
+        messages.error(request, _("Something went wrong"))
     return redirect(reverse("bonus-point-setting-list-view"))
 
 

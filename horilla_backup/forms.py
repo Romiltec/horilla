@@ -18,17 +18,17 @@ from .models import *
 class LocalBackupSetupForm(ModelForm):
     verbose_name = "Server Backup"
     backup_db = forms.BooleanField(
-        required=False, help_text="Enable to backup database to server."
+        required=False, help_text=_("Enable to backup database to server.")
     )
     backup_media = forms.BooleanField(
-        required=False, help_text="Enable to backup all media files to server."
+        required=False, help_text=_("Enable to backup all media files to server.")
     )
     interval = forms.BooleanField(
         required=False,
-        help_text="Enable to automate the backup in a period of seconds.",
+        help_text=_("Enable to automate the backup in a period of seconds."),
     )
     fixed = forms.BooleanField(
-        required=False, help_text="Enable to automate the backup in a fixed time."
+        required=False, help_text=_("Enable to automate the backup in a fixed time.")
     )
 
     class Meta:
@@ -57,9 +57,9 @@ class LocalBackupSetupForm(ModelForm):
         if not path.exists():
             raise ValidationError({"backup_path": _("The directory does not exist.")})
         if backup_db == False and backup_media == False:
-            raise forms.ValidationError("Please select any backup option.")
+            raise forms.ValidationError(_("Please select any backup option."))
         if interval == False and fixed == False:
-            raise forms.ValidationError("Please select any backup automate option.")
+            raise forms.ValidationError(_("Please select any backup automate option."))
         if interval == True and seconds == None:
             raise ValidationError({"seconds": _("This field is required.")})
         if fixed == True and hour == None:
@@ -82,20 +82,20 @@ class GdriveBackupSetupForm(ModelForm):
     verbose_name = "Gdrive Backup"
     backup_db = forms.BooleanField(
         required=False,
-        label="Backup DB",
-        help_text="Enable to backup database to Gdrive",
+        label=_("Backup DB"),
+        help_text=_("Enable to backup database to Gdrive"),
     )
     backup_media = forms.BooleanField(
         required=False,
-        label="Backup Media",
-        help_text="Enable to backup all media files to Gdrive",
+        label=_("Backup Media"),
+        help_text=_("Enable to backup all media files to Gdrive"),
     )
     interval = forms.BooleanField(
         required=False,
-        help_text="Enable to automate the backup in a period of seconds.",
+        help_text=_("Enable to automate the backup in a period of seconds."),
     )
     fixed = forms.BooleanField(
-        required=False, help_text="Enable to automate the backup in a fixed time."
+        required=False, help_text=_("Enable to automate the backup in a fixed time.")
     )
 
     class Meta:
@@ -144,11 +144,11 @@ class GdriveBackupSetupForm(ModelForm):
             os.remove(temp_path)
 
         except Exception as e:
-            raise forms.ValidationError("Please provide a valid service account file.")
+            raise forms.ValidationError(_("Please provide a valid service account file."))
         if backup_db == False and backup_media == False:
-            raise forms.ValidationError("Please select any backup option.")
+            raise forms.ValidationError(_("Please select any backup option."))
         if interval == False and fixed == False:
-            raise forms.ValidationError("Please select any backup automate option.")
+            raise forms.ValidationError(_("Please select any backup automate option."))
         if interval == True and seconds == None:
             raise ValidationError({"seconds": _("This field is required.")})
         if fixed == True and hour == None:

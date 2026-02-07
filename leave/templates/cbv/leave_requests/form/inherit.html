@@ -1,4 +1,5 @@
 {% load horillafilters %}
+{% load i18n %}
 <div>
     {% include "generic/horilla_form.html" %}
 </div>
@@ -58,7 +59,7 @@
                                 showCancelButton: true,
                                 confirmButtonColor: "#008000",
                                 cancelButtonColor: "#d33",
-                                confirmButtonText: "Confirm",
+                                confirmButtonText: gettext("Confirm"),
                             }).then(function (result) {
                                 if (result.isConfirmed) {
                                     test.find("[type=submit]").show();

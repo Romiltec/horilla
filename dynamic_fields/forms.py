@@ -149,7 +149,7 @@ def init_override(self: forms.ModelForm, *args, **kwargs):
             "dynamic_fields.delete_dynamicfield"
         )
         self.fields["add_df"] = forms.CharField(
-            label="Add field",
+            label=_("Add field"),
             widget=AddFieldWidget(
                 form=self,
             ),

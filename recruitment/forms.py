@@ -746,7 +746,7 @@ class StageNoteForm(ModelForm):
         super().__init__(*args, **kwargs)
         # field = self.fields["candidate_id"]
         # field.widget = field.hidden_widget()
-        self.fields["stage_files"] = MultipleFileField(label="files")
+        self.fields["stage_files"] = MultipleFileField(label=_("files"))
         self.fields["stage_files"].required = False
 
     def save(self, commit: bool = ...) -> Any:
@@ -984,10 +984,10 @@ class AddQuestionForm(Form):
 
     verbose_name = "Add Question"
     question_ids = forms.ModelMultipleChoiceField(
-        queryset=RecruitmentSurvey.objects.all(), label="Questions"
+        queryset=RecruitmentSurvey.objects.all(), label=_("Questions")
     )
     template_ids = forms.ModelMultipleChoiceField(
-        queryset=SurveyTemplate.objects.all(), label="Templates"
+        queryset=SurveyTemplate.objects.all(), label=_("Templates")
     )
 
     def save(self):
@@ -1097,7 +1097,7 @@ class SkillZoneCandidateForm(ModelForm):
         if hasattr(candidate_field, "__iter__"):
             for candidate in candidate_field:
                 if not isinstance(candidate, Candidate):
-                    raise forms.ValidationError("Invalid candidate selected.")
+                    raise forms.ValidationError(_("Invalid candidate selected."))
             return candidate_field
 
         return candidate_field

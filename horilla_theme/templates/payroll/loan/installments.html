@@ -125,7 +125,7 @@
 						</td>
 						<td class="text-sm text-left p-3 text-[#666]">
 							{% if deduction.installment_payslip %}
-							<span title="Installment paid, Click to view">
+							<span title="{% trans 'Installment paid, Click to view' %}">
 								<a
 									href="{% url 'view-created-payslip' deduction.installment_payslip.id %}"
 								>
@@ -151,7 +151,7 @@
 							{{ loan.loan_amount|balance_amount:installments }}
 						</td>
 						<td class="text-sm text-left p-3 text-[#666]">
-							<span title="Loan Settled">
+							<span title="{% trans 'Loan Settled' %}">
 								<a href="#"> ✅ </a>
 							</span>
 						</td>

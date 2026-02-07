@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <style>
 
@@ -258,8 +259,8 @@
             </div>
             <div>
                 <h1 class="hr-404">404</h1>
-                <p class="hr-error_msg">Page not found!</p>
-                <p>Oops! The page you are looking for could not be found.</p>
+                <p class="hr-error_msg">{%trans 'Page not found!' %}</p>
+                <p>{%trans 'Oops! The page you are looking for could not be found.' %}</p>
                 <a href="/" class="hr-error_btn"><ion-icon name="arrow-back-outline"></ion-icon>Return to the main
                     page</a>
             </div>

@@ -128,7 +128,7 @@ class reimbursementCommentForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["files"] = MultipleFileField(label="files")
+        self.fields["files"] = MultipleFileField(label=_("files"))
         self.fields["files"].required = False
         self.fields["files"].widget.attrs["accept"] = ".jpg, .jpeg, .png, .pdf"
 

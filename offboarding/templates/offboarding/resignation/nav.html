@@ -8,7 +8,7 @@
     <form class="oh-main__titlebar oh-main__titlebar--right oh-d-flex-column--resp oh-mb-3--small" hx-get="{% url 'search-resignation-request' %}" hx-target="#resignationLetterContianer">
       <div class="oh-input-group oh-input__search-group">
         <ion-icon name="search-outline" class="oh-input-group__icon oh-input-group__icon--left md hydrated" role="img" aria-label="search outline"></ion-icon>
-        <input onkeyup="$(this).closest('form').find('input[type=submit]').click()" name="search" id="pipelineSearch" hx-target="#offboardingContainer" type="text" placeholder="Search" style="margin-right:10px" class="oh-input oh-input__icon mr-3" aria-label="Search Input" />
+        <input onkeyup="$(this).closest('form').find('input[type=submit]').click()" name="search" id="pipelineSearch" hx-target="#offboardingContainer" type="text" placeholder="{% trans 'Search' %}" style="margin-right:10px" class="oh-input oh-input__icon mr-3" aria-label="Search Input" />
       </div>
       <div class="oh-input-group oh-input__search-group">
         <ul class="oh-view-types ml-2" style="margin-bottom: 0">

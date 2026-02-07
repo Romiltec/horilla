@@ -386,15 +386,15 @@ class BankDetailsCreationForm(ModelForm):
     Form for BankDetailsCreationForm
     """
 
-    bank_name = forms.CharField(required=True, label="Bank Name")
-    account_number = forms.CharField(required=True, label="Account Number")
-    branch = forms.CharField(required=True, label="Branch")
+    bank_name = forms.CharField(required=True, label=_("Bank Name"))
+    account_number = forms.CharField(required=True, label=_("Account Number"))
+    branch = forms.CharField(required=True, label=_("Branch"))
     address = forms.Textarea()
-    country = forms.CharField(required=True, label="Country")
-    state = forms.CharField(required=True, label="State")
-    city = forms.CharField(required=True, label="City")
-    any_other_code1 = forms.CharField(required=True, label="Code #1")
-    any_other_code2 = forms.CharField(required=False, label="Code #2")
+    country = forms.CharField(required=True, label=_("Country"))
+    state = forms.CharField(required=True, label=_("State"))
+    city = forms.CharField(required=True, label=_("City"))
+    any_other_code1 = forms.CharField(required=True, label=_("Code #1"))
+    any_other_code2 = forms.CharField(required=False, label=_("Code #2"))
 
     class Meta:
         """

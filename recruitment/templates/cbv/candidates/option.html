@@ -5,7 +5,7 @@
               <div class="oh-btn-group">
                 {% if not instance.email in emp_list and not instance.start_onboard %}
                   <a href="{% url 'candidate-conversion' instance.id %}"
-                    onclick="return confirm('{% trans "Are you sure you want to convert this candidate into an employee?" %}')"
+                    onclick="return confirm(gettext("{% trans \"Are you sure you want to convert this candidate into an employee?\" %}"))"
                     class="oh-btn oh-btn--light-bkg w-100"
                     title='{% trans "To employee " %}'
                     style="padding:0.8rem 1rem"

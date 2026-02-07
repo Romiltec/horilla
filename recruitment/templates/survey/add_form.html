@@ -1,3 +1,4 @@
+{% load i18n %}
 <form method="post" hx-post="{% url 'survey-template-question-add' %}" hx-target="#templateModalBody">
     {{form.as_p}}
 </form>

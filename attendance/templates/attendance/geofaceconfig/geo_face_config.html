@@ -1,5 +1,7 @@
 
 {% extends "settings.html" %}
+
+{% load i18n %}
 {% block settings %}
 
 <div hx-get="{% url 'geo-config' %}" hx-trigger="load" hx-target="#geo"></div>

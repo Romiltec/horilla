@@ -156,7 +156,7 @@ class NoteForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["attachment"] = MultipleFileField(label="Attachements")
+        self.fields["attachment"] = MultipleFileField(label=_("Attachements"))
         self.fields["attachment"].required = False
 
     def as_p(self):
@@ -203,7 +203,7 @@ class TaskForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["stage_id"].empty_label = "All Stages in Offboarding"
+        self.fields["stage_id"].empty_label = _("All Stages in Offboarding")
         self.fields["managers"].empty_label = None
         if not self.instance.pk:
             queryset = OffboardingEmployee.objects.filter(
@@ -249,7 +249,7 @@ class ResignationLetterForm(ModelForm):
 
     description = forms.CharField(
         widget=forms.Textarea(attrs={"data-summernote": "", "style": "display:none;"}),
-        label="Description",
+        label=_("Description"),
     )
     verbose_name = "Resignation Letter"
 
@@ -305,7 +305,7 @@ class ResignationLetterForm(ModelForm):
             instance = super().save(commit)
         else:
             messages.info(
-                request, "You cannot edit a request that has been rejected/approved"
+                request, _("You cannot edit a request that has been rejected/approved")
             )
 
         if (

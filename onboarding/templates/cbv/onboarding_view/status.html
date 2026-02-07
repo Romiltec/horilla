@@ -1,4 +1,5 @@
 {% load onboardingfilters %}
+{% load i18n %}
 {% if request.user|stage_manages:instance.onboarding_stage.onboarding_stage_id or perms.onboarding.change_candidatestage %}
 <select id="" class="w-100" style="
     border: 1px solid hsl(213deg,22%,84%);

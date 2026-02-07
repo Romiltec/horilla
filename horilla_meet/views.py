@@ -4,6 +4,7 @@ from django.apps import apps
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, redirect
+from django.utils.translation import gettext as _
 from google_auth_oauthlib.flow import Flow
 from googleapiclient.discovery import build
 
@@ -24,7 +25,7 @@ def google_authenticate(request):
         company_id=request.user.employee_get.get_company()
     ).first()
     if not cred:
-        messages.error(request, "Google Cloud Credential not found.")
+        messages.error(request, _("Google Cloud Credential not found."))
         return redirect("gmeet-view")
 
     redirect_uri = request.build_absolute_uri("/meet/auth-callback/")
@@ -88,7 +89,7 @@ def google_auth_callback(request):
 
     credentials = flow.credentials
     GoogleCredential.from_google_credentials(request.user.employee_get, credentials)
-    messages.success(request, "Successfully authenticated with Google credentials.")
+    messages.success(request, _("Successfully authenticated with Google credentials."))
 
     return redirect("gmeet-view")
 
@@ -98,10 +99,10 @@ def google_auth_callback(request):
 def delete_google_credentials(request, obj_id):
     try:
         GoogleCloudCredential.objects.get(id=obj_id).delete()
-        messages.success(request, "Google Cloud Credential deleted successfully.")
+        messages.success(request, _("Google Cloud Credential deleted successfully."))
         return HttpResponse("")
     except GoogleCloudCredential.DoesNotExist:
-        messages.error(request, "Google Cloud Credential not found.")
+        messages.error(request, _("Google Cloud Credential not found."))
         return HttpResponse("")
     except Exception as e:
         messages.error(request, f"Error deleting Google Cloud Credential: {e}")
@@ -117,7 +118,7 @@ def create_google_meet_link(request):
     )
     if not google_credetial.exists():
         return redirect("authenticate-gmeet")
-    messages.error(request, "Google Credential not found. Please authenticate first.")
+    messages.error(request, _("Google Credential not found. Please authenticate first."))
     return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
 
@@ -135,12 +136,12 @@ def delete_google_meet(request, id):
             service.events().delete(calendarId="primary", eventId=event_id).execute()
 
         meeting.delete()
-        messages.success(request, "Google Meet deleted successfully.")
+        messages.success(request, _("Google Meet deleted successfully."))
         if request.GET.get("detail_view", False):
             return redirect("gmeet-list-view")
         return HttpResponse("")
     except GoogleMeeting.DoesNotExist:
-        messages.error(request, "Google Meeting not found.")
+        messages.error(request, _("Google Meeting not found."))
         return HttpResponse("")
     except Exception as e:
         messages.error(request, f"Error deleting Google Meeting: {e}")
@@ -195,9 +196,9 @@ if apps.is_installed("recruitment"):
                 )
 
             if created:
-                messages.success(request, "Meeting created successfully")
+                messages.success(request, _("Meeting created successfully"))
             else:
-                messages.success(request, "Meeting updated successfully")
+                messages.success(request, _("Meeting updated successfully"))
 
             return JsonResponse({"success": "true"})
 
@@ -250,9 +251,9 @@ if apps.is_installed("pms"):
                 PmsMeetingLink.objects.create(meeting=meeting, google_meeting=Gmeeting)
 
             if created:
-                messages.success(request, "Meeting created successfully")
+                messages.success(request, _("Meeting created successfully"))
             else:
-                messages.success(request, "Meeting updated successfully")
+                messages.success(request, _("Meeting updated successfully"))
 
             return JsonResponse({"success": "true"})
 

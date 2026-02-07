@@ -189,7 +189,7 @@
                   {% if perms.recruitment.change_candidate %}
                     {% if not cand.email in emp_list and not cand.start_onboard %}
                       <a href="{% url 'candidate-conversion' cand.id %}"
-                        onclick="return confirm('{% trans "Are you sure you want to convert this candidate into an employee?" %}')"
+                        onclick="return confirm(gettext("{% trans \"Are you sure you want to convert this candidate into an employee?\" %}"))"
                         class="oh-btn oh-btn--light-bkg w-100"
                         title='{% trans "To employee " %}'
                         style="padding:0.8rem 1rem"
@@ -269,7 +269,7 @@
                   {% endif %}
                   {% if perms.recruitment.delete_candidate %}
                   {% if cand.is_active %}
-                  <form action="{% url 'rec-candidate-archive' cand.id  %}" title="{% trans 'Archive' %}" onsubmit="return confirm('{% trans "Do you want to archive this candidate?" %}')" method='post'
+                  <form action="{% url 'rec-candidate-archive' cand.id  %}" title="{% trans 'Archive' %}" onsubmit="return confirm(gettext("{% trans \"Do you want to archive this candidate?\" %}"))" method='post'
                     class="w-50">
                   {% csrf_token %}
                   <button type='submit' class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100"
@@ -277,7 +277,7 @@
                   </form>
                   {% else %}
 
-                  <form action="{% url 'rec-candidate-archive' cand.id  %}"  title="{% trans 'Un Archive' %}" onsubmit="return confirm('{% trans "Do you want to un-archive this candidate?" %}')" method='post'
+                  <form action="{% url 'rec-candidate-archive' cand.id  %}"  title="{% trans 'Un Archive' %}" onsubmit="return confirm(gettext("{% trans \"Do you want to un-archive this candidate?\" %}"))" method='post'
                     class="w-100">
                     {% csrf_token %}
                     <button type='submit' class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100"
@@ -286,7 +286,7 @@
                   {% endif %}
                   {% endif %}
                   {% if perms.recruitment.delete_candidate %}
-                  <form action="{% url 'rec-candidate-delete' cand.id  %}" onsubmit="return confirm('{% trans "Do you want to delete this candidate?" %}')" method='post'
+                  <form action="{% url 'rec-candidate-delete' cand.id  %}" onsubmit="return confirm(gettext("{% trans \"Do you want to delete this candidate?\" %}"))" method='post'
                     onsubmit="Are you sure want to delete this candidate?" class="w-100">
                     {% csrf_token %}
                     <button type='submit' class="oh-btn oh-btn--danger-outline oh-btn--light-bkg w-100"
@@ -526,7 +526,7 @@
         showCancelButton: true,
         confirmButtonColor: "#008000",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Confirm",
+        confirmButtonText: gettext("Confirm"),
       }).then(function (result) {
         if (result.isConfirmed) {
           $.ajax({

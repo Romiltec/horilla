@@ -148,14 +148,14 @@
                 confirmationMessage = confirmationMessage.replace(/\n/g, '<br />');
 
                 Swal.fire({
-                    title: 'Are you sure?',
+                    title: gettext("Are you sure?"),
                     html: confirmationMessage,
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonText: 'Confirm',
+                    confirmButtonText: gettext("Confirm"),
                     cancelButtonColor: "#d33",
                     confirmButtonColor: "#008000",
-                    cancelButtonText: 'Cancel'
+                    cancelButtonText: gettext("Cancel")
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $("#loading-overlay").removeClass("d-none");

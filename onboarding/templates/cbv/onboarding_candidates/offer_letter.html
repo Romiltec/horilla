@@ -1,3 +1,4 @@
+{% load i18n %}
 <a onclick="event.stopPropagation();" style="color: inherit; text-decoration: none" onload="event.stopPropagation()">
     <select onchange="offerLetter('{% url 'update-offer-letter-status' %}?candidate_id={{ instance.id }}&status=' + this.value);" name="status" id="id_offeletter_status_{{candidate.id}}" class="w-100" style="height: 40px;border:solid 1px rgba(128, 128, 128, 0.32);">
         {% for status in instance.offer_letter_statuses %}

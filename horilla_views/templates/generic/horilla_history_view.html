@@ -45,13 +45,13 @@
                       {% if history.pair.1.pk %}
                       <a href="javascript:void(0);" title="{% trans 'Restore the previous state' %}"
                       onclick="Swal.fire({
-                            title: 'Are you sure?',
-                            text: 'This will revert the object to a previous state.',
+                            title: gettext("Are you sure?"),
+                            text: gettext("This will revert the object to a previous state."),
                             icon: 'warning',
                             showCancelButton: true,
                             confirmButtonColor: '#3085d6',
                             cancelButtonColor: '#d33',
-                            confirmButtonText: 'Yes, revert it'
+                            confirmButtonText: gettext("Yes, revert it")
                           }).then(result => {
                             if (result.isConfirmed) {
                               document.getElementById('revert{{ history.pair.1.pk }}').click();

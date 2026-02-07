@@ -1,3 +1,4 @@
+{% load i18n %}
 {% for object in instances|slice:"3" %}
 <a
   hx-get="{{object.get_profile_url}}"

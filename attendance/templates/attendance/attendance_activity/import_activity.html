@@ -42,12 +42,12 @@
 <script>
     $(document).ready(function () {
         Swal.fire({
-            text: "{% trans 'Do you want to download the template?' %}",
+            text: gettext("{% trans 'Do you want to download the template?' %}"),
             icon: "question",
             showCancelButton: true,
             confirmButtonColor: "#008000",
             cancelButtonColor: "#d33",
-            confirmButtonText: "{% trans 'Confirm' %}"
+            confirmButtonText: gettext("{% trans 'Confirm' %}")
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({

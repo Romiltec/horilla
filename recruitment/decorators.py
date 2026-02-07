@@ -10,6 +10,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+from django.utils.translation import gettext as _
 
 from employee.models import Employee
 from horilla.config import logger
@@ -93,7 +94,7 @@ def manager_can_enter(function, perm=None, perms=None):
         if has_required_perm or is_manager:
             return function(request, *args, **kwargs)
 
-        messages.info(request, "You don't have permission.")
+        messages.info(request, _("You don't have permission."))
         previous_url = request.META.get("HTTP_REFERER", "/")
 
         if request.META.get("HTTP_HX_REQUEST"):
@@ -143,7 +144,7 @@ def all_manager_can_enter(function, perm):
         )
         if user.has_perm(perm) or is_manager:
             return function(request, *args, **kwargs)
-        messages.info(request, "You dont have permission.")
+        messages.info(request, _("You dont have permission."))
         previous_url = request.META.get("HTTP_REFERER", "/")
         script = f'<script>window.location.href = "{previous_url}"</script>'
         key = "HTTP_HX_REQUEST"
@@ -187,7 +188,7 @@ def recruitment_manager_can_enter(function, perm):
         is_manager = Recruitment.objects.filter(recruitment_managers=employee).exists()
         if user.has_perm(perm) or is_manager:
             return function(request, *args, **kwargs)
-        messages.info(request, "You dont have permission.")
+        messages.info(request, _("You dont have permission."))
         previous_url = request.META.get("HTTP_REFERER", "/")
         script = f'<script>window.location.href = "{previous_url}"</script>'
         key = "HTTP_HX_REQUEST"

@@ -14,6 +14,7 @@ from django.core.mail import EmailMessage
 from django.core.paginator import Paginator
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
+from django.utils.translation import gettext as _
 
 from base.backends import ConfiguredEmailBackend
 from base.forms import MailTemplateForm
@@ -297,5 +298,5 @@ def send_mail_to_employee(request):
             else:
                 messages.info(request, f"Email not set for {employee.get_full_name()}")
         except Exception as e:
-            messages.error(request, "Something went wrong")
+            messages.error(request, _("Something went wrong"))
     return HttpResponse("<script>window.location.reload()</script>")

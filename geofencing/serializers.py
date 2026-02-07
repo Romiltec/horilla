@@ -1,4 +1,5 @@
 from geopy.geocoders import Nominatim
+from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
 from .models import GeoFencing
@@ -16,7 +17,7 @@ class GeoFencingSetupSerializer(serializers.ModelSerializer):
             longitude = data.get("longitude")
             location = geolocator.reverse((latitude, longitude), exactly_one=True)
             if not location:
-                raise serializers.ValidationError("Invalid Location")
+                raise serializers.ValidationError(_("Invalid Location"))
         except Exception as e:
             raise serializers.ValidationError(e)
         return data

@@ -39,7 +39,7 @@ class Offboarding(HorillaModel):
         Company,
         on_delete=models.CASCADE,
         null=True,
-        verbose_name="Company",
+        verbose_name=_("Company"),
     )
     objects = HorillaCompanyManager("company_id")
 
@@ -145,10 +145,10 @@ class OffboardingEmployee(HorillaModel):
 
     UNIT = [("day", "days"), ("month", "Month")]
     employee_id = models.OneToOneField(
-        Employee, on_delete=models.CASCADE, verbose_name="Employee"
+        Employee, on_delete=models.CASCADE, verbose_name=_("Employee")
     )
     stage_id = models.ForeignKey(
-        OffboardingStage, on_delete=models.CASCADE, verbose_name="Stage", null=True
+        OffboardingStage, on_delete=models.CASCADE, verbose_name=_("Stage"), null=True
     )
     notice_period = models.IntegerField(null=True)
     unit = models.CharField(max_length=10, choices=UNIT, default="month", null=True)
@@ -342,7 +342,7 @@ class ResignationLetter(HorillaModel):
         ("rejected", _("Rejected")),
     ]
     employee_id = models.ForeignKey(
-        Employee, on_delete=models.CASCADE, verbose_name="Employee"
+        Employee, on_delete=models.CASCADE, verbose_name=_("Employee")
     )
     title = models.CharField(max_length=100, null=True)
     description = models.TextField(null=True, max_length=255)
@@ -500,7 +500,7 @@ class OffboardingTask(HorillaModel):
     stage_id = models.ForeignKey(
         OffboardingStage,
         on_delete=models.PROTECT,
-        verbose_name="Stage",
+        verbose_name=_("Stage"),
         null=True,
         blank=True,
     )
@@ -526,7 +526,7 @@ class EmployeeTask(HorillaModel):
     employee_id = models.ForeignKey(
         OffboardingEmployee,
         on_delete=models.CASCADE,
-        verbose_name="Employee",
+        verbose_name=_("Employee"),
         null=True,
     )
     status = models.CharField(max_length=20, choices=statuses, default="todo")

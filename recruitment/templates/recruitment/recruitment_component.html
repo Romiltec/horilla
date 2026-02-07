@@ -31,7 +31,7 @@
     document.execCommand("copy");
     $temp.remove();
     Swal.fire({
-      text: "Link copied",
+      text: gettext("Link copied"),
       icon: "success",
       showConfirmButton: false,
       timer: 3000, // Set the timer to 3000 milliseconds (3 seconds)
@@ -186,7 +186,7 @@
                                 <ion-icon name="share-social-outline"></ion-icon>
                               </a>
                               {% if perms.recruitment.change_recruitment %}
-                                <a hx-get="{% url 'recruitment-update' rec.id %}" hx-target='#objectUpdateModalTarget' hx-swap='innerHTML' data-toggle='oh-modal-toggle' data-target='#objectUpdateModal'  class="oh-btn oh-btn--light-bkg w-100" title="Edit"><ion-icon name="create-outline"></ion-icon></a>
+                                <a hx-get="{% url 'recruitment-update' rec.id %}" hx-target='#objectUpdateModalTarget' hx-swap='innerHTML' data-toggle='oh-modal-toggle' data-target='#objectUpdateModal'  class="oh-btn oh-btn--light-bkg w-100" title="{% trans 'Edit' %}"><ion-icon name="create-outline"></ion-icon></a>
                               {% endif %}
                               {% if perms.recruitment.add_recruitment %}
                                 <a hx-get="{% url 'recruitment-duplicate' rec.id %}" hx-target='#objectCreateModalTarget' hx-swap='innerHTML' data-toggle='oh-modal-toggle' data-target='#objectCreateModal'  class="oh-btn oh-btn--light-bkg w-100" title="{% trans 'Duplicate' %}"><ion-icon name="copy-outline"></ion-icon></a>
@@ -200,7 +200,7 @@
                                 <span>
                                   <form
                                     action="{% url 'recruitment-delete' rec.id  %}"
-                                    onsubmit="return confirm('{% trans "Are you sure to delete this recruitment?" %}')"
+                                    onsubmit="return confirm(gettext("{% trans \"Are you sure to delete this recruitment?\" %}"))"
                                     method="post"
                                     style="display: contents">
                                     {% csrf_token %}

@@ -783,7 +783,7 @@ def quick_create_task(request, stage_id):
                 "hx_target": hx_target,
             },
         )
-    messages.info(request, "You dont have permission.")
+    messages.info(request, _("You dont have permission."))
     return HttpResponse("<script>window.location.reload()</script>")
 
 
@@ -820,7 +820,7 @@ def create_task(request, stage_id):
             "task/new/forms/create_task.html",
             context={"form": form, "stage_id": stage_id},
         )
-    messages.info(request, "You dont have permission.")
+    messages.info(request, _("You dont have permission."))
     return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
 
@@ -861,7 +861,7 @@ def create_task_in_project(request, project_id):
         return render(
             request, "task/new/forms/create_task_project.html", context=context
         )
-    messages.info(request, "You dont have permission.")
+    messages.info(request, _("You dont have permission."))
     return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
 
@@ -1727,7 +1727,7 @@ def time_sheet_update(request, time_sheet_id):
             },
         )
     else:
-        messages.error(request, "You dont have permission.")
+        messages.error(request, _("You dont have permission."))
         return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
 
