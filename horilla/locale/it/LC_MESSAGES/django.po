@@ -158,10 +158,10 @@ msgid "Asset Category Duplicate"
 msgstr "Duplica Categoria Asset"
 
 msgid "Duplicate"
-msgstr "Duplicate"
+msgstr "Duplica"
 
 msgid "Asset Duplicate"
-msgstr "Asset Duplicate"
+msgstr "Duplica Asset"
 
 msgid "Add Asset Report"
 msgstr "Aggiungi Rapporto Risorse"
@@ -2460,7 +2460,7 @@ msgid "Template created"
 msgstr "Modello creato"
 
 msgid "Duplicate Template"
-msgstr "Duplicate Template"
+msgstr "Duplica Modello"
 
 msgid "Template Added"
 msgstr "Modello Aggiunto"
