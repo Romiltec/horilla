@@ -1779,18 +1779,26 @@ msgstr ""
 "riporto"
 
 msgid "Time Runner"
-msgstr "Time Runner"
+msgstr "Cronometro Lavoro"
 
 msgid "At-Work Tracker"
-msgstr "Tracker At-Work"
+msgstr "Tracciamento Al Lavoro"
 
 msgid ""
 "By enabling this feature user's will be able to see their current day worked "
 "hours in live on the navbar (inside the check in button)."
 msgstr ""
-"Abilitando questa funzione l'utente sarà in grado di vedere le ore lavorate "
-"del giorno corrente in diretta sulla barra di navigazione (all'interno del "
-"pulsante di spegnimento)."
+"Abilitando questa funzione l'utente potrà vedere le ore lavorate del giorno "
+"corrente in tempo reale sulla barra di navigazione (all'interno del pulsante "
+"di check-in)."
+
+msgid ""
+"By enabling this feature users will be able to see their current day worked "
+"hours in live on the navbar (inside the check in button)."
+msgstr ""
+"Abilitando questa funzione gli utenti potranno vedere le ore lavorate del "
+"giorno corrente in tempo reale sulla barra di navigazione (all'interno del "
+"pulsante di check-in)."
 
 msgid "save"
 msgstr "salva"
@@ -3242,10 +3250,10 @@ msgstr ""
 "nella loro presenza."
 
 msgid "Track Late Come Early Out"
-msgstr "Traccia I Tardi In Avanti"
+msgstr "Ritardo e Uscita Anticipata"
 
 msgid "Track Late Come Early Outs"
-msgstr "Traccia I Tardi"
+msgstr "Ritardi e Uscite Anticipate"
 
 msgid "Only one TrackLateComeEarlyOut instance is allowed."
 msgstr "È consentita solo un'istanza TrackLateComeEarlyOut."
@@ -8241,13 +8249,13 @@ msgid "Attendees"
 msgstr "Partecipanti"
 
 msgid "Google meeting"
-msgstr "Riunione di Google"
+msgstr "Riunione Google Meet"
 
 msgid "Google Meet Integration"
-msgstr "Google Incontra Integrazione"
+msgstr "Integrazione Google Meet"
 
 msgid "Enable Google meet"
-msgstr "Abilita Google meet"
+msgstr "Abilita Google Meet"
 
 msgid "Enable this to integrate Google meet to Horilla."
 msgstr "Abilita questa opzione per integrare Google meet a Horilla."
@@ -9069,7 +9077,7 @@ msgid "Restrict Leaves"
 msgstr "Limita assenze"
 
 msgid "Google Meet"
-msgstr "Google Incontra"
+msgstr "Google Meet"
 
 msgid "Select all users"
 msgstr "Seleziona tutti gli utenti"
@@ -9950,7 +9958,7 @@ msgid "Disciplinary Action Type"
 msgstr "Tipo Di Azione Disciplinare"
 
 msgid "Track Late Come & Early Out"
-msgstr "Traccia Tardi Come & Early Out"
+msgstr "Tracciamento Ritardi e Uscite Anticipate"
 
 msgid "Attendance Break Point"
 msgstr "Soglia di presenza"
