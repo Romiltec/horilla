@@ -828,7 +828,7 @@ msgid "At Work"
 msgstr "Al Lavoro"
 
 msgid "Overtime"
-msgstr "straordinari"
+msgstr "Straordinari"
 
 msgid "Approved By"
 msgstr "Approvato Da"
@@ -888,7 +888,7 @@ msgid "Attendance To Validate"
 msgstr "Presenze da convalidare"
 
 msgid "Validate"
-msgstr "Validate"
+msgstr "Convalida"
 
 msgid " OT Attendances"
 msgstr " Presenze con straordinario"
@@ -4039,7 +4039,7 @@ msgid "tuesday"
 msgstr "martedì"
 
 msgid "wednesday"
-msgstr "mercoledino"
+msgstr "mercoledì"
 
 msgid "thursday"
 msgstr "giovedì"
