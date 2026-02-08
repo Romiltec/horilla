@@ -188,7 +188,7 @@ msgid "Return Status"
 msgstr "Stato Reso"
 
 msgid "Asset History"
-msgstr "Cronologia Risorse"
+msgstr "Cronologia Asset"
 
 msgid "Asset Details"
 msgstr "Dettagli Asset"
@@ -452,7 +452,7 @@ msgid "by "
 msgstr "di "
 
 msgid "Reports"
-msgstr "Relazioni"
+msgstr "Report"
 
 msgid "Edit"
 msgstr "Modifica"
@@ -6272,7 +6272,7 @@ msgid "Policy updated"
 msgstr "Politica aggiornata"
 
 msgid "Policies"
-msgstr "Politiche"
+msgstr "Regolamenti"
 
 msgid "Search in : Employee"
 msgstr "Cerca in: Dipendente"
@@ -6521,7 +6521,7 @@ msgid "Profile"
 msgstr "Profilo"
 
 msgid "Organization Chart"
-msgstr "Grafico Dell'Organizzazione"
+msgstr "Organigramma"
 
 msgid "Allocate Asset"
 msgstr "Assegna Asset"
@@ -8324,7 +8324,7 @@ msgid "Pretax"
 msgstr "Pretax"
 
 msgid "Question Template"
-msgstr "Modello Domanda"
+msgstr "Modello di Domanda"
 
 msgid "Managers"
 msgstr "Gestori"
@@ -8775,7 +8775,7 @@ msgid "Feedback Responses"
 msgstr "Risposte Di Feedback"
 
 msgid "Key Results"
-msgstr "Risultati Principali"
+msgstr "Risultati Chiave"
 
 msgid "Do you want archive this Feedback ?"
 msgstr "Vuoi archiviare questo Feedback ?"
@@ -10019,7 +10019,7 @@ msgid "Do you want to remove this candidate"
 msgstr "Vuoi rimuovere questo candidato"
 
 msgid "Skill Zone"
-msgstr "Zona Abilità"
+msgstr "Area Competenze"
 
 msgid "Candidate Filter"
 msgstr "Filtro Candidato"
@@ -10465,7 +10465,7 @@ msgid "My Leave Requests"
 msgstr "Le mie richieste di assenza"
 
 msgid "Assigned Leave"
-msgstr "Assenza assegnata"
+msgstr "Assenze Assegnate"
 
 msgid "Half day Attendance need to validate"
 msgstr "La presenza di mezza giornata deve essere convalidata"
@@ -11079,7 +11079,7 @@ msgid "Notice Period end Date"
 msgstr "Data fine del periodo di preavviso"
 
 msgid "Exit Process"
-msgstr "Esci Dal Processo"
+msgstr "Processo di Uscita"
 
 msgid "Stages"
 msgstr "Fasi"
@@ -11127,7 +11127,7 @@ msgid "FnF Settlement"
 msgstr "Regolamento FnF"
 
 msgid "Interview"
-msgstr "Intervista"
+msgstr "Colloqui"
 
 msgid "Work handover"
 msgstr "Trasferimento di lavoro"
@@ -11163,7 +11163,7 @@ msgid "Offboarding"
 msgstr "Offboarding"
 
 msgid "Resignation Letters"
-msgstr "Lettere Dimissioni"
+msgstr "Lettere di Dimissioni"
 
 msgid "No Records found..."
 msgstr "Nessun record trovato..."
@@ -12390,7 +12390,7 @@ msgid "Payslips"
 msgstr "Buste Paga"
 
 msgid "Encashments & Reimbursements"
-msgstr "Incassi e Rimborsi"
+msgstr "Monetizzazioni e Rimborsi"
 
 msgid "Amount Per Attendance"
 msgstr "Importo per presenza"
@@ -13229,10 +13229,10 @@ msgid "Points"
 msgstr "Punti"
 
 msgid "360 Feedback"
-msgstr "Feedback"
+msgstr "Feedback 360°"
 
 msgid "Employee Bonus Point"
-msgstr "Punto Bonus Dipendente "
+msgstr "Punti Bonus Dipendente"
 
 msgid "Feedback Subject"
 msgstr "Oggetto Feedback"
